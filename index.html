@@ -16,19 +16,42 @@
     body {
       background: #0b0b10;
       color: white;
+      scroll-behavior: smooth;
     }
 
-    /* HERO SECTION */
+    /* NAVBAR */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(10,10,15,0.85);
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      padding: 15px;
+      z-index: 10;
+      backdrop-filter: blur(8px);
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #6a00ff;
+    }
+
+    /* HERO */
     .hero {
       height: 100vh;
       width: 100%;
-
-      /* FIX: besseres Background-Cropping */
       background-image: url('background.jpg');
       background-size: cover;
       background-repeat: no-repeat;
-      background-position: center 25%; /* wichtig: verhindert abgeschnittenes Logo */
-
+      background-position: center 25%;
       position: relative;
       display: flex;
       align-items: center;
@@ -36,15 +59,14 @@
       text-align: center;
     }
 
-    /* dunkler Overlay für bessere Lesbarkeit */
     .hero::before {
       content: "";
       position: absolute;
-      top: 0;
-      left: 0;
       width: 100%;
       height: 100%;
       background: rgba(0,0,0,0.55);
+      top: 0;
+      left: 0;
     }
 
     .hero-content {
@@ -57,7 +79,6 @@
     .hero h1 {
       font-size: 3rem;
       margin-bottom: 15px;
-      letter-spacing: 1px;
     }
 
     .hero p {
@@ -80,22 +101,42 @@
       background: #4b00b5;
     }
 
-    /* SECTIONS */
     section {
       padding: 80px 20px;
       text-align: center;
     }
 
     h2 {
-      margin-bottom: 20px;
       font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    /* LEISTUNGEN */
+    .cards {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .card {
+      background: #151520;
+      padding: 20px;
+      border-radius: 12px;
+      width: 250px;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      background: #6a00ff;
     }
 
     /* KONTAKT */
     .kontakt-box {
       display: flex;
-      gap: 20px;
       justify-content: center;
+      gap: 20px;
       flex-wrap: wrap;
       margin-top: 30px;
     }
@@ -104,56 +145,84 @@
       background: #151520;
       padding: 15px 25px;
       border-radius: 10px;
-      color: white;
       text-decoration: none;
+      color: white;
       transition: 0.3s;
     }
 
     .kontakt-item:hover {
       background: #6a00ff;
     }
+
+    footer {
+      padding: 30px;
+      text-align: center;
+      background: #0a0a0f;
+      font-size: 13px;
+      opacity: 0.7;
+    }
   </style>
 </head>
 
 <body>
 
+  <!-- NAV -->
+  <nav>
+    <a href="#start">Start</a>
+    <a href="#leistungen">Leistungen</a>
+    <a href="#preise">Preise</a>
+    <a href="#ueberuns">Über uns</a>
+    <a href="#kontakt">Kontakt</a>
+  </nav>
+
   <!-- HERO -->
-  <header class="hero">
+  <header class="hero" id="start">
     <div class="hero-content">
-
       <h1>Glanz, der bleibt.</h1>
-
-      <p>
-        Fahrzeugpflege auf höchstem Niveau – mit Leidenschaft fürs Detail.
-      </p>
-
+      <p>Fahrzeugpflege auf höchstem Niveau – mit Leidenschaft fürs Detail.</p>
       <a href="#kontakt" class="btn">Kontakt aufnehmen</a>
-
     </div>
   </header>
+
+  <!-- LEISTUNGEN -->
+  <section id="leistungen">
+    <h2>Leistungen</h2>
+    <div class="cards">
+      <div class="card">Außenreinigung & Pflege</div>
+      <div class="card">Innenraum Tiefenreinigung</div>
+      <div class="card">Politur & Lackaufbereitung</div>
+      <div class="card">Versiegelung & Schutz</div>
+    </div>
+  </section>
+
+  <!-- PREISE -->
+  <section id="preise">
+    <h2>Preise</h2>
+    <p>Individuelle Preise je nach Fahrzeugzustand und Leistung.</p>
+    <p>Kontaktieren Sie uns für ein persönliches Angebot.</p>
+  </section>
+
+  <!-- ÜBER UNS -->
+  <section id="ueberuns">
+    <h2>Über uns</h2>
+    <p>Wir stehen für Qualität, Präzision und Leidenschaft in der Fahrzeugpflege.</p>
+  </section>
 
   <!-- KONTAKT -->
   <section id="kontakt">
     <h2>Kontakt</h2>
-
     <p>Du erreichst uns schnell und einfach über folgende Kanäle:</p>
 
     <div class="kontakt-box">
-
-      <a href="tel:+49DEINNUMMER" class="kontakt-item">
-        📞 Telefon
-      </a>
-
-      <a href="https://wa.me/49DEINNUMMER" target="_blank" class="kontakt-item">
-        💬 WhatsApp
-      </a>
-
-      <a href="https://instagram.com/DEINACCOUNT" target="_blank" class="kontakt-item">
-        📸 Instagram
-      </a>
-
+      <a href="tel:+49DEINNUMMER" class="kontakt-item">📞 Telefon</a>
+      <a href="https://wa.me/49DEINNUMMER" target="_blank" class="kontakt-item">💬 WhatsApp</a>
+      <a href="https://instagram.com/DEINACCOUNT" target="_blank" class="kontakt-item">📸 Instagram</a>
     </div>
   </section>
+
+  <footer>
+    © 2026 AES Fahrzeugaufbereitung – Alle Rechte vorbehalten
+  </footer>
 
 </body>
 </html>
