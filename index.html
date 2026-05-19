@@ -99,7 +99,7 @@ nav a:hover {
   border: 1px solid #1f1f2e;
 }
 
-/* 🔥 FIX: Bilder in Cards */
+/* IMAGES */
 .card img {
   width: 100%;
   height: 160px;
@@ -109,10 +109,35 @@ nav a:hover {
   display: block;
 }
 
-/* PREISE / KONTAKT LINKS */
+/* LINKS */
 .card a {
   color: #3b82f6;
   text-decoration: none;
+}
+
+/* 🌧️ PREIS-REGENTROPFEN-EFFEKT (NUR PREISE) */
+#preise .card {
+  position: relative;
+  overflow: hidden;
+}
+
+#preise .card::before {
+  content: "$ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $";
+  position: absolute;
+  top: -60%;
+  left: -60%;
+  width: 220%;
+  height: 220%;
+
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.05);
+  line-height: 60px;
+  letter-spacing: 18px;
+
+  transform: rotate(-25deg);
+  white-space: pre-wrap;
+
+  pointer-events: none;
 }
 
 /* FOOTER */
@@ -145,32 +170,29 @@ footer {
 </section>
 
 <section class="section" id="leistungen">
-  <h2>Unsere Leistungen</h2>
+<h2>Unsere Leistungen</h2>
 
-  <div class="cards">
+<div class="cards">
 
-    <!-- AUßENPFLEGE -->
-    <div class="card">
-      <h3>Außenpflege</h3>
-      <p>Politur, Lackaufbereitung und Schutzversiegelung.</p>
-      <img src="aussen1.jpg" alt="Außenpflege">
-    </div>
-
-    <!-- INNENREINIGUNG -->
-    <div class="card">
-      <h3>Innenreinigung</h3>
-      <p>Tiefenreinigung von Sitzen, Teppichen und Armaturen.</p>
-      <img src="innen1.jpg" alt="Innenreinigung">
-    </div>
-
-    <!-- KOMPLETTPAKET -->
-    <div class="card">
-      <h3>Komplettpaket</h3>
-      <p>Innen & außen – dein Auto im Neuwagen-Zustand.</p>
-      <img src="komplett1.jpg" alt="Komplettpaket">
-    </div>
-
+  <div class="card">
+    <h3>Außenpflege</h3>
+    <p>Politur, Lackaufbereitung und Schutzversiegelung.</p>
+    <img src="aussen1.jpg">
   </div>
+
+  <div class="card">
+    <h3>Innenreinigung</h3>
+    <p>Tiefenreinigung von Sitzen, Teppichen und Armaturen.</p>
+    <img src="innen1.jpg">
+  </div>
+
+  <div class="card">
+    <h3>Komplettpaket</h3>
+    <p>Innen & außen – dein Auto im Neuwagen-Zustand.</p>
+    <img src="komplett1.jpg">
+  </div>
+
+</div>
 </section>
 
 <section class="section" id="preise">
