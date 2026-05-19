@@ -1,428 +1,159 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>AES Fahrzeugpflege</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AES Fahrzeugaufbereitung</title>
 
-<style>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
 
-/* SMOOTH SCROLL */
-html {
-  scroll-behavior: smooth;
-}
+    body {
+      background: #0b0b10;
+      color: white;
+    }
 
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #0b0b0f;
-  color: white;
-}
+    /* HERO SECTION */
+    .hero {
+      height: 100vh;
+      width: 100%;
 
-/* NAVBAR */
-header {
-  background: rgba(15,15,26,0.85);
+      /* FIX: besseres Background-Cropping */
+      background-image: url('background.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center 25%; /* wichtig: verhindert abgeschnittenes Logo */
 
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
 
-  padding: 20px 40px;
+    /* dunkler Overlay für bessere Lesbarkeit */
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.55);
+    }
 
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      padding: 20px;
+    }
 
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 15px;
+      letter-spacing: 1px;
+    }
 
-  border-bottom: 1px solid #1f1f2e;
-}
+    .hero p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
 
-.logo {
-  font-size: 24px;
-  font-weight: bold;
-  color: #7c3aed;
-  letter-spacing: 2px;
-}
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 25px;
+      background: #6a00ff;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
 
-nav a {
-  color: white;
-  text-decoration: none;
-  margin-left: 25px;
-  transition: 0.3s;
-}
+    .btn:hover {
+      background: #4b00b5;
+    }
 
-nav a:hover {
-  color: #3b82f6;
-}
+    /* SECTIONS */
+    section {
+      padding: 80px 20px;
+      text-align: center;
+    }
 
-/* HERO */
-.hero {
-  height: 100vh;
+    h2 {
+      margin-bottom: 20px;
+      font-size: 2rem;
+    }
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    /* KONTAKT */
+    .kontakt-box {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
 
-  text-align: center;
+    .kontakt-item {
+      background: #151520;
+      padding: 15px 25px;
+      border-radius: 10px;
+      color: white;
+      text-decoration: none;
+      transition: 0.3s;
+    }
 
-  background:
-    linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
-    url('gt3_aes_heck.png');
-
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  padding: 20px;
-}
-
-.hero-box {
-  background: rgba(0,0,0,0.28);
-
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-
-  border: 1px solid rgba(255,255,255,0.08);
-
-  border-radius: 24px;
-
-  padding: 50px;
-
-  max-width: 700px;
-}
-
-.hero h1 {
-  font-size: 58px;
-  margin-bottom: 15px;
-}
-
-.hero p {
-  color: #d1d5db;
-  font-size: 18px;
-  line-height: 1.6;
-}
-
-.btn {
-  display: inline-block;
-
-  margin-top: 25px;
-  padding: 14px 28px;
-
-  background: #7c3aed;
-  color: white;
-
-  border-radius: 10px;
-  text-decoration: none;
-
-  transition: 0.3s;
-}
-
-.btn:hover {
-  background: #3b82f6;
-  transform: translateY(-2px);
-}
-
-/* SECTIONS */
-.section {
-  padding: 90px 20px;
-  text-align: center;
-}
-
-.section h2 {
-  color: #7c3aed;
-  font-size: 36px;
-  margin-bottom: 50px;
-}
-
-/* CARDS */
-.cards {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 25px;
-}
-
-.card {
-  width: 280px;
-
-  background: #111827;
-
-  border: 1px solid #1f1f2e;
-  border-radius: 18px;
-
-  overflow: hidden;
-
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-6px);
-  border-color: #3b82f6;
-}
-
-.card img {
-  width: 100%;
-  height: 190px;
-  object-fit: cover;
-  display: block;
-}
-
-.card-content {
-  padding: 20px;
-}
-
-.card h3 {
-  color: #3b82f6;
-}
-
-.card p {
-  color: #d1d5db;
-  line-height: 1.5;
-}
-
-.card a {
-  color: #3b82f6;
-  text-decoration: none;
-}
-
-/* FOOTER */
-footer {
-  background: #0f0f1a;
-  text-align: center;
-  padding: 25px;
-  border-top: 1px solid #1f1f2e;
-  color: #9ca3af;
-}
-
-/* MOBILE */
-@media (max-width: 768px) {
-
-  header {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  nav a {
-    margin: 0 10px;
-  }
-
-  .hero h1 {
-    font-size: 42px;
-  }
-
-  .hero-box {
-    padding: 35px;
-  }
-
-}
-
-</style>
+    .kontakt-item:hover {
+      background: #6a00ff;
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
-<header>
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-content">
 
-  <div class="logo">AES</div>
+      <h1>Glanz, der bleibt.</h1>
 
-  <nav>
-    <a href="#start">Start</a>
-    <a href="#leistungen">Leistungen</a>
-    <a href="#preise">Preise</a>
-    <a href="#galerie">Galerie</a>
-    <a href="#kontakt">Anfrage</a>
-    <a href="impressum.html" target="_blank">
-      Impressum & Datenschutz
-    </a>
-  </nav>
+      <p>
+        Fahrzeugpflege auf höchstem Niveau – mit Leidenschaft fürs Detail.
+      </p>
 
-</header>
-
-<!-- HERO -->
-<section class="hero" id="start">
-
-  <div class="hero-box">
-
-    <h1>Wir holen den Glanz zurück.</h1>
-
-    <p>
-      Professionelle Fahrzeugpflege mit höchster Qualität,
-      perfektem Glanz und echter Leidenschaft für Fahrzeuge.
-    </p>
-
-    <a class="btn" href="#kontakt">
-      Termin buchen
-    </a>
-
-  </div>
-
-</section>
-
-<!-- LEISTUNGEN -->
-<section class="section" id="leistungen">
-
-  <h2>Unsere Leistungen</h2>
-
-  <div class="cards">
-
-    <div class="card">
-
-      <img src="aussen1.jpg" alt="Außenpflege">
-
-      <div class="card-content">
-        <h3>Außenpflege</h3>
-
-        <p>
-          Politur, Lackaufbereitung und hochwertige
-          Schutzversiegelung.
-        </p>
-      </div>
+      <a href="#kontakt" class="btn">Kontakt aufnehmen</a>
 
     </div>
+  </header>
 
-    <div class="card">
+  <!-- KONTAKT -->
+  <section id="kontakt">
+    <h2>Kontakt</h2>
 
-      <img src="innen1.jpg" alt="Innenreinigung">
+    <p>Du erreichst uns schnell und einfach über folgende Kanäle:</p>
 
-      <div class="card-content">
-        <h3>Innenreinigung</h3>
+    <div class="kontakt-box">
 
-        <p>
-          Tiefenreinigung von Sitzen,
-          Teppichen und Armaturen.
-        </p>
-      </div>
+      <a href="tel:+49DEINNUMMER" class="kontakt-item">
+        📞 Telefon
+      </a>
 
-    </div>
+      <a href="https://wa.me/49DEINNUMMER" target="_blank" class="kontakt-item">
+        💬 WhatsApp
+      </a>
 
-    <div class="card">
-
-      <img src="komplett1.jpg" alt="Komplettpaket">
-
-      <div class="card-content">
-        <h3>Komplettpaket</h3>
-
-        <p>
-          Innen & Außen –
-          dein Fahrzeug im Neuwagen-Zustand.
-        </p>
-      </div>
+      <a href="https://instagram.com/DEINACCOUNT" target="_blank" class="kontakt-item">
+        📸 Instagram
+      </a>
 
     </div>
-
-  </div>
-
-</section>
-
-<!-- PREISE -->
-<section class="section" id="preise">
-
-  <h2>Preise</h2>
-
-  <div class="cards">
-
-    <div class="card">
-      <div class="card-content">
-        <h3>Innenreinigung</h3>
-        <p>ab 30€</p>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-content">
-        <h3>Außenpflege</h3>
-        <p>ab 50€</p>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-content">
-        <h3>Komplettpaket</h3>
-        <p>ab 90€</p>
-      </div>
-    </div>
-
-  </div>
-
-</section>
-
-<!-- GALERIE -->
-<section class="section" id="galerie">
-
-  <h2>Galerie</h2>
-
-  <div class="cards">
-
-    <div class="card">
-      <img src="gallery1.jpg" alt="Galerie">
-    </div>
-
-    <div class="card">
-      <img src="gallery2.jpg" alt="Galerie">
-    </div>
-
-    <div class="card">
-      <img src="gallery3.jpg" alt="Galerie">
-    </div>
-
-  </div>
-
-</section>
-
-<!-- KONTAKT -->
-<section class="section" id="kontakt">
-
-  <h2>Anfrage</h2>
-
-  <div class="cards">
-
-    <div class="card">
-      <div class="card-content">
-
-        <h3>Telefon</h3>
-
-        <a href="tel:+491739533910">
-          Jetzt anrufen
-        </a>
-
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-content">
-
-        <h3>WhatsApp</h3>
-
-        <a href="https://wa.me/491739533910">
-          Chat starten
-        </a>
-
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-content">
-
-        <h3>Instagram</h3>
-
-        <a href="https://instagram.com/artin_bg">
-          Profil öffnen
-        </a>
-
-      </div>
-    </div>
-
-  </div>
-
-</section>
-
-<!-- FOOTER -->
-<footer>
-© 2026 AES Fahrzeugpflege – Alle Rechte vorbehalten
-</footer>
+  </section>
 
 </body>
 </html>
