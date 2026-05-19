@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AES Fahrzeugpflege</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0b0b0f;
+      color: #fff;
+    }
+
+    /* NAVBAR */
+    header {
+      background: #0f0f1a;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #1f1f2e;
+      position: sticky;
+      top: 0;
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: bold;
+      color: #7c3aed;
+    }
+
+    nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      color: #3b82f6;
+    }
+
+    /* HERO */
+    .hero {
+      height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: linear-gradient(135deg, #0b0b0f, #111827);
+      padding: 20px;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #cbd5e1;
+      max-width: 600px;
+    }
+
+    .btn {
+      margin-top: 20px;
+      padding: 12px 25px;
+      background: #7c3aed;
+      border: none;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .btn:hover {
+      background: #3b82f6;
+    }
+
+    /* SECTION */
+    .section {
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .section h2 {
+      color: #7c3aed;
+      font-size: 32px;
+      margin-bottom: 40px;
+    }
+
+    .cards {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .card {
+      background: #111827;
+      padding: 20px;
+      border-radius: 12px;
+      width: 260px;
+      border: 1px solid #1f1f2e;
+    }
+
+    .card h3 {
+      color: #3b82f6;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #0f0f1a;
+      text-align: center;
+      padding: 20px;
+      border-top: 1px solid #1f1f2e;
+      color: #9ca3af;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">AES Fahrzeugpflege</div>
+    <nav>
+      <a href="#">Start</a>
+      <a href="#">Leistungen</a>
+      <a href="#">Preise</a>
+      <a href="#">Kontakt</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Dein Auto wie neu</h1>
+    <p>Professionelle Fahrzeugpflege – Innen & Außen mit höchster Qualität und perfektem Glanz.</p>
+    <button class="btn">Termin buchen</button>
+  </section>
+
+  <section class="section">
+    <h2>Unsere Leistungen</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Außenpflege</h3>
+        <p>Politur, Lackaufbereitung und Schutzversiegelung.</p>
+      </div>
+
+      <div class="card">
+        <h3>Innenreinigung</h3>
+        <p>Tiefenreinigung von Sitzen, Teppichen und Armaturen.</p>
+      </div>
+
+      <div class="card">
+        <h3>Komplettpaket</h3>
+        <p>Innen & außen – dein Auto im Neuwagen-Zustand.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 AES Fahrzeugpflege – Alle Rechte vorbehalten
+  </footer>
+
+</body>
+</html>
