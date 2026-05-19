@@ -55,6 +55,7 @@ nav a:hover {
 
 .hero h1 {
   font-size: 48px;
+  margin-bottom: 10px;
 }
 
 .hero p {
@@ -97,6 +98,12 @@ nav a:hover {
   padding: 20px;
   border-radius: 12px;
   border: 1px solid #1f1f2e;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: #3b82f6;
 }
 
 /* IMAGES */
@@ -113,31 +120,6 @@ nav a:hover {
 .card a {
   color: #3b82f6;
   text-decoration: none;
-}
-
-/* 🌧️ PREIS-REGENTROPFEN-EFFEKT (NUR PREISE) */
-#preise .card {
-  position: relative;
-  overflow: hidden;
-}
-
-#preise .card::before {
-  content: "$ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $";
-  position: absolute;
-  top: -60%;
-  left: -60%;
-  width: 220%;
-  height: 220%;
-
-  font-size: 18px;
-  color: rgba(255, 255, 255, 0.05);
-  line-height: 60px;
-  letter-spacing: 18px;
-
-  transform: rotate(-25deg);
-  white-space: pre-wrap;
-
-  pointer-events: none;
 }
 
 /* FOOTER */
@@ -177,19 +159,19 @@ footer {
   <div class="card">
     <h3>Außenpflege</h3>
     <p>Politur, Lackaufbereitung und Schutzversiegelung.</p>
-    <img src="aussen1.jpg">
+    <img src="aussen1.jpg" alt="Außenpflege">
   </div>
 
   <div class="card">
     <h3>Innenreinigung</h3>
     <p>Tiefenreinigung von Sitzen, Teppichen und Armaturen.</p>
-    <img src="innen1.jpg">
+    <img src="innen1.jpg" alt="Innenreinigung">
   </div>
 
   <div class="card">
     <h3>Komplettpaket</h3>
     <p>Innen & außen – dein Auto im Neuwagen-Zustand.</p>
-    <img src="komplett1.jpg">
+    <img src="komplett1.jpg" alt="Komplettpaket">
   </div>
 
 </div>
@@ -199,20 +181,22 @@ footer {
 <h2>Preise</h2>
 
 <div class="cards">
+
   <div class="card">
-    <h3>Innen</h3>
+    <h3>Innenreinigung</h3>
     <p>ab 30€</p>
   </div>
 
   <div class="card">
-    <h3>Außen</h3>
+    <h3>Außenpflege</h3>
     <p>ab 50€</p>
   </div>
 
   <div class="card">
-    <h3>Komplett</h3>
+    <h3>Komplettpaket</h3>
     <p>ab 90€</p>
   </div>
+
 </div>
 </section>
 
@@ -228,7 +212,7 @@ footer {
 
   <div class="card">
     <h3>WhatsApp</h3>
-    <a href="https://wa.me/491739533910">Chat</a>
+    <a href="https://wa.me/491739533910">Chat starten</a>
   </div>
 
   <div class="card">
@@ -245,7 +229,7 @@ footer {
 </section>
 
 <footer>
-© 2026 AES Fahrzeugpflege
+© 2026 AES Fahrzeugpflege – Alle Rechte vorbehalten
 </footer>
 
 </body>
