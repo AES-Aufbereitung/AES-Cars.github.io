@@ -1,13 +1,19 @@
 <!DOCTYPE html>
+
 <html lang="de">
+
 <head>
+
 <meta charset="UTF-8" />
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
 <title>AES Fahrzeugpflege</title>
 
 <style>
 
 /* SMOOTH SCROLL */
+
 html {
   scroll-behavior: smooth;
 }
@@ -20,6 +26,7 @@ body {
 }
 
 /* NAVBAR */
+
 header {
   background: rgba(15,15,26,0.85);
   backdrop-filter: blur(10px);
@@ -53,6 +60,7 @@ nav a:hover {
 }
 
 /* HERO */
+
 .hero {
   height: 100vh;
   display: flex;
@@ -63,7 +71,7 @@ nav a:hover {
     linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
     url('gt3_aes_heck.png');
   background-size: cover;
-  background-position: center 30%; /* FIX: Logo besser sichtbar */
+  background-position: 20% 15%; /* FIX: Logo oben links besser sichtbar */
   background-repeat: no-repeat;
   padding: 20px;
 }
@@ -106,6 +114,7 @@ nav a:hover {
 }
 
 /* SECTIONS */
+
 .section {
   padding: 90px 20px;
   text-align: center;
@@ -118,6 +127,7 @@ nav a:hover {
 }
 
 /* CARDS */
+
 .cards {
   display: flex;
   justify-content: center;
@@ -165,6 +175,7 @@ nav a:hover {
 }
 
 /* FOOTER */
+
 footer {
   background: #0f0f1a;
   text-align: center;
@@ -174,55 +185,78 @@ footer {
 }
 
 /* MOBILE */
+
 @media (max-width: 768px) {
+
   header {
     flex-direction: column;
     gap: 15px;
   }
+
   nav a {
     margin: 0 10px;
   }
+
   .hero h1 {
     font-size: 42px;
   }
+
   .hero-box {
     padding: 35px;
   }
 }
 
 </style>
+
 </head>
+
 <body>
 
 <!-- NAVBAR -->
+
 <header>
+
   <div class="logo">AES</div>
+
   <nav>
+
     <a href="#start">Start</a>
     <a href="#leistungen">Leistungen</a>
     <a href="#preise">Preise</a>
     <a href="#galerie">Galerie</a>
     <a href="#kontakt">Anfrage</a>
-    <a href="impressum.html" target="_blank">Impressum & Datenschutz</a>
+
+    <a href="impressum.html" target="_blank">
+      Impressum & Datenschutz
+    </a>
+
   </nav>
+
 </header>
 
 <!-- HERO -->
+
 <section class="hero" id="start">
+
   <div class="hero-box">
 
-    <h1>Glanz, der bleibt.</h1>
+    <h1>Wir holen den Glanz zurück.</h1>
 
     <p>
-      Fahrzeugpflege auf höchstem Niveau – mit Leidenschaft fürs Detail.
+      Professionelle Fahrzeugpflege mit höchster Qualität,
+      perfektem Glanz und echter Leidenschaft für Fahrzeuge.
     </p>
 
-    <a class="btn" href="#kontakt">Termin buchen</a>
+    <a class="btn" href="#kontakt">
+      Termin buchen
+    </a>
 
   </div>
+
 </section>
 
 <!-- LEISTUNGEN -->
+
 <section class="section" id="leistungen">
 
   <h2>Unsere Leistungen</h2>
@@ -258,6 +292,7 @@ footer {
 </section>
 
 <!-- PREISE -->
+
 <section class="section" id="preise">
 
   <h2>Preise</h2>
@@ -290,6 +325,7 @@ footer {
 </section>
 
 <!-- GALERIE -->
+
 <section class="section" id="galerie">
 
   <h2>Galerie</h2>
@@ -313,6 +349,7 @@ footer {
 </section>
 
 <!-- KONTAKT -->
+
 <section class="section" id="kontakt">
 
   <h2>Anfrage</h2>
@@ -340,11 +377,20 @@ footer {
       </div>
     </div>
 
+    <!-- NEU: EMAIL -->
+    <div class="card">
+      <div class="card-content">
+        <h3>E-Mail</h3>
+        <a href="mailto:artinhd36@gmail.com">E-Mail senden</a>
+      </div>
+    </div>
+
   </div>
 
 </section>
 
 <!-- FOOTER -->
+
 <footer>
 © 2026 AES Fahrzeugpflege – Alle Rechte vorbehalten
 </footer>
