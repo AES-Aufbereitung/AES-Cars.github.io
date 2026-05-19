@@ -16,48 +16,67 @@ body{
 header{
   padding:20px 40px;
   background:rgba(15,15,26,0.85);
-  backdrop-filter:blur(10px);
   display:flex;
   justify-content:space-between;
-  align-items:center;
   border-bottom:1px solid #1f1f2e;
 }
 
 .logo{
   color:#7c3aed;
   font-weight:bold;
-  font-size:22px;
 }
 
-a{
-  text-decoration:none;
-  color:white;
+a{color:white;text-decoration:none;}
+
+.hero{
+  padding:100px 20px 60px;
+  text-align:center;
 }
 
-.container{
-  max-width:900px;
-  margin:80px auto;
-  padding:20px;
-}
-
-h1{
+.hero h1{
+  font-size:48px;
   color:#7c3aed;
-  font-size:40px;
 }
 
-p{
+.hero p{
   color:#d1d5db;
+  max-width:700px;
+  margin:auto;
   line-height:1.6;
   font-size:18px;
 }
 
+.section{
+  max-width:900px;
+  margin:60px auto;
+  padding:0 20px;
+}
+
+.section h2{
+  color:#3b82f6;
+  margin-bottom:15px;
+}
+
+.section p{
+  color:#d1d5db;
+  line-height:1.7;
+  font-size:17px;
+}
+
+.box{
+  background:#111827;
+  padding:25px;
+  border-radius:15px;
+  margin-top:20px;
+  border:1px solid #1f1f2e;
+}
+
 .btn{
   display:inline-block;
-  margin-top:25px;
+  margin-top:30px;
   padding:14px 25px;
-  border-radius:10px;
   background:#7c3aed;
-  color:white;
+  border-radius:10px;
 }
 
 .btn:hover{
@@ -73,20 +92,45 @@ p{
   <a href="index.html">← Zurück</a>
 </header>
 
-<div class="container">
-
+<div class="hero">
   <h1>Außenpflege</h1>
-
   <p>
-    Unsere Außenpflege bringt dein Fahrzeug wieder zum Strahlen.
-    Von gründlicher Handwäsche bis zur professionellen Lackaufbereitung sorgen wir für ein Ergebnis wie neu.
+    Mehr als nur Waschen – wir bringen dein Fahrzeug zurück in seinen ursprünglichen Glanzzustand.
+  </p>
+</div>
+
+<div class="section">
+
+  <h2>Was wir machen</h2>
+  <p>
+    Unsere Außenpflege umfasst eine gründliche Handwäsche, Entfernung von Schmutz,
+    Insektenresten, Flugrost und anderen Ablagerungen.
   </p>
 
+  <div class="box">
+    ✔ Handwäsche mit hochwertigen Pflegeprodukten<br>
+    ✔ Felgenreinigung & Versiegelung<br>
+    ✔ Lackreinigung & Glanzaufbereitung<br>
+    ✔ Schutzversiegelung gegen neue Verschmutzung
+  </div>
+
+</div>
+
+<div class="section">
+
+  <h2>Warum Außenpflege wichtig ist</h2>
   <p>
-    Wir entfernen Schmutz, Flugrost und matte Stellen und schützen den Lack langfristig.
+    Regelmäßige Außenpflege schützt den Lack langfristig und erhält den Wert deines Fahrzeugs.
+    Besonders bei Verkauf oder Leasing ist ein gepflegtes Äußeres entscheidend.
   </p>
 
-  <a class="btn" href="https://wa.me/491739533910">Termin anfragen</a>
+</div>
+
+<div class="section" style="text-align:center">
+
+  <a class="btn" href="https://wa.me/491739533910">
+    Termin jetzt anfragen
+  </a>
 
 </div>
 
