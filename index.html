@@ -306,32 +306,68 @@ footer {
 
 @media (max-width: 768px) {
 
+  /* NAVBAR */
   header {
-
     flex-direction: column;
+    gap: 10px;
+    padding: 15px 20px;
+    text-align: center;
+  }
 
-    gap: 15px;
-
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   nav a {
+    margin: 5px 8px;
+    font-size: 14px;
+  }
 
-    margin: 0 10px;
-
+  /* HERO */
+  .hero {
+    height: auto;
+    padding: 80px 15px;
+    background-position: center;
   }
 
   .hero h1 {
+    font-size: 34px;
+  }
 
-    font-size: 42px;
-
+  .hero p {
+    font-size: 15px;
   }
 
   .hero-box {
-
-    padding: 35px;
-
+    padding: 25px;
   }
 
+  /* SECTIONS */
+  .section h2 {
+    font-size: 26px;
+  }
+
+  /* CARDS */
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 95%;
+  }
+
+  .card img {
+    height: 160px;
+  }
+
+  /* FOOTER */
+  footer {
+    font-size: 13px;
+  }
 }
 
 </style>
