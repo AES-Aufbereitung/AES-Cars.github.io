@@ -16,7 +16,7 @@ body {
   color: white;
 }
 
-/* NAV */
+/* 🔝 TOP NAVIGATION (BACK TO HOME) */
 .topnav {
   position: fixed;
   top: 0;
@@ -39,6 +39,11 @@ body {
   color: white;
   text-decoration: none;
   font-weight: 500;
+  transition: 0.3s;
+}
+
+.topnav a:hover {
+  color: #7c3aed;
 }
 
 /* HERO */
@@ -54,6 +59,7 @@ body {
   margin-top: 60px;
 }
 
+/* leichter Overlay */
 .hero::before {
   content: "";
   position: absolute;
@@ -61,16 +67,22 @@ body {
   background: rgba(0,0,0,0.35);
 }
 
+/* MINIMAL BLUR (wie gewünscht) */
 .hero-content {
   position: relative;
   z-index: 2;
 
   padding: 20px 30px;
   border-radius: 16px;
+
   background: rgba(0,0,0,0.12);
+
   backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(3px);
+
   border: 1px solid rgba(255,255,255,0.06);
+
+  max-width: 800px;
 }
 
 .hero h1 {
@@ -82,6 +94,7 @@ body {
 .hero p {
   font-size: 20px;
   color: rgba(255,255,255,0.85);
+  margin-top: 10px;
 }
 
 /* SECTION */
@@ -111,26 +124,34 @@ body {
 
   background: rgba(255, 255, 255, 0.04);
   backdrop-filter: blur(14px);
+
   border: 1px solid rgba(255,255,255,0.08);
 
   text-align: left;
-  transition: 0.3s;
+  transition: 0.35s ease;
 }
 
 .card:hover {
   transform: translateY(-10px);
   border: 1px solid #7c3aed;
-  box-shadow: 0 0 30px rgba(124,58,237,0.3);
+  box-shadow:
+    0 0 25px rgba(124, 58, 237, 0.45),
+    0 0 60px rgba(124, 58, 237, 0.15);
 }
 
 .badge {
-  color: #7c3aed;
+  display: inline-block;
+  padding: 5px 12px;
   font-size: 12px;
+  border-radius: 20px;
+  background: rgba(124, 58, 237, 0.15);
+  color: #7c3aed;
   margin-bottom: 10px;
 }
 
 .price {
   font-size: 26px;
+  font-weight: 700;
   color: #3b82f6;
   margin-bottom: 15px;
 }
@@ -138,6 +159,7 @@ body {
 .card ul {
   list-style: none;
   padding: 0;
+  margin: 0;
   color: #d1d5db;
   line-height: 2;
 }
@@ -147,69 +169,65 @@ body {
   color: #7c3aed;
 }
 
-/* 🔥 NEUER PREMIUM SPLIT (BILD + TEXT ZUSAMMEN) */
+/* SPLIT */
 .split {
   display: flex;
-  align-items: stretch;
   justify-content: center;
-  gap: 0;
+  align-items: center;
+  gap: 40px;
+  padding: 80px 20px;
   flex-wrap: wrap;
-
-  margin-top: 80px;
 }
 
 .split img {
-  width: 50%;
-  min-width: 320px;
-  object-fit: cover;
-  border-radius: 20px 0 0 20px;
+  width: 480px;
+  max-width: 100%;
+  border-radius: 18px;
 }
 
-/* TEXT SEITE */
-.split-text {
-  width: 50%;
-  min-width: 320px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
+.split-box {
   padding: 40px;
+  border-radius: 18px;
   background: rgba(255,255,255,0.04);
   border: 1px solid rgba(255,255,255,0.08);
-
-  border-radius: 0 20px 20px 0;
-}
-
-.split-text p {
-  font-size: 18px;
-  line-height: 1.7;
-  color: #d1d5db;
-  max-width: 500px;
 }
 
 /* EXTRAS */
 .extras-card {
   width: 720px;
   max-width: 90%;
-  margin: 80px auto;
-
   padding: 35px;
   border-radius: 20px;
 
-  background: rgba(255,255,255,0.04);
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(14px);
+
   border: 1px solid rgba(255,255,255,0.08);
+
+  transition: 0.35s ease;
+  text-align: left;
+  margin: 0 auto;
+}
+
+.extras-card:hover {
+  transform: translateY(-10px);
+  border: 1px solid #7c3aed;
+  box-shadow:
+    0 0 25px rgba(124, 58, 237, 0.45),
+    0 0 60px rgba(124, 58, 237, 0.15);
 }
 
 .extras-title {
-  color: #7c3aed;
   font-size: 28px;
-  margin-bottom: 20px;
+  font-weight: 700;
+  color: #7c3aed;
+  margin-bottom: 15px;
 }
 
 .extras-card ul {
   list-style: none;
   padding: 0;
+  margin: 0;
   color: #d1d5db;
   line-height: 2;
 }
@@ -224,9 +242,9 @@ body {
 
 <body>
 
-<!-- NAV -->
+<!-- 🔝 NAVIGATION -->
 <div class="topnav">
-  <a href="index.html">← Startseite</a>
+  <a href="index.html">← Zurück zur Startseite</a>
   <a href="index.html#leistungen">Leistungen</a>
 </div>
 
@@ -245,67 +263,70 @@ body {
   <div class="cards">
 
     <div class="card">
-      <div class="badge">A Paket</div>
-      <div class="price">15€</div>
+      <div class="badge">Einsteiger</div>
+      <div class="price">A Paket – 15€</div>
       <ul>
-        <li>Handwäsche</li>
+        <li>Außenhandwäsche</li>
         <li>Felgenreinigung</li>
         <li>Trocknung</li>
       </ul>
     </div>
 
     <div class="card">
-      <div class="badge">AA Paket</div>
-      <div class="price">50€</div>
+      <div class="badge">Beliebt</div>
+      <div class="price">AA Paket – 50€</div>
       <ul>
         <li>Intensive Handwäsche</li>
         <li>Felgenreinigung</li>
-        <li>Politur leicht</li>
+        <li>Leichte Politur</li>
+        <li>Türfalze Reinigung</li>
         <li>Insektenentfernung</li>
+        <li>Glanzfinish</li>
+        <li>Reifenglanz</li>
       </ul>
     </div>
 
     <div class="card">
-      <div class="badge">AAA Paket</div>
-      <div class="price">109€</div>
+      <div class="badge">Premium</div>
+      <div class="price">AAA Paket – 109€</div>
       <ul>
-        <li>Premium Handwäsche</li>
-        <li>Detail Reinigung</li>
+        <li>Premium Detail Handwäsche</li>
+        <li>Felgen Tiefenreinigung</li>
+        <li>Glanzverstärkung</li>
         <li>Lackversiegelung</li>
-        <li>Cabrio Pflege</li>
+        <li>Cabrio Versiegelung</li>
+        <li>Detailreinigung</li>
       </ul>
     </div>
 
   </div>
 </section>
 
-<!-- 🔥 NEUER BEREICH (WIE GEWÜNSCHT) -->
+<!-- SPLIT -->
 <section class="split">
-
   <img src="auto_lack_aussen.webp">
-
-  <div class="split-text">
-    <p>
-      Mit präziser Handarbeit und einem geschulten Blick für Details sorgen wir dafür dass dein Fahrzeug nicht nur sauber wirkt sondern ein sichtbar gepflegtes und hochwertiges Gesamtbild erhält.
-    </p>
+  <div class="split-box">
+    Präzise Handarbeit für ein perfektes Finish
   </div>
-
 </section>
 
 <!-- EXTRAS -->
 <section class="section">
-
   <div class="extras-card">
+
     <div class="extras-title">Extras</div>
+
     <ul>
       <li>Scheiben tönen</li>
-      <li>Abholservice</li>
+      <li>Abhol- und Lieferservice</li>
+      <li>Cabrio-Verdeck Reinigung</li>
       <li>Unterbodenwäsche</li>
       <li>Felgenversiegelung</li>
       <li>Lackversiegelung</li>
+      <li>Politur</li>
     </ul>
-  </div>
 
+  </div>
 </section>
 
 </body>
