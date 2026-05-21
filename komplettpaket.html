@@ -272,13 +272,40 @@ body {
 
 @media (max-width: 768px) {
 
-  .extras-card {
-    width: 90%;
-    padding: 25px;
+  /* HERO */
+  .hero {
+    height: auto;
+    padding: 90px 15px;
+    background-position: center;
   }
 
+  .hero-content {
+    padding: 20px;
+    max-width: 90%;
+    background: rgba(0,0,0,0.35);
+    backdrop-filter: blur(6px);
+  }
+
+  .hero h1 {
+    font-size: 36px;
+    line-height: 1.2;
+  }
+
+  .hero p {
+    font-size: 15px;
+    line-height: 1.5;
+    margin-top: 12px;
+  }
+
+  /* SECTION */
   .section h2 {
     font-size: 26px;
+  }
+
+  /* CARDS */
+  .cards {
+    flex-direction: column;
+    align-items: center;
   }
 
   .card {
@@ -286,13 +313,43 @@ body {
     max-width: 95%;
   }
 
+  .card ul {
+    font-size: 14px;
+  }
+
+  /* SPLIT */
   .split {
     flex-direction: column;
+    padding: 50px 15px;
   }
 
   .split img {
     width: 100%;
+    border-radius: 20px 20px 0 0;
   }
+
+  .split-box {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 0 0 20px 20px;
+    padding: 25px;
+  }
+
+  .split-box p {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  /* EXTRAS */
+  .extras-card {
+    width: 90%;
+    padding: 25px;
+  }
+
+  .extras-card ul {
+    font-size: 14px;
+  }
+
 }
   
 </style>
