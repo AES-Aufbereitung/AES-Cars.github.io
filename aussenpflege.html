@@ -194,6 +194,10 @@ body {
 
 /* EXTRAS */
 .extras-card {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+
   width: 720px;
   max-width: 90%;
   padding: 35px;
@@ -204,13 +208,61 @@ body {
 
   border: 1px solid rgba(255,255,255,0.08);
 
-  transition: 0.35s ease;
   text-align: left;
   margin: 0 auto;
+
+  transition: 0.35s ease;
+}
+
+/* SNAKE LIGHT */
+.extras-card::before {
+  content: "";
+  position: absolute;
+
+  width: 160px;
+  height: 160px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #7c3aed,
+    #3b82f6,
+    transparent
+  );
+
+  border-radius: 50%;
+
+  animation: snakeBorder 6s linear infinite;
+}
+
+/* DARK OVERLAY */
+.extras-card::after {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: 20px;
+  background: rgba(15,15,26,0.96);
+  z-index: 1;
+}
+
+/* CONTENT ABOVE EFFECT */
+.extras-card * {
+  position: relative;
+  z-index: 2;
+}
+
+/* ANIMATION */
+@keyframes snakeBorder {
+  0% { top: -80px; left: -80px; }
+  25% { top: -80px; left: calc(100% - 80px); }
+  50% { top: calc(100% - 80px); left: calc(100% - 80px); }
+  75% { top: calc(100% - 80px); left: -80px; }
+  100% { top: -80px; left: -80px; }
 }
 
 .extras-card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-8px);
+  transition: 0.35s ease;
   border: 1px solid #7c3aed;
   box-shadow:
     0 0 25px rgba(124, 58, 237, 0.45),
@@ -237,6 +289,46 @@ body {
   color: #7c3aed;
 }
 
+@media (max-width: 768px) {
+
+  .hero {
+    height: auto;
+    padding: 80px 15px;
+  }
+
+  .hero h1 {
+    font-size: 34px;
+  }
+
+  .hero p {
+    font-size: 15px;
+  }
+
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 95%;
+  }
+
+  .split {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .split img {
+    width: 100%;
+  }
+
+  .extras-card {
+    width: 90%;
+    padding: 25px;
+  }
+}
+  
 </style>
 </head>
 
