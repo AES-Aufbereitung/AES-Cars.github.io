@@ -9,129 +9,160 @@
 
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: "Arial", sans-serif;
   background: #0b0b0f;
   color: white;
 }
 
-/* HEADER */
-header {
-  padding: 20px 40px;
-  background: rgba(15,15,26,0.85);
-  backdrop-filter: blur(10px);
-  position: sticky;
-  top: 0;
-  border-bottom: 1px solid #1f1f2e;
-}
-
 /* HERO */
 .hero {
+  height: 75vh;
+  background:
+    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.75)),
+    url("porsche_hintergundbild.png");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  padding: 80px 20px 40px;
+  padding: 20px;
+}
+
+.hero-content {
+  max-width: 800px;
 }
 
 .hero h1 {
-  font-size: 50px;
-  color: #7c3aed;
+  font-size: 64px;
+  margin: 0;
+  color: #ffffff;
+  letter-spacing: 1px;
 }
 
 .hero p {
+  margin-top: 15px;
+  font-size: 20px;
   color: #d1d5db;
-  font-size: 18px;
 }
 
-/* TOP IMAGE */
-.hero-img {
-  width: 100%;
-  height: 450px;
-  object-fit: contain; /* wichtig damit nichts abgeschnitten wird */
-  background: #0b0b0f;
+.hero span {
+  color: #7c3aed;
+  font-weight: bold;
 }
 
 /* SECTION */
 .section {
-  padding: 70px 20px;
+  padding: 80px 20px;
   text-align: center;
 }
 
 .section h2 {
-  color: #7c3aed;
   font-size: 34px;
+  color: #7c3aed;
+  margin-bottom: 40px;
 }
 
 /* PACKAGES */
 .cards {
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 25px;
-  margin-top: 40px;
 }
 
 .card {
-  width: 300px;
-  background: #111827;
+  width: 320px;
+  background: rgba(17, 24, 39, 0.8);
   border: 1px solid #1f1f2e;
   border-radius: 18px;
   padding: 25px;
   text-align: left;
+  backdrop-filter: blur(10px);
+  transition: 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  border-color: #3b82f6;
+  box-shadow: 0 15px 40px rgba(124, 58, 237, 0.2);
 }
 
 .price {
+  font-size: 22px;
   color: #3b82f6;
-  font-size: 20px;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+  font-weight: bold;
 }
 
 .card ul {
-  padding-left: 18px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
   color: #d1d5db;
-  line-height: 1.8;
+  line-height: 1.9;
 }
 
-/* IMAGE + TEXT SECTION */
+.card ul li::before {
+  content: "✓ ";
+  color: #7c3aed;
+}
+
+/* MID IMAGE + TEXT */
 .split {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 30px;
-  padding: 70px 20px;
+  gap: 40px;
+  padding: 80px 20px;
 }
 
 .split img {
-  width: 420px;
+  width: 480px;
   max-width: 100%;
-  border-radius: 15px;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
 }
 
 .split-box {
-  background: #111827;
-  padding: 40px;
-  border-radius: 15px;
+  background: rgba(17, 24, 39, 0.8);
   border: 1px solid #1f1f2e;
-  font-size: 20px;
-  color: #3b82f6;
+  padding: 40px;
+  border-radius: 18px;
+  font-size: 22px;
+  color: #ffffff;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 
 /* EXTRAS */
 .extras {
-  background: #111827;
-  margin: 60px 20px;
-  padding: 40px;
-  border-radius: 15px;
+  margin: 80px 20px;
+  padding: 50px;
+  border-radius: 18px;
+  background: rgba(17, 24, 39, 0.85);
   border: 1px solid #1f1f2e;
+  text-align: center;
 }
 
 .extras h2 {
   color: #7c3aed;
+  font-size: 32px;
+  margin-bottom: 25px;
 }
 
 .extras ul {
   list-style: none;
   padding: 0;
   color: #d1d5db;
-  line-height: 2;
+  font-size: 18px;
+  line-height: 2.2;
+}
+
+.extras ul li::before {
+  content: "• ";
+  color: #3b82f6;
 }
 
 </style>
@@ -139,27 +170,21 @@ header {
 
 <body>
 
-<header>
-  <h2>AES Fahrzeugpflege</h2>
-</header>
-
 <!-- HERO -->
-<div class="hero">
-  <h1>Außenpflege</h1>
-  <p>Mehr als nur waschen</p>
-</div>
-
-<!-- TOP IMAGE -->
-<img src="porsche_hintergrundbild.png" class="hero-img" alt="Außenpflege">
+<section class="hero">
+  <div class="hero-content">
+    <h1>Außenpflege</h1>
+    <p><span>Mehr als nur waschen</span> – echte Fahrzeugveredelung mit Blick fürs Detail</p>
+  </div>
+</section>
 
 <!-- PACKAGES -->
 <section class="section">
 
-  <h2>Pakete</h2>
+  <h2>Unsere Pakete</h2>
 
   <div class="cards">
 
-    <!-- A -->
     <div class="card">
       <div class="price">A Paket – 15€</div>
       <ul>
@@ -169,7 +194,6 @@ header {
       </ul>
     </div>
 
-    <!-- AA -->
     <div class="card">
       <div class="price">AA Paket – 50€</div>
       <ul>
@@ -178,12 +202,11 @@ header {
         <li>Politur (leicht)</li>
         <li>Türfalze Reinigung</li>
         <li>Insektenentfernung</li>
-        <li>Trocknung + Glanzfinish</li>
+        <li>Glanzfinish + Trocknung</li>
         <li>Reifenglanz</li>
       </ul>
     </div>
 
-    <!-- AAA -->
     <div class="card">
       <div class="price">AAA Paket – 109€</div>
       <ul>
@@ -199,19 +222,19 @@ header {
   </div>
 </section>
 
-<!-- SPLIT SECTION -->
-<div class="split">
+<!-- SPLIT -->
+<section class="split">
 
   <img src="auto_lack_aussen.webp" alt="Lack">
 
   <div class="split-box">
-    Präzise Handarbeit.
+    Präzise Handarbeit mit Liebe zum Detail
   </div>
 
-</div>
+</section>
 
 <!-- EXTRAS -->
-<div class="extras">
+<section class="extras">
 
   <h2>Extras</h2>
 
@@ -221,11 +244,11 @@ header {
     <li>Cabrio-Verdeck Reinigung / Versiegelung</li>
     <li>Unterbodenwäsche</li>
     <li>Felgenversiegelung</li>
-    <li>Versiegelung</li>
+    <li>Lackversiegelung</li>
     <li>Politur</li>
   </ul>
 
-</div>
+</section>
 
 </body>
 </html>
