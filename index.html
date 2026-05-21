@@ -35,29 +35,28 @@ body {
 /* NAVBAR */
 
 header {
-
-  background: rgba(15,15,26,0.85);
-
-  backdrop-filter: blur(10px);
-
-  -webkit-backdrop-filter: blur(10px);
-
-  padding: 20px 40px;
-
   display: flex;
-
-  justify-content: space-between;
-
   align-items: center;
+}
 
-  position: sticky;
+/* LOGO LINKS */
+.logo {
+  flex: 1;
+}
 
-  top: 0;
+/* NAV MIT ABSTAND */
+nav {
+  display: flex;
+  gap: 20px;
+}
 
-  z-index: 1000;
-
-  border-bottom: 1px solid #1f1f2e;
-
+/* HAMBURGER RECHTS */
+.menu-toggle {
+  margin-left: auto;
+  font-size: 30px;
+  cursor: pointer;
+  color: white;
+  display: none;
 }
 
 .logo {
@@ -306,41 +305,32 @@ footer {
 
 @media (max-width: 768px) {
 
-  /* NAVBAR + HAMBURGER */
-  header {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
-
   .menu-toggle {
     display: block;
-    font-size: 30px;
-    cursor: pointer;
-    color: white;
   }
 
   nav {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  text-align: center;
-  margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
 
-  /* smooth animation */
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transform: translateY(-10px);
-  transition: all 0.35s ease;
-  pointer-events: none;
-}
+    /* smooth hidden state */
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.35s ease;
+    pointer-events: none;
+  }
 
-nav.active {
-  max-height: 500px;
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
+  nav.active {
+    max-height: 500px;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
 }
 
   nav a {
@@ -406,21 +396,18 @@ nav.active {
 
   <div class="logo">AES</div>
 
-  <!-- HAMBURGER BUTTON -->
-  <div class="menu-toggle" onclick="toggleMenu()">
-    ☰
-  </div>
-
   <nav id="navMenu">
-
     <a href="#start">Start</a>
     <a href="#leistungen">Leistungen</a>
     <a href="#preise">Preise</a>
     <a href="#galerie">Galerie</a>
     <a href="#kontakt">Anfrage</a>
     <a href="impressum.html" target="_blank">Impressum & Datenschutz</a>
-
   </nav>
+
+  <div class="menu-toggle" onclick="toggleMenu()">
+    ☰
+  </div>
 
 </header>
 
