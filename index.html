@@ -306,22 +306,35 @@ footer {
 
 @media (max-width: 768px) {
 
-  /* NAVBAR */
+  /* NAVBAR + HAMBURGER */
   header {
-    flex-direction: column;
-    gap: 10px;
-    padding: 15px 20px;
-    text-align: center;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .menu-toggle {
+    display: block;
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
   }
 
   nav {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  nav.active {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
   }
 
   nav a {
-    margin: 5px 8px;
+    padding: 10px;
+    margin: 0;
     font-size: 14px;
   }
 
@@ -382,23 +395,19 @@ footer {
 
   <div class="logo">AES</div>
 
-  <nav>
+  <!-- HAMBURGER BUTTON -->
+  <div class="menu-toggle" onclick="toggleMenu()">
+    ☰
+  </div>
+
+  <nav id="navMenu">
 
     <a href="#start">Start</a>
-
     <a href="#leistungen">Leistungen</a>
-
     <a href="#preise">Preise</a>
-
     <a href="#galerie">Galerie</a>
-
     <a href="#kontakt">Anfrage</a>
-
-    <a href="impressum.html" target="_blank">
-
-      Impressum & Datenschutz
-
-    </a>
+    <a href="impressum.html" target="_blank">Impressum & Datenschutz</a>
 
   </nav>
 
@@ -629,6 +638,16 @@ footer {
 © 2026 AES Fahrzeugpflege – Alle Rechte vorbehalten
 
 </footer>
+
+<script>
+
+function toggleMenu() {
+
+  document.getElementById("navMenu").classList.toggle("active");
+
+}
+
+</script>
 
 </body>
 
