@@ -1,86 +1,529 @@
 <!DOCTYPE html>
+
 <html lang="de">
+
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Innenreinigung - AES</title>
+
+<title>Innenreinigung | AES Fahrzeugpflege</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-body{
-  margin:0;
-  font-family:Arial;
-  background:#0b0b0f;
-  color:white;
+
+body {
+
+  margin: 0;
+
+  font-family: "Poppins", sans-serif;
+
+  background: #0b0b0f;
+
+  color: white;
+
 }
 
-header{
-  padding:20px 40px;
-  background:rgba(15,15,26,0.85);
-  backdrop-filter:blur(10px);
-  display:flex;
-  justify-content:space-between;
-  border-bottom:1px solid #1f1f2e;
+/* TOP NAV */
+
+.topnav {
+
+  position: fixed;
+
+  top: 0;
+
+  left: 0;
+
+  width: 100%;
+
+  padding: 15px 25px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  background: rgba(15,15,26,0.75);
+
+  backdrop-filter: blur(10px);
+
+  -webkit-backdrop-filter: blur(10px);
+
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+
+  z-index: 999;
+
 }
 
-.logo{
-  color:#7c3aed;
-  font-weight:bold;
-  font-size:22px;
+.topnav a {
+
+  color: white;
+
+  text-decoration: none;
+
+  font-weight: 500;
+
+  transition: 0.3s;
+
 }
 
-a{color:white;text-decoration:none;}
+.topnav a:hover {
 
-.container{
-  max-width:900px;
-  margin:80px auto;
-  padding:20px;
+  color: #7c3aed;
+
 }
 
-h1{
-  color:#3b82f6;
-  font-size:40px;
+/* HERO */
+
+.hero {
+
+  position: relative;
+
+  height: 75vh;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+
+  background: url("hintergrund_innenraum.webp") center/cover no-repeat;
+
+  margin-top: 60px;
+
 }
 
-p{
-  color:#d1d5db;
-  line-height:1.6;
-  font-size:18px;
+.hero::before {
+
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background: rgba(0,0,0,0.35);
+
 }
 
-.btn{
-  display:inline-block;
-  margin-top:25px;
-  padding:14px 25px;
-  border-radius:10px;
-  background:#7c3aed;
+.hero-content {
+
+  position: relative;
+
+  z-index: 2;
+
+  padding: 20px 30px;
+
+  border-radius: 16px;
+
+  background: rgba(0,0,0,0.12);
+
+  backdrop-filter: blur(3px);
+
+  -webkit-backdrop-filter: blur(3px);
+
+  border: 1px solid rgba(255,255,255,0.06);
+
+  max-width: 800px;
+
 }
 
-.btn:hover{background:#3b82f6;}
+.hero h1 {
+
+  font-size: 64px;
+
+  margin: 0;
+
+  color: #7c3aed;
+
+}
+
+.hero p {
+
+  font-size: 20px;
+
+  color: rgba(255,255,255,0.85);
+
+}
+
+/* SECTION */
+
+.section {
+
+  padding: 80px 20px;
+
+  text-align: center;
+
+}
+
+.section h2 {
+
+  font-size: 36px;
+
+  color: #7c3aed;
+
+  margin-bottom: 50px;
+
+}
+
+/* PACKAGES */
+
+.cards {
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  justify-content: center;
+
+  gap: 30px;
+
+}
+
+.card {
+
+  width: 340px;
+
+  padding: 30px;
+
+  border-radius: 20px;
+
+  background: rgba(255,255,255,0.04);
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  text-align: left;
+
+  transition: 0.3s;
+
+}
+
+.card:hover {
+
+  transform: translateY(-10px);
+
+  border: 1px solid #7c3aed;
+
+  box-shadow: 0 0 25px rgba(124,58,237,0.4);
+
+}
+
+.badge {
+
+  display: inline-block;
+
+  padding: 6px 14px;
+
+  border-radius: 20px;
+
+  color: #7c3aed;
+
+  background: rgba(124,58,237,0.12);
+
+  border: 1px solid rgba(124,58,237,0.3);
+
+  margin-bottom: 10px;
+
+}
+
+.price {
+
+  font-size: 24px;
+
+  color: #3b82f6;
+
+  margin-bottom: 15px;
+
+}
+
+.card ul {
+
+  list-style: none;
+
+  padding: 0;
+
+  color: #d1d5db;
+
+  line-height: 2;
+
+}
+
+.card ul li::before {
+
+  content: "✓ ";
+
+  color: #7c3aed;
+
+}
+
+/* SPLIT */
+
+.split {
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  justify-content: center;
+
+  align-items: stretch;
+
+  margin-top: 80px;
+
+}
+
+.split img {
+
+  width: 50%;
+
+  min-width: 320px;
+
+  object-fit: cover;
+
+  border-radius: 20px 0 0 20px;
+
+}
+
+.split-box {
+
+  width: 50%;
+
+  min-width: 320px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 40px;
+
+  background: rgba(255,255,255,0.04);
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  border-radius: 0 20px 20px 0;
+
+}
+
+.split-box p {
+
+  color: #d1d5db;
+
+  line-height: 1.8;
+
+  max-width: 500px;
+
+}
+
+/* EXTRAS */
+
+.extras-card {
+
+  width: 720px;
+
+  max-width: 90%;
+
+  margin: 80px auto;
+
+  padding: 35px;
+
+  border-radius: 20px;
+
+  background: rgba(255,255,255,0.04);
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+}
+
+.extras-title {
+
+  font-size: 28px;
+
+  color: #7c3aed;
+
+  margin-bottom: 20px;
+
+}
+
+.extras-card ul {
+
+  list-style: none;
+
+  padding: 0;
+
+  color: #d1d5db;
+
+  line-height: 2;
+
+}
+
+.extras-card ul li::before {
+
+  content: "✓ ";
+
+  color: #7c3aed;
+
+}
+
 </style>
+
 </head>
 
 <body>
 
-<header>
-  <div class="logo">AES</div>
-  <a href="index.html">← Zurück</a>
-</header>
+<!-- NAV -->
 
-<div class="container">
+<div class="topnav">
 
-  <h1>Innenreinigung</h1>
+  <a href="index.html">← Zurück zur Startseite</a>
 
-  <p>
-    Wir reinigen dein Fahrzeug von Grund auf – Sitze, Teppiche, Armaturen und schwer erreichbare Stellen.
-  </p>
-
-  <p>
-    Perfekt gegen Flecken, Gerüche und Alltagsspuren im Innenraum.
-  </p>
-
-  <a class="btn" href="https://wa.me/491739533910">Jetzt buchen</a>
+  <a href="index.html#leistungen">Leistungen</a>
 
 </div>
 
+<!-- HERO -->
+
+<section class="hero">
+
+  <div class="hero-content">
+
+    <h1>Innenreinigung</h1>
+
+    <p>Ein sauberes Fahrzeug fühlt sich wie ein zweites Zuhause an</p>
+
+  </div>
+
+</section>
+
+<!-- PACKAGES -->
+
+<section class="section">
+
+  <h2>Unsere Pakete</h2>
+
+  <div class="cards">
+
+    <div class="card">
+
+      <div class="badge">A Paket</div>
+
+      <div class="price">20€</div>
+
+      <ul>
+
+        <li>Innenraum aussaugen</li>
+
+        <li>Fußmatten reinigen</li>
+
+        <li>Armaturen abwischen</li>
+
+        <li>Scheiben innen reinigen</li>
+
+      </ul>
+
+    </div>
+
+    <div class="card">
+
+      <div class="badge">AA Paket</div>
+
+      <div class="price">50€</div>
+
+      <ul>
+
+        <li>Intensives Saugen</li>
+
+        <li>Fußmatten Tiefenreinigung</li>
+
+        <li>Cockpit Pflege</li>
+
+        <li>Scheiben innen reinigen</li>
+
+        <li>Leichte Fleckenentfernung</li>
+
+      </ul>
+
+    </div>
+
+    <div class="card">
+
+      <div class="badge">AAA Paket</div>
+
+      <div class="price">109€</div>
+
+      <ul>
+
+        <li>Innenraum Detailing</li>
+
+        <li>Sitzreinigung (Stoff & Leder)</li>
+
+        <li>Fußmatten Tiefenreinigung</li>
+
+        <li>Kofferraum Detailing</li>
+
+        <li>Cockpit & Kunststoffpflege</li>
+
+        <li>Geruchsneutralisierung</li>
+
+        <li>Sicherheitsgurte Reinigung</li>
+
+      </ul>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- SPLIT -->
+
+<section class="split">
+
+  <img src="auto_innenraum_pflege.webp">
+
+  <div class="split-box">
+
+    <p>
+
+      Mit viel Liebe zum Detail und sorgfältiger Handarbeit bringen wir den ursprünglichen Charakter und Glanz deines Fahrzeugs wieder deutlich zum Vorschein. Wie zuhause nur unterwegs.
+
+    </p>
+
+  </div>
+
+</section>
+
+<!-- EXTRAS -->
+
+<section class="section">
+
+  <div class="extras-card">
+
+    <div class="extras-title">Extras</div>
+
+    <ul>
+
+      <li>Ozonbehandlung</li>
+
+      <li>Antibakterielle Innenraumreinigung</li>
+
+      <li>Klimaanlage Desinfektion</li>
+
+      <li>Sicherheitsgurte Reinigung</li>
+
+      <li>Anti Beschlag Behandlung</li>
+
+    </ul>
+
+  </div>
+
+</section>
+
 </body>
+
 </html>
