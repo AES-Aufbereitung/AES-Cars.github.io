@@ -16,7 +16,7 @@ body {
   color: white;
 }
 
-/* NAV */
+/* 🔝 TOP NAVIGATION (BACK TO HOME) */
 .topnav {
   position: fixed;
   top: 0;
@@ -29,6 +29,8 @@ body {
 
   background: rgba(15,15,26,0.75);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
   border-bottom: 1px solid rgba(255,255,255,0.08);
   z-index: 999;
 }
@@ -36,6 +38,8 @@ body {
 .topnav a {
   color: white;
   text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
 }
 
 .topnav a:hover {
@@ -55,6 +59,7 @@ body {
   margin-top: 60px;
 }
 
+/* leichter Overlay */
 .hero::before {
   content: "";
   position: absolute;
@@ -62,20 +67,34 @@ body {
   background: rgba(0,0,0,0.35);
 }
 
+/* MINIMAL BLUR (wie gewünscht) */
 .hero-content {
   position: relative;
   z-index: 2;
+
   padding: 20px 30px;
   border-radius: 16px;
+
   background: rgba(0,0,0,0.12);
+
   backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+
   border: 1px solid rgba(255,255,255,0.06);
+
+  max-width: 800px;
 }
 
 .hero h1 {
   font-size: 64px;
-  color: #7c3aed;
   margin: 0;
+  color: #7c3aed;
+}
+
+.hero p {
+  font-size: 20px;
+  color: rgba(255,255,255,0.85);
+  margin-top: 10px;
 }
 
 /* SECTION */
@@ -85,8 +104,8 @@ body {
 }
 
 .section h2 {
-  color: #7c3aed;
   font-size: 36px;
+  color: #7c3aed;
   margin-bottom: 50px;
 }
 
@@ -103,31 +122,36 @@ body {
   padding: 30px;
   border-radius: 20px;
 
-  background: rgba(255,255,255,0.04);
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(14px);
+
   border: 1px solid rgba(255,255,255,0.08);
 
   text-align: left;
-  transition: 0.3s;
+  transition: 0.35s ease;
 }
 
 .card:hover {
   transform: translateY(-10px);
   border: 1px solid #7c3aed;
-  box-shadow: 0 0 25px rgba(124,58,237,0.4);
+  box-shadow:
+    0 0 25px rgba(124, 58, 237, 0.45),
+    0 0 60px rgba(124, 58, 237, 0.15);
 }
 
 .badge {
   display: inline-block;
-  padding: 6px 14px;
+  padding: 5px 12px;
+  font-size: 12px;
   border-radius: 20px;
+  background: rgba(124, 58, 237, 0.15);
   color: #7c3aed;
-  background: rgba(124,58,237,0.12);
-  border: 1px solid rgba(124,58,237,0.3);
   margin-bottom: 10px;
 }
 
 .price {
-  font-size: 24px;
+  font-size: 26px;
+  font-weight: 700;
   color: #3b82f6;
   margin-bottom: 15px;
 }
@@ -135,6 +159,7 @@ body {
 .card ul {
   list-style: none;
   padding: 0;
+  margin: 0;
   color: #d1d5db;
   line-height: 2;
 }
@@ -144,64 +169,65 @@ body {
   color: #7c3aed;
 }
 
-/* SPLIT (PURUS STYLE) */
+/* SPLIT */
 .split {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  align-items: stretch;
-  margin-top: 80px;
+  align-items: center;
+  gap: 40px;
+  padding: 80px 20px;
+  flex-wrap: wrap;
 }
 
 .split img {
-  width: 50%;
-  min-width: 320px;
-  object-fit: cover;
-  border-radius: 20px 0 0 20px;
+  width: 480px;
+  max-width: 100%;
+  border-radius: 18px;
 }
 
 .split-box {
-  width: 50%;
-  min-width: 320px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
   padding: 40px;
+  border-radius: 18px;
   background: rgba(255,255,255,0.04);
   border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 0 20px 20px 0;
-}
-
-.split-box p {
-  color: #d1d5db;
-  line-height: 1.8;
-  max-width: 500px;
 }
 
 /* EXTRAS */
 .extras-card {
   width: 720px;
   max-width: 90%;
-  margin: 80px auto;
-
   padding: 35px;
   border-radius: 20px;
 
-  background: rgba(255,255,255,0.04);
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(14px);
+
   border: 1px solid rgba(255,255,255,0.08);
+
+  transition: 0.35s ease;
+  text-align: left;
+  margin: 0 auto;
+}
+
+.extras-card:hover {
+  transform: translateY(-10px);
+  border: 1px solid #7c3aed;
+  box-shadow:
+    0 0 25px rgba(124, 58, 237, 0.45),
+    0 0 60px rgba(124, 58, 237, 0.15);
 }
 
 .extras-title {
   font-size: 28px;
+  font-weight: 700;
   color: #7c3aed;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .extras-card ul {
   list-style: none;
   padding: 0;
+  margin: 0;
   color: #d1d5db;
   line-height: 2;
 }
@@ -216,7 +242,7 @@ body {
 
 <body>
 
-<!-- NAV -->
+<!-- 🔝 NAVIGATION -->
 <div class="topnav">
   <a href="index.html">← Zurück zur Startseite</a>
   <a href="index.html#leistungen">Leistungen</a>
@@ -226,6 +252,7 @@ body {
 <section class="hero">
   <div class="hero-content">
     <h1>Außenpflege</h1>
+    <p>Mehr als nur waschen</p>
   </div>
 </section>
 
@@ -236,8 +263,8 @@ body {
   <div class="cards">
 
     <div class="card">
-      <div class="badge">A Paket</div>
-      <div class="price">20€</div>
+      <div class="badge">Einsteiger</div>
+      <div class="price">A Paket – 15€</div>
       <ul>
         <li>Außenhandwäsche</li>
         <li>Felgenreinigung</li>
@@ -246,51 +273,45 @@ body {
     </div>
 
     <div class="card">
-      <div class="badge">AA Paket</div>
-      <div class="price">50€</div>
+      <div class="badge">Beliebt</div>
+      <div class="price">AA Paket – 50€</div>
       <ul>
         <li>Intensive Handwäsche</li>
         <li>Felgenreinigung</li>
-        <li>Politur</li>
-        <li>Türfalzen Reinigung</li>
+        <li>Leichte Politur</li>
+        <li>Türfalze Reinigung</li>
         <li>Insektenentfernung</li>
-        <li>Trocknung + Glanzfrisch</li>
+        <li>Glanzfinish</li>
         <li>Reifenglanz</li>
       </ul>
     </div>
 
     <div class="card">
-      <div class="badge">AAA Paket</div>
-      <div class="price">109€</div>
+      <div class="badge">Premium</div>
+      <div class="price">AAA Paket – 109€</div>
       <ul>
         <li>Premium Detail Handwäsche</li>
-        <li>Felgenreinigung + Bremsstaub Entfernung</li>
+        <li>Felgen Tiefenreinigung</li>
         <li>Glanzverstärkung</li>
         <li>Lackversiegelung</li>
-        <li>Cabrio Softtop Versiegelung</li>
-        <li>Detail Reinigung</li>
+        <li>Cabrio Versiegelung</li>
+        <li>Detailreinigung</li>
       </ul>
     </div>
 
   </div>
 </section>
 
-<!-- SPLIT SECTION -->
+<!-- SPLIT -->
 <section class="split">
-
   <img src="auto_lack_aussen.webp">
-
   <div class="split-box">
-    <p>
-      Mit viel Liebe zum Detail und sorgfältiger Handarbeit bringen wir den ursprünglichen Charakter und Glanz deines Fahrzeugs wieder deutlich zum Vorschein und sorgen für ein sichtbar hochwertiges Gesamtbild.
-    </p>
+    Mit viel Liebe zum Detail und sorgfältiger Handarbeit bringen wir den ursprünglichen Charakter und Glanz deines Fahrzeugs wieder deutlich zum Vorschein.
   </div>
-
 </section>
 
 <!-- EXTRAS -->
 <section class="section">
-
   <div class="extras-card">
 
     <div class="extras-title">Extras</div>
@@ -298,15 +319,15 @@ body {
     <ul>
       <li>Scheiben tönen</li>
       <li>Abhol- und Lieferservice</li>
-      <li>Cabrio Verdeck Reinigung / Versiegelung</li>
+      <li>Cabrio-Verdeck Reinigung/Versiegelung</li>
       <li>Unterbodenwäsche</li>
       <li>Felgenversiegelung</li>
       <li>Lackversiegelung</li>
-      <li>Politur</li>
+      <li>Politur je nach Stufe</li>
+      <li>WÜnsche offen? Einfach eine Anfrage schicken!</li>
     </ul>
 
   </div>
-
 </section>
 
 </body>
