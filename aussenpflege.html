@@ -31,20 +31,13 @@ body {
   padding: 20px;
 }
 
-.hero-content {
-  max-width: 800px;
-}
-
 .hero h1 {
   font-size: 64px;
-  margin: 0;
   color: #7c3aed;
-  font-weight: 700;
-  text-shadow: 0 5px 20px rgba(0,0,0,0.6);
+  margin: 0;
 }
 
 .hero p {
-  margin-top: 15px;
   font-size: 20px;
   color: rgba(255,255,255,0.85);
 }
@@ -59,56 +52,70 @@ body {
   font-size: 36px;
   color: #7c3aed;
   margin-bottom: 50px;
-  font-weight: 700;
 }
 
-/* UNIVERSAL CARD STYLE (HOVER GLOW FIX) */
-.card, .split-box, .extras {
-  background: rgba(17, 24, 39, 0.75);
-  border: 1px solid #1f1f2e;
-  border-radius: 18px;
-  transition: 0.35s ease;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-}
-
-/* LILA GLOW HOVER FÜR ALLE KÄSTEN */
-.card:hover,
-.split-box:hover,
-.extras:hover {
-  transform: translateY(-8px);
-  border-color: #7c3aed;
-  box-shadow:
-    0 0 20px rgba(124, 58, 237, 0.4),
-    0 15px 40px rgba(0,0,0,0.35);
-}
-
-/* PACKAGES */
+/* 🔥 NEW PURUS-STYLE PACKAGES */
 .cards {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 25px;
+  gap: 30px;
 }
 
+/* GLASS CARD STYLE */
 .card {
-  width: 320px;
-  padding: 25px;
+  width: 340px;
+  padding: 30px;
+  border-radius: 20px;
+
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(14px);
+
+  border: 1px solid rgba(255,255,255,0.08);
+
   text-align: left;
+
+  transition: 0.35s ease;
+
+  position: relative;
+  overflow: hidden;
 }
 
+/* HOVER GLOW (LILA) */
+.card:hover {
+  transform: translateY(-10px);
+  border: 1px solid #7c3aed;
+  box-shadow:
+    0 0 25px rgba(124, 58, 237, 0.45),
+    0 0 60px rgba(124, 58, 237, 0.15);
+}
+
+/* TOP BADGE */
+.badge {
+  display: inline-block;
+  padding: 5px 12px;
+  font-size: 12px;
+  border-radius: 20px;
+  background: rgba(124, 58, 237, 0.15);
+  color: #7c3aed;
+  margin-bottom: 10px;
+}
+
+/* PRICE */
 .price {
-  font-size: 22px;
-  color: #3b82f6;
-  margin-bottom: 12px;
+  font-size: 26px;
   font-weight: 700;
+  color: #3b82f6;
+  margin-bottom: 15px;
 }
 
+/* LIST */
 .card ul {
   list-style: none;
   padding: 0;
   margin: 0;
   color: #d1d5db;
-  line-height: 1.9;
+  line-height: 2;
 }
 
 .card ul li::before {
@@ -119,11 +126,11 @@ body {
 /* SPLIT */
 .split {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   gap: 40px;
   padding: 80px 20px;
+  flex-wrap: wrap;
 }
 
 .split img {
@@ -132,32 +139,38 @@ body {
   border-radius: 18px;
 }
 
-/* TEXT BOX */
 .split-box {
   padding: 40px;
-  font-size: 22px;
-  font-weight: 500;
-  color: white;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: 0.35s ease;
+}
+
+.split-box:hover {
+  box-shadow: 0 0 25px rgba(124, 58, 237, 0.4);
+  border-color: #7c3aed;
 }
 
 /* EXTRAS */
 .extras {
   margin: 80px 20px;
   padding: 50px;
-  text-align: center;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: 0.35s ease;
 }
 
-.extras h2 {
-  color: #7c3aed;
-  font-size: 32px;
-  margin-bottom: 25px;
+.extras:hover {
+  box-shadow: 0 0 25px rgba(124, 58, 237, 0.4);
+  border-color: #7c3aed;
 }
 
 .extras ul {
   list-style: none;
   padding: 0;
   color: #d1d5db;
-  font-size: 18px;
   line-height: 2.2;
 }
 
@@ -171,22 +184,20 @@ body {
 
 <body>
 
-<!-- HERO -->
 <section class="hero">
-  <div class="hero-content">
+  <div>
     <h1>Außenpflege</h1>
-    <p>Mehr als nur waschen – Fahrzeugpflege mit echtem Anspruch</p>
+    <p>Mehr als nur waschen – wir bringen dein Fahrzeug zurück in seinen Glanz</p>
   </div>
 </section>
 
-<!-- PACKAGES -->
 <section class="section">
-
   <h2>Unsere Pakete</h2>
 
   <div class="cards">
 
     <div class="card">
+      <div class="badge">Einsteiger</div>
       <div class="price">A Paket – 15€</div>
       <ul>
         <li>Außenhandwäsche</li>
@@ -196,59 +207,53 @@ body {
     </div>
 
     <div class="card">
+      <div class="badge">Beliebt</div>
       <div class="price">AA Paket – 50€</div>
       <ul>
         <li>Intensive Handwäsche</li>
         <li>Felgenreinigung</li>
-        <li>Politur (leicht)</li>
+        <li>Leichte Politur</li>
         <li>Türfalze Reinigung</li>
         <li>Insektenentfernung</li>
-        <li>Glanzfinish + Trocknung</li>
+        <li>Glanzfinish</li>
         <li>Reifenglanz</li>
       </ul>
     </div>
 
     <div class="card">
+      <div class="badge">Premium</div>
       <div class="price">AAA Paket – 109€</div>
       <ul>
         <li>Premium Detail Handwäsche</li>
-        <li>Felgen Detailreinigung + Bremsstaub</li>
+        <li>Felgen Tiefenreinigung</li>
         <li>Glanzverstärkung</li>
         <li>Lackversiegelung</li>
-        <li>Cabrio Soft-Top Versiegelung</li>
-        <li>Detail Reinigung</li>
+        <li>Cabrio Versiegelung</li>
+        <li>Detailreinigung</li>
       </ul>
     </div>
 
   </div>
 </section>
 
-<!-- SPLIT -->
 <section class="split">
-
-  <img src="auto_lack_aussen.webp" alt="Lack">
-
+  <img src="auto_lack_aussen.webp">
   <div class="split-box">
-    Präzise Handarbeit mit echter Leidenschaft fürs Detail
+    Präzise Handarbeit für ein perfektes Finish
   </div>
-
 </section>
 
-<!-- EXTRAS -->
 <section class="extras">
-
   <h2>Extras</h2>
-
   <ul>
     <li>Scheiben tönen</li>
     <li>Abhol- und Lieferservice</li>
-    <li>Cabrio-Verdeck Reinigung / Versiegelung</li>
+    <li>Cabrio-Verdeck Reinigung</li>
     <li>Unterbodenwäsche</li>
     <li>Felgenversiegelung</li>
     <li>Lackversiegelung</li>
     <li>Politur</li>
   </ul>
-
 </section>
 
 </body>
