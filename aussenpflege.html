@@ -3,134 +3,227 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Außenpflege - AES</title>
+<title>Außenpflege | AES Fahrzeugpflege</title>
 
 <style>
-body{
-  margin:0;
-  font-family:Arial;
-  background:#0b0b0f;
-  color:white;
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0b0b0f;
+  color: white;
 }
 
-header{
-  padding:20px 40px;
-  background:rgba(15,15,26,0.85);
-  display:flex;
-  justify-content:space-between;
-  border-bottom:1px solid #1f1f2e;
+/* HEADER */
+header {
+  padding: 20px 40px;
+  background: rgba(15,15,26,0.85);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  border-bottom: 1px solid #1f1f2e;
 }
 
-.logo{
-  color:#7c3aed;
-  font-weight:bold;
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 80px 20px 40px;
 }
 
-a{color:white;text-decoration:none;}
-
-.hero{
-  padding:100px 20px 60px;
-  text-align:center;
+.hero h1 {
+  font-size: 50px;
+  color: #7c3aed;
 }
 
-.hero h1{
-  font-size:48px;
-  color:#7c3aed;
+.hero p {
+  color: #d1d5db;
+  font-size: 18px;
 }
 
-.hero p{
-  color:#d1d5db;
-  max-width:700px;
-  margin:auto;
-  line-height:1.6;
-  font-size:18px;
+/* TOP IMAGE */
+.hero-img {
+  width: 100%;
+  height: 450px;
+  object-fit: contain; /* wichtig damit nichts abgeschnitten wird */
+  background: #0b0b0f;
 }
 
-.section{
-  max-width:900px;
-  margin:60px auto;
-  padding:0 20px;
+/* SECTION */
+.section {
+  padding: 70px 20px;
+  text-align: center;
 }
 
-.section h2{
-  color:#3b82f6;
-  margin-bottom:15px;
+.section h2 {
+  color: #7c3aed;
+  font-size: 34px;
 }
 
-.section p{
-  color:#d1d5db;
-  line-height:1.7;
-  font-size:17px;
+/* PACKAGES */
+.cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin-top: 40px;
 }
 
-.box{
-  background:#111827;
-  padding:25px;
-  border-radius:15px;
-  margin-top:20px;
-  border:1px solid #1f1f2e;
+.card {
+  width: 300px;
+  background: #111827;
+  border: 1px solid #1f1f2e;
+  border-radius: 18px;
+  padding: 25px;
+  text-align: left;
 }
 
-.btn{
-  display:inline-block;
-  margin-top:30px;
-  padding:14px 25px;
-  background:#7c3aed;
-  border-radius:10px;
+.price {
+  color: #3b82f6;
+  font-size: 20px;
+  margin-bottom: 10px;
 }
 
-.btn:hover{
-  background:#3b82f6;
+.card ul {
+  padding-left: 18px;
+  color: #d1d5db;
+  line-height: 1.8;
 }
+
+/* IMAGE + TEXT SECTION */
+.split {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  padding: 70px 20px;
+}
+
+.split img {
+  width: 420px;
+  max-width: 100%;
+  border-radius: 15px;
+}
+
+.split-box {
+  background: #111827;
+  padding: 40px;
+  border-radius: 15px;
+  border: 1px solid #1f1f2e;
+  font-size: 20px;
+  color: #3b82f6;
+}
+
+/* EXTRAS */
+.extras {
+  background: #111827;
+  margin: 60px 20px;
+  padding: 40px;
+  border-radius: 15px;
+  border: 1px solid #1f1f2e;
+}
+
+.extras h2 {
+  color: #7c3aed;
+}
+
+.extras ul {
+  list-style: none;
+  padding: 0;
+  color: #d1d5db;
+  line-height: 2;
+}
+
 </style>
 </head>
 
 <body>
 
 <header>
-  <div class="logo">AES</div>
-  <a href="index.html">← Zurück</a>
+  <h2>AES Fahrzeugpflege</h2>
 </header>
 
+<!-- HERO -->
 <div class="hero">
   <h1>Außenpflege</h1>
-  <p>
-    Mehr als nur Waschen – wir bringen dein Fahrzeug zurück in seinen ursprünglichen Glanzzustand.
-  </p>
+  <p>Mehr als nur waschen</p>
 </div>
 
-<div class="section">
+<!-- TOP IMAGE -->
+<img src="porsche_hintergrundbild.png" class="hero-img" alt="Außenpflege">
 
-  <h2>Was wir machen</h2>
-  <p>
-    Unsere Außenpflege umfasst eine gründliche Handwäsche, Entfernung von Schmutz,
-    Insektenresten, Flugrost und anderen Ablagerungen.
-  </p>
+<!-- PACKAGES -->
+<section class="section">
 
-  <div class="box">
-    ✔ Handwäsche mit hochwertigen Pflegeprodukten<br>
-    ✔ Felgenreinigung & Versiegelung<br>
-    ✔ Lackreinigung & Glanzaufbereitung<br>
-    ✔ Schutzversiegelung gegen neue Verschmutzung
+  <h2>Pakete</h2>
+
+  <div class="cards">
+
+    <!-- A -->
+    <div class="card">
+      <div class="price">A Paket – 15€</div>
+      <ul>
+        <li>Außenhandwäsche</li>
+        <li>Felgenreinigung</li>
+        <li>Trocknung</li>
+      </ul>
+    </div>
+
+    <!-- AA -->
+    <div class="card">
+      <div class="price">AA Paket – 50€</div>
+      <ul>
+        <li>Intensive Handwäsche</li>
+        <li>Felgenreinigung</li>
+        <li>Politur (leicht)</li>
+        <li>Türfalze Reinigung</li>
+        <li>Insektenentfernung</li>
+        <li>Trocknung + Glanzfinish</li>
+        <li>Reifenglanz</li>
+      </ul>
+    </div>
+
+    <!-- AAA -->
+    <div class="card">
+      <div class="price">AAA Paket – 109€</div>
+      <ul>
+        <li>Premium Detail Handwäsche</li>
+        <li>Felgen Detailreinigung + Bremsstaub</li>
+        <li>Glanzverstärkung</li>
+        <li>Lackversiegelung</li>
+        <li>Cabrio Soft-Top Versiegelung</li>
+        <li>Detail Reinigung</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- SPLIT SECTION -->
+<div class="split">
+
+  <img src="auto_lack_aussen.webp" alt="Lack">
+
+  <div class="split-box">
+    Präzise Handarbeit.
   </div>
 
 </div>
 
-<div class="section">
+<!-- EXTRAS -->
+<div class="extras">
 
-  <h2>Warum Außenpflege wichtig ist</h2>
-  <p>
-    Regelmäßige Außenpflege schützt den Lack langfristig und erhält den Wert deines Fahrzeugs.
-    Besonders bei Verkauf oder Leasing ist ein gepflegtes Äußeres entscheidend.
-  </p>
+  <h2>Extras</h2>
 
-</div>
-
-<div class="section" style="text-align:center">
-
-  <a class="btn" href="https://wa.me/491739533910">
-    Termin jetzt anfragen
-  </a>
+  <ul>
+    <li>Scheiben tönen</li>
+    <li>Abhol- und Lieferservice</li>
+    <li>Cabrio-Verdeck Reinigung / Versiegelung</li>
+    <li>Unterbodenwäsche</li>
+    <li>Felgenversiegelung</li>
+    <li>Versiegelung</li>
+    <li>Politur</li>
+  </ul>
 
 </div>
 
