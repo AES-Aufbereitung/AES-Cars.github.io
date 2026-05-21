@@ -16,6 +16,36 @@ body {
   color: white;
 }
 
+/* 🔝 TOP NAVIGATION (BACK TO HOME) */
+.topnav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 15px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: rgba(15,15,26,0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  z-index: 999;
+}
+
+.topnav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.topnav a:hover {
+  color: #7c3aed;
+}
+
 /* HERO */
 .hero {
   position: relative;
@@ -26,9 +56,10 @@ body {
   text-align: center;
 
   background: url("porsche_hintergrundbild.png") center/cover no-repeat;
+  margin-top: 60px;
 }
 
-/* leichter dunkler Overlay für Kontrast */
+/* leichter Overlay */
 .hero::before {
   content: "";
   position: absolute;
@@ -36,7 +67,7 @@ body {
   background: rgba(0,0,0,0.35);
 }
 
-/* 🔥 GLASS BLUR BOX NUR HINTER TEXT */
+/* MINIMAL BLUR (wie gewünscht) */
 .hero-content {
   position: relative;
   z-index: 2;
@@ -44,22 +75,20 @@ body {
   padding: 20px 30px;
   border-radius: 16px;
 
-  /* deutlich dezenter */
-  background: rgba(0,0,0,0.15);
+  background: rgba(0,0,0,0.12);
 
-  /* nur leichter Blur */
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
 
   border: 1px solid rgba(255,255,255,0.06);
 
   max-width: 800px;
 }
+
 .hero h1 {
   font-size: 64px;
   margin: 0;
   color: #7c3aed;
-  text-shadow: 0 8px 25px rgba(0,0,0,0.6);
 }
 
 .hero p {
@@ -163,7 +192,7 @@ body {
   border: 1px solid rgba(255,255,255,0.08);
 }
 
-/* EXTRAS (wie vorher Premium Card Style) */
+/* EXTRAS */
 .extras-card {
   width: 720px;
   max-width: 90%;
@@ -213,11 +242,17 @@ body {
 
 <body>
 
+<!-- 🔝 NAVIGATION -->
+<div class="topnav">
+  <a href="index.html">← Zurück zur Startseite</a>
+  <a href="index.html#leistungen">Leistungen</a>
+</div>
+
 <!-- HERO -->
 <section class="hero">
   <div class="hero-content">
     <h1>Außenpflege</h1>
-    <p>Mehr als nur waschen – wir bringen dein Fahrzeug zurück in seinen Glanz</p>
+    <p>Mehr als nur waschen</p>
   </div>
 </section>
 
@@ -229,7 +264,7 @@ body {
 
     <div class="card">
       <div class="badge">Einsteiger</div>
-      <div class="price">A Paket – 15€</div>
+      <div class="price">A Paket – 20€</div>
       <ul>
         <li>Außenhandwäsche</li>
         <li>Felgenreinigung</li>
@@ -271,7 +306,7 @@ body {
 <section class="split">
   <img src="auto_lack_aussen.webp">
   <div class="split-box">
-    Präzise Handarbeit für ein perfektes Finish
+    Mit viel Liebe zum Detail und sorgfältiger Handarbeit bringen wir den ursprünglichen Charakter und Glanz deines Fahrzeugs wieder deutlich zum Vorschein.
   </div>
 </section>
 
