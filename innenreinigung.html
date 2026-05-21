@@ -318,21 +318,64 @@ body {
 /* EXTRAS */
 
 .extras-card {
+  position: relative;
 
   width: 720px;
-
   max-width: 90%;
-
-  margin: 80px auto;
-
   padding: 35px;
-
   border-radius: 20px;
 
-  background: rgba(255,255,255,0.04);
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(14px);
 
   border: 1px solid rgba(255,255,255,0.08);
 
+  text-align: left;
+  margin: 0 auto;
+
+  overflow: hidden;
+
+  transition: 0.35s ease;
+}
+
+  .extras-card::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+
+  border-radius: 20px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #7c3aed,
+    #3b82f6,
+    #7c3aed,
+    transparent
+  );
+
+  background-size: 300% 300%;
+
+  animation: borderGlow 5s linear infinite;
+
+  z-index: -1;
+
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.extras-card:hover::before {
+  opacity: 1;
+}
+
+@keyframes borderGlow {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 300% 50%;
+  }
 }
 
 .extras-title {
