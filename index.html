@@ -321,16 +321,27 @@ footer {
   }
 
   nav {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    text-align: center;
-    margin-top: 10px;
-  }
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+  margin-top: 10px;
 
-  nav.active {
-    display: flex;
-  }
+  /* smooth animation */
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.35s ease;
+  pointer-events: none;
+}
+
+nav.active {
+  max-height: 500px;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
 
   nav a {
     padding: 10px;
