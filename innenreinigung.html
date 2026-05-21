@@ -360,12 +360,34 @@ body {
 }
 
 /* Snake Border Effekt */
+.extras-card {
+  position: relative;
+  overflow: hidden;
+
+  width: 720px;
+  max-width: 90%;
+
+  padding: 35px;
+  border-radius: 20px;
+
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(14px);
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  text-align: left;
+  margin: 0 auto;
+
+  transition: 0.35s ease;
+}
+
+/* Snake Light */
 .extras-card::before {
   content: "";
   position: absolute;
 
-  width: 180px;
-  height: 3px;
+  width: 160px;
+  height: 160px;
 
   background: linear-gradient(
     90deg,
@@ -375,52 +397,65 @@ body {
     transparent
   );
 
-  top: 0;
-  left: -180px;
+  border-radius: 50%;
 
-  animation: snakeBorder 4s linear infinite;
+  animation: snakeBorder 6s linear infinite;
 }
 
+/* Innenfläche bleibt dunkel */
+.extras-card::after {
+  content: "";
+  position: absolute;
+  inset: 1px;
+
+  border-radius: 20px;
+
+  background: rgba(15,15,26,0.96);
+
+  z-index: 1;
+}
+
+/* Inhalt über Overlay */
+.extras-card * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Animation komplett um den Rand */
 @keyframes snakeBorder {
 
   0% {
-    top: 0;
-    left: -180px;
-    transform: rotate(0deg);
+    top: -80px;
+    left: -80px;
   }
 
   25% {
-    top: 0;
-    left: 100%;
-    transform: rotate(0deg);
+    top: -80px;
+    left: calc(100% - 80px);
   }
 
   50% {
-    top: 100%;
-    left: 100%;
-    transform: rotate(90deg);
-    transform-origin: top left;
+    top: calc(100% - 80px);
+    left: calc(100% - 80px);
   }
 
   75% {
-    top: 100%;
-    left: -180px;
-    transform: rotate(180deg);
+    top: calc(100% - 80px);
+    left: -80px;
   }
 
   100% {
-    top: 0;
-    left: -180px;
-    transform: rotate(270deg);
+    top: -80px;
+    left: -80px;
   }
 }
 
 .extras-card:hover {
-  border: 1px solid #7c3aed;
+  border: 1px solid rgba(124,58,237,0.4);
 
   box-shadow:
-    0 0 25px rgba(124, 58, 237, 0.20),
-    0 0 50px rgba(124, 58, 237, 0.08);
+    0 0 25px rgba(124,58,237,0.18),
+    0 0 50px rgba(124,58,237,0.08);
 }
 
 .extras-title {
