@@ -22,33 +22,52 @@ html {
 }
 
 body {
-
   margin: 0;
-
-  font-family: Arial, sans-serif;
-
+  font-family: "Poppins", sans-serif;
   background: #0b0b0f;
-
   color: white;
-
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* NAVBAR */
 
 header {
+  position: fixed;
+  top: 0;
+  width: 100%;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  padding: 18px 40px;
+  background: rgba(10,10,15,0.6);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  z-index: 1000;
 }
 
-/* LOGO LINKS */
 .logo {
-  flex: 1;
+  font-size: 22px;
+  font-weight: 700;
+  color: #7c3aed;
+  letter-spacing: 2px;
 }
 
-/* NAV MIT ABSTAND */
 nav {
   display: flex;
-  gap: 20px;
+  gap: 25px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: #3b82f6;
+  transform: translateY(-2px);
 }
 
 /* HAMBURGER RECHTS */
@@ -60,17 +79,6 @@ nav {
   display: none;
 }
 
-.logo {
-
-  font-size: 24px;
-
-  font-weight: bold;
-
-  color: #7c3aed;
-
-  letter-spacing: 2px;
-
-}
 
 nav a {
 
@@ -84,50 +92,35 @@ nav a {
 
 }
 
-nav a:hover {
-
-  color: #3b82f6;
-
-}
-
 /* HERO */
 
 .hero {
-  height: 90vh;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
 
   background:
-    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+    linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
     url('gt3_aes_heck.png');
 
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 
-  padding: 20px;
+  padding: 0 20px;
 }
-
 .hero-box {
-
-  background: rgba(0,0,0,0.28);
-
-  backdrop-filter: blur(12px);
-
-  -webkit-backdrop-filter: blur(12px);
-
+  background: rgba(0,0,0,0.35);
+  backdrop-filter: blur(14px);
   border: 1px solid rgba(255,255,255,0.08);
-
   border-radius: 24px;
+  padding: 60px 40px;
+  max-width: 720px;
 
-  padding: 50px;
-
-  max-width: 700px;
-
+  animation: fadeUp 1s ease;
 }
-
 .hero h1 {
 
   font-size: 58px;
@@ -210,11 +203,10 @@ nav a:hover {
 /* SECTIONS */
 
 .section {
-
-  padding: 90px 20px;
-
+  padding: 120px 20px;
   text-align: center;
-
+  max-width: 1200px;
+  margin: auto;
 }
 
 .section h2 {
@@ -323,6 +315,17 @@ footer {
 
   color: #9ca3af;
 
+}
+
+  @keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* MOBILE */
