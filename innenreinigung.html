@@ -646,7 +646,9 @@ body {
         <li>Armaturen abwischen</li>
         <li>Scheiben innen reinigen</li>
       </ul>
-      <button class="add-btn" onclick="addToCart('Innenreinigung – A Paket (20€)', this)">
+      <button class="add-btn"
+  data-item="Innenreinigung – A Paket (20€)"
+  onclick="addToCart('Innenreinigung – A Paket (20€)', this)">
   + Hinzufügen
 </button>
     </div>
@@ -661,8 +663,14 @@ body {
         <li>Scheiben innen reinigen</li>
         <li>Leichte Fleckenentfernung</li>
       </ul>
-      <button class="add-btn" onclick="addToCart('Innenreinigung – AA Paket (50€)', this)">
+      <button class="add-btn"
+
+  data-item="Innenreinigung – AA Paket (50€)"
+
+  onclick="addToCart('Innenreinigung – AA Paket (50€)', this)">
+
   + Hinzufügen
+
 </button>
     </div>
 
@@ -679,8 +687,14 @@ body {
         <li>Geruchsneutralisierung</li>
         <li>Sicherheitsgurte Reinigung</li>
       </ul>
-      <button class="add-btn" onclick="addToCart('Innenreinigung – AAA Paket (109€)', this)">
+     <button class="add-btn"
+
+  data-item="Innenreinigung – AAA Paket (109€)"
+
+  onclick="addToCart('Innenreinigung – AAA Paket (109€)', this)">
+
   + Hinzufügen
+
 </button>
     </div>
 
@@ -757,8 +771,21 @@ function addToCart(item, btn) {
     btn.textContent = "+ Hinzufügen";
   }
 }
-</script>
 
+   function syncButtons() {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  document.querySelectorAll(".add-btn").forEach(btn => {
+    const item = btn.getAttribute("data-item");
+
+    if (cart.includes(item)) {
+      btn.classList.add("active");
+      btn.textContent = "Im Warenkorb ✓";
+    }
+  });
+}
+   window.addEventListener("DOMContentLoaded", updateButtons);
+</script>
 
 </body>
 
