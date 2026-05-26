@@ -480,27 +480,39 @@ body {
 
   <script>
 function addToCart(item, btn) {
+
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
   const index = cart.indexOf(item);
 
   if (index === -1) {
+
     cart.push(item);
 
     btn.classList.add("active", "flash");
+
     btn.textContent = "Im Warenkorb ✓";
 
+    setTimeout(() => {
+
+      btn.classList.remove("flash");
+
+    }, 400);
+
   } else {
+
     cart.splice(index, 1);
 
     btn.classList.remove("active");
+
     btn.textContent = "+ Hinzufügen";
+
   }
 
- localStorage.setItem("cart", JSON.stringify(cart));
+  localStorage.setItem("cart", JSON.stringify(cart));
 
-syncButtons();
-updateCartCount(); // 🔥 fehlt noch
+  syncButtons();
+
 }
 
     function updateCartCount() {
@@ -517,7 +529,9 @@ function syncButtons() {
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
   document.querySelectorAll(".add-btn").forEach(btn => {
-    const item = btn.dataset.item;
+
+    // item direkt aus onclick holen (wichtig!)
+    const item = btn.getAttribute("onclick").match(/'(.*?)'/)[1];
 
     if (cart.includes(item)) {
       btn.classList.add("active");
