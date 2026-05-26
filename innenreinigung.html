@@ -773,11 +773,11 @@ function addToCart(item, btn) {
   }
 }
 
-   function syncButtons() {
+  function syncButtons() {
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
   document.querySelectorAll(".add-btn").forEach(btn => {
-    const item = btn.getAttribute("data-item");
+    const item = btn.dataset.item;
 
     if (cart.includes(item)) {
       btn.classList.add("active");
@@ -788,7 +788,8 @@ function addToCart(item, btn) {
     }
   });
 }
-   window.addEventListener("DOMContentLoaded", syncButtons);
+
+window.addEventListener("DOMContentLoaded", syncButtons);
 </script>
 
 </body>
