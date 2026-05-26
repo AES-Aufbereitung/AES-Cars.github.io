@@ -478,7 +478,7 @@ body {
   </div>
 </section>
 
-  <script>
+<script>
 function addToCart(item, btn) {
 
   let cart = JSON.parse(localStorage.getItem("cart") || "[]");
@@ -490,13 +490,10 @@ function addToCart(item, btn) {
     cart.push(item);
 
     btn.classList.add("active", "flash");
-
     btn.textContent = "Im Warenkorb ✓";
 
     setTimeout(() => {
-
       btn.classList.remove("flash");
-
     }, 400);
 
   } else {
@@ -504,24 +501,20 @@ function addToCart(item, btn) {
     cart.splice(index, 1);
 
     btn.classList.remove("active");
-
     btn.textContent = "+ Hinzufügen";
-
   }
 
   localStorage.setItem("cart", JSON.stringify(cart));
 
   syncButtons();
-
 }
 
-    function updateCartCount() {
- const cart = JSON.parse(localStorage.getItem("cart") || "[]");
-  const count = cart.length;
-
+function updateCartCount() {
+  const cart = JSON.parse(localStorage.getItem("cart") || "[]");
   const counter = document.getElementById("cart-count");
+
   if (counter) {
-    counter.textContent = count;
+    counter.textContent = cart.length;
   }
 }
 
@@ -530,8 +523,7 @@ function syncButtons() {
 
   document.querySelectorAll(".add-btn").forEach(btn => {
 
-    // item direkt aus onclick holen (wichtig!)
-    const item = btn.getAttribute("onclick").match(/'(.*?)'/)[1];
+    const item = btn.dataset.item;
 
     if (cart.includes(item)) {
       btn.classList.add("active");
@@ -543,10 +535,10 @@ function syncButtons() {
   });
 }
 
-window.addEventListener("DOMContentLoaded", syncButtons);
-
-    console.log("Buttons gefunden:", document.querySelectorAll(".add-btn"));
-    
+window.addEventListener("DOMContentLoaded", () => {
+  syncButtons();
+  console.log("Buttons gefunden:", document.querySelectorAll(".add-btn"));
+});
 </script>
   
 </body>
