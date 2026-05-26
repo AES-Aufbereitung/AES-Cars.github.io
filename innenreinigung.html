@@ -421,6 +421,59 @@ body {
   z-index: 2;
 }
 
+  .add-btn {
+  margin-top: 15px;
+  width: 100%;
+  padding: 12px;
+
+  border: none;
+  border-radius: 12px;
+
+  background: linear-gradient(135deg, #7c3aed, #3b82f6);
+  color: white;
+
+  font-weight: 600;
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+
+  box-shadow: 0 10px 25px rgba(124, 58, 237, 0.25);
+}
+
+.add-btn {
+  margin-top: 15px;
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+
+  background: linear-gradient(135deg, #7c3aed, #3b82f6);
+  color: white;
+
+  font-weight: 600;
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 25px rgba(124, 58, 237, 0.25);
+}
+
+/* IM WARENKORB (GRÜN) */
+.add-btn.active {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  box-shadow: 0 10px 25px rgba(34, 197, 94, 0.35);
+}
+
+/* KURZ ANIMATION BEIM HINZUFÜGEN */
+.add-btn.flash {
+  animation: flashGreen 0.4s ease;
+}
+
+@keyframes flashGreen {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
 /* Animation komplett um den Rand */
 @keyframes snakeBorder {
 
@@ -593,11 +646,9 @@ body {
         <li>Armaturen abwischen</li>
         <li>Scheiben innen reinigen</li>
       </ul>
-      <button class="add-btn" onclick="addToCart('Innenreinigung – A Paket (20€)')">
-
-        + Hinzufügen
-
-      </button>
+      <button class="add-btn" onclick="addToCart('Innenreinigung – A Paket (20€)', this)">
+  + Hinzufügen
+</button>
     </div>
 
     <div class="card">
@@ -610,11 +661,9 @@ body {
         <li>Scheiben innen reinigen</li>
         <li>Leichte Fleckenentfernung</li>
       </ul>
-      <button class="add-btn" onclick="addToCart('Innenreinigung – AA Paket (45€)')">
-
-        + Hinzufügen
-
-      </button>
+      <button class="add-btn" onclick="addToCart('Innenreinigung – AA Paket (50€)', this)">
+  + Hinzufügen
+</button>
     </div>
 
     <div class="card">
@@ -630,11 +679,9 @@ body {
         <li>Geruchsneutralisierung</li>
         <li>Sicherheitsgurte Reinigung</li>
       </ul>
-      <button class="add-btn" onclick="addToCart('Innenreinigung – AAA Paket (85€)')">
-
-        + Hinzufügen
-
-      </button>
+      <button class="add-btn" onclick="addToCart('Innenreinigung – AAA Paket (109€)', this)">
+  + Hinzufügen
+</button>
     </div>
 
   </div>
@@ -683,17 +730,32 @@ body {
 
 </section>
 
- <script>
-function addToCart(item) {
+ function addToCart(item, btn) {
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-  cart.push(item);
-  localStorage.setItem("cart", JSON.stringify(cart));
+  const index = cart.indexOf(item);
 
-  // Feedback für User
-  alert("✔️ Zum Warenkorb hinzugefügt:\n" + item);
+  // 👉 FALL 1: NICHT IM WARENKORB → HINZUFÜGEN
+  if (index === -1) {
+    cart.push(item);
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    btn.classList.add("flash", "active");
+    btn.textContent = "Im Warenkorb ✓";
+
+    setTimeout(() => {
+      btn.classList.remove("flash");
+    }, 400);
+
+  } else {
+    // 👉 FALL 2: ENTFERNEN
+    cart.splice(index, 1);
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    btn.classList.remove("active");
+    btn.textContent = "+ Hinzufügen";
+  }
 }
-</script>
 
 
 </body>
