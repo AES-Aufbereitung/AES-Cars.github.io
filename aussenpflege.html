@@ -517,7 +517,7 @@ function syncButtons() {
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
   document.querySelectorAll(".add-btn").forEach(btn => {
-    const item = btn.getAttribute("data-item");
+    const item = btn.dataset.item;
 
     if (cart.includes(item)) {
       btn.classList.add("active");
@@ -529,10 +529,7 @@ function syncButtons() {
   });
 }
 
-window.addEventListener("DOMContentLoaded", () => {
-  syncButtons();
-  updateCartCount();
-});
+window.addEventListener("DOMContentLoaded", syncButtons);
 </script>
   
 </body>
