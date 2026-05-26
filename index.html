@@ -894,10 +894,14 @@ function toggleMenu() {
 
 }
 
-  let cart = [];
+ let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 function addToCart(item) {
   cart.push(item);
+
+  // sofort speichern (wichtig für Unterseiten + Reload)
+  localStorage.setItem("cart", JSON.stringify(cart));
+
   updateCart();
 }
 
@@ -905,6 +909,8 @@ function updateCart() {
 
   const list = document.getElementById("cartList");
   const empty = document.getElementById("cartEmpty");
+
+  if (!list || !empty) return; // schützt Unterseiten ohne Warenkorb-Anzeige
 
   list.innerHTML = "";
 
@@ -914,13 +920,41 @@ function updateCart() {
     empty.style.display = "none";
   }
 
-  cart.forEach(item => {
+  cart.forEach((item, index) => {
     const li = document.createElement("li");
     li.textContent = item;
+
+    // optional: entfernen Button (kleines Upgrade)
+    li.style.display = "flex";
+    li.style.justifyContent = "space-between";
+    li.style.alignItems = "center";
+
+    const removeBtn = document.createElement("span");
+    removeBtn.textContent = "✕";
+    removeBtn.style.cursor = "pointer";
+    removeBtn.style.color = "#ef4444";
+    removeBtn.onclick = () => removeFromCart(index);
+
+    li.appendChild(removeBtn);
     list.appendChild(li);
   });
 
   updateLinks();
+
+  // immer synchron halten
+  localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+function removeFromCart(index) {
+  cart.splice(index, 1);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  updateCart();
+}
+
+function clearCart() {
+  cart = [];
+  localStorage.removeItem("cart");
+  updateCart();
 }
 
 function updateLinks() {
