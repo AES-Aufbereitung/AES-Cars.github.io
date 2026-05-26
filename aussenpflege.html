@@ -497,10 +497,10 @@ function addToCart(item, btn) {
     btn.textContent = "+ Hinzufügen";
   }
 
-  localStorage.setItem("cart", JSON.stringify(cart));
+ localStorage.setItem("cart", JSON.stringify(cart));
 
-  // 🔥 WICHTIG: UI neu synchronisieren
-  syncButtons();
+syncButtons();
+updateCartCount(); // 🔥 fehlt noch
 }
 
     function updateCartCount() {
@@ -529,7 +529,10 @@ function syncButtons() {
   });
 }
 
- window.addEventListener("DOMContentLoaded", syncButtons);
+window.addEventListener("DOMContentLoaded", () => {
+  syncButtons();
+  updateCartCount();
+});
 </script>
   
 </body>
