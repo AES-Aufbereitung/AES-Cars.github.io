@@ -333,20 +333,22 @@ body {
   margin-top: 15px;
   width: 100%;
   padding: 12px;
-  border-radius: 12px;
+
   border: none;
-  cursor: pointer;
+  border-radius: 12px;
 
   background: linear-gradient(135deg, #7c3aed, #3b82f6);
   color: white;
+
   font-weight: 600;
+  cursor: pointer;
 
   transition: 0.3s;
 }
 
 .add-btn:hover {
   transform: scale(1.03);
-  filter: brightness(1.1);
+  filter: brightness(1.2);
 }
   
 </style>
@@ -374,22 +376,25 @@ body {
 
   <div class="cards">
 
-   <div class="card" onclick="addToCart('Außenpflege – A Paket (15€)')">
+    <div class="card">
       <div class="badge">Einsteiger</div>
       <div class="price">A Paket – 15€</div>
+
       <ul>
         <li>Außenhandwäsche</li>
         <li>Felgenreinigung</li>
         <li>Trocknung</li>
       </ul>
-     <button class="add-btn" onclick="addToCart('Außenpflege – A Paket (15€)')">
-  In den Warenkorb
-</button>
+
+      <button class="add-btn" onclick="addToCart('Außenpflege – A Paket (15€)')">
+        + Hinzufügen
+      </button>
     </div>
 
-    <div class="card" onclick="addToCart('Außenpflege – AA Paket (50€)')">
+    <div class="card">
       <div class="badge">Beliebt</div>
       <div class="price">AA Paket – 50€</div>
+
       <ul>
         <li>Intensive Handwäsche</li>
         <li>Felgenreinigung</li>
@@ -399,14 +404,16 @@ body {
         <li>Glanzfinish</li>
         <li>Reifenglanz</li>
       </ul>
+
       <button class="add-btn" onclick="addToCart('Außenpflege – AA Paket (50€)')">
-  In den Warenkorb
-</button>
+        + Hinzufügen
+      </button>
     </div>
 
-   <div class="card" onclick="addToCart('Außenpflege – AAA Paket (109€)')">
+    <div class="card">
       <div class="badge">Premium</div>
       <div class="price">AAA Paket – 109€</div>
+
       <ul>
         <li>Premium Detail Handwäsche</li>
         <li>Felgen Tiefenreinigung</li>
@@ -415,9 +422,10 @@ body {
         <li>Cabrio Versiegelung</li>
         <li>Detailreinigung</li>
       </ul>
-     <button class="add-btn" onclick="addToCart('Außenpflege – AAA Paket (109€)')">
-  In den Warenkorb
-</button>
+
+      <button class="add-btn" onclick="addToCart('Außenpflege – AAA Paket (109€)')">
+        + Hinzufügen
+      </button>
     </div>
 
   </div>
@@ -454,8 +462,12 @@ body {
   <script>
 function addToCart(item) {
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
   cart.push(item);
   localStorage.setItem("cart", JSON.stringify(cart));
+
+  // Feedback für User
+  alert("✔️ Zum Warenkorb hinzugefügt:\n" + item);
 }
 </script>
 
