@@ -378,10 +378,6 @@ footer {
   }
 }
 
-  /* =========================
-   PREMIUM LOADER
-========================= */
-
 #loader {
   position: fixed;
   inset: 0;
@@ -389,115 +385,57 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
   z-index: 99999;
-  transition: opacity 1s ease, visibility 1s ease, transform 1s ease;
 }
 
-/* Exit Zoom Effekt */
+/* Exit */
 #loader.hidden {
   opacity: 0;
   visibility: hidden;
-  transform: scale(1.6);
-  filter: blur(12px);
+  transition: opacity 0.5s ease;
 }
 
-/* Tunnel Effekt */
-.light-tunnel {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    circle at center,
-    rgba(0,0,0,0.2) 0%,
-    rgba(0,0,0,0.7) 40%,
-    rgba(0,0,0,0.95) 100%
-  );
-}
-
-  .light-tunnel::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-
-  background: radial-gradient(
-    circle at center,
-    transparent 0%,
-    rgba(0,0,0,0.4) 40%,
-    rgba(0,0,0,0.9) 100%
-  );
-
-  mix-blend-mode: multiply;
-}
-
-/* Scheinwerfer STRAHL */
-.headlight-beam {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 900px;
-  height: 400px;
-  transform: translate(-50%, -50%);
-
-  background: radial-gradient(
-    ellipse at center,
-    rgba(255,255,255,0.9) 0%,
-    rgba(255,255,255,0.35) 20%,
-    rgba(124,58,237,0.15) 45%,
-    transparent 75%
-  );
-
-  filter: blur(18px);
-  opacity: 0.9;
-  animation: beamPulse 2.5s ease-in-out infinite;
-}
-/* TEXT */
-.loader-text {
-  position: absolute;
-  bottom: 12%;
-  left: 50%;
-  transform: translateX(-50%);
+/* Ampel Container */
+.traffic-box {
+  background: rgba(0,0,0,0.5);
+  padding: 40px 30px;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.08);
   text-align: center;
-  z-index: 2;
+  backdrop-filter: blur(10px);
 }
 
+/* Lichter */
+.light {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  margin: 10px auto;
+  opacity: 0.15;
+  transition: 0.3s;
+}
+
+/* Farben */
+.red { background: #ef4444; }
+.yellow { background: #facc15; }
+.green { background: #22c55e; }
+
+/* Aktiv States */
+.active {
+  opacity: 1;
+  box-shadow: 0 0 20px currentColor;
+}
+
+/* Text */
 .loader-text h2 {
-  font-size: 28px;
   color: #7c3aed;
-  margin-bottom: 6px;
+  margin-top: 20px;
+  font-size: 22px;
 }
 
 .loader-text p {
-  font-size: 14px;
   color: rgba(255,255,255,0.6);
-}
-
-/* Licht Puls */
-@keyframes beamPulse {
-
-  0% {
-
-    transform: translate(-50%, -50%) scale(1) skewX(-6deg);
-
-    opacity: 0.6;
-
-  }
-
-  50% {
-
-    transform: translate(-50%, -50%) scale(1.15) skewX(-6deg);
-
-    opacity: 1;
-
-  }
-
-  100% {
-
-    transform: translate(-50%, -50%) scale(1) skewX(-6deg);
-
-    opacity: 0.65;
-
-  }
-
+  font-size: 14px;
 }
 /* ===== STAGGER ANIMATION ===== */
 
@@ -758,16 +696,18 @@ footer {
 
 <body>
 
-  <!-- PORSCHE LOADER -->
+ <!-- AMPEL LOADER -->
 <div id="loader">
 
-  <div class="light-tunnel">
+  <div class="traffic-box">
 
-    <div class="headlight-beam"></div>
+    <div class="light red"></div>
+    <div class="light yellow"></div>
+    <div class="light green"></div>
 
     <div class="loader-text">
       <h2>AES Fahrzeugpflege</h2>
-      <p>Performance wird gestartet...</p>
+      <p>Start wird vorbereitet...</p>
     </div>
 
   </div>
@@ -1213,14 +1153,29 @@ window.addEventListener("load", revealOnScroll);
 window.addEventListener("load", () => {
   const loader = document.getElementById("loader");
 
+  const red = document.querySelector(".red");
+  const yellow = document.querySelector(".yellow");
+  const green = document.querySelector(".green");
+
+  // ROT
+  setTimeout(() => {
+    red.classList.add("active");
+  }, 300);
+
+  // GELB
+  setTimeout(() => {
+    yellow.classList.add("active");
+  }, 900);
+
+  // GRÜN
+  setTimeout(() => {
+    green.classList.add("active");
+  }, 1500);
+
+  // START (Loader weg)
   setTimeout(() => {
     loader.classList.add("hidden");
-
-    setTimeout(() => {
-      loader.remove();
-    }, 900);
-
-  }, 1800);
+  }, 2000);
 });
 </script>
 
