@@ -328,6 +328,26 @@ body {
     padding: 25px;
   }
 }
+
+  .add-btn {
+  margin-top: 15px;
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+
+  background: linear-gradient(135deg, #7c3aed, #3b82f6);
+  color: white;
+  font-weight: 600;
+
+  transition: 0.3s;
+}
+
+.add-btn:hover {
+  transform: scale(1.03);
+  filter: brightness(1.1);
+}
   
 </style>
 </head>
@@ -362,6 +382,9 @@ body {
         <li>Felgenreinigung</li>
         <li>Trocknung</li>
       </ul>
+     <button class="add-btn" onclick="addToCart('Außenpflege – A Paket (15€)')">
+  In den Warenkorb
+</button>
     </div>
 
     <div class="card" onclick="addToCart('Außenpflege – AA Paket (50€)')">
@@ -376,6 +399,9 @@ body {
         <li>Glanzfinish</li>
         <li>Reifenglanz</li>
       </ul>
+      <button class="add-btn" onclick="addToCart('Außenpflege – AA Paket (50€)')">
+  In den Warenkorb
+</button>
     </div>
 
    <div class="card" onclick="addToCart('Außenpflege – AAA Paket (109€)')">
@@ -389,6 +415,9 @@ body {
         <li>Cabrio Versiegelung</li>
         <li>Detailreinigung</li>
       </ul>
+     <button class="add-btn" onclick="addToCart('Außenpflege – AAA Paket (109€)')">
+  In den Warenkorb
+</button>
     </div>
 
   </div>
