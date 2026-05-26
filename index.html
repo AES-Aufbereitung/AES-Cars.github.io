@@ -385,68 +385,98 @@ footer {
 #loader {
   position: fixed;
   inset: 0;
-  background: radial-gradient(circle at center, #0b0b0f 0%, #050507 100%);
+  background: black;
+  z-index: 99999;
+  overflow: hidden;
+}
+
+/* Szene */
+.headlight-scene {
+  position: absolute;
+  inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 
-  z-index: 99999;
-  transition: opacity 0.6s ease, visibility 0.6s ease;
+  animation: zoomIn 2.2s ease forwards;
 }
 
-#loader.hidden {
-  opacity: 0;
-  visibility: hidden;
+/* Auto Silhouette */
+.car-silhouette {
+  width: 260px;
+  height: 80px;
+  background: #111;
+  border-radius: 40px;
+  position: relative;
+  box-shadow: 0 0 40px rgba(0,0,0,0.8);
 }
 
-/* Loader Content */
-.loader-content {
-  text-align: center;
-  animation: fadeUp 1.2s ease;
-}
-
-.loader-content h2 {
-  font-size: 28px;
-  color: #7c3aed;
-  margin: 10px 0 5px;
-  letter-spacing: 1px;
-}
-
-.loader-content p {
-  color: rgba(255,255,255,0.6);
-  font-size: 14px;
-}
-
-/* Spinner */
-.spinner {
-  width: 60px;
-  height: 60px;
+/* Scheinwerfer */
+.headlight {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background: white;
   border-radius: 50%;
-  border: 3px solid rgba(255,255,255,0.1);
-  border-top: 3px solid #7c3aed;
-  border-right: 3px solid #3b82f6;
-
-  animation: spin 1s linear infinite;
-  box-shadow: 0 0 25px rgba(124,58,237,0.25);
+  box-shadow: 0 0 25px #fff, 0 0 60px #3b82f6;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
-/* Animations */
-@keyframes spin {
-  to { transform: rotate(360deg); }
+.headlight.left { left: 40%; }
+.headlight.right { right: 40%; }
+
+/* Lichtstrahl */
+.light-beam {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(59,130,246,0.25), transparent 60%);
+  filter: blur(10px);
+  animation: pulse 1.5s infinite alternate;
 }
 
-@keyframes fadeUp {
-  from {
+/* Text */
+.loader-text {
+  margin-top: 40px;
+  color: #7c3aed;
+  font-size: 18px;
+  letter-spacing: 2px;
+  opacity: 0.8;
+}
+
+/* Zoom Effekt in Seite */
+@keyframes zoomIn {
+  0% {
+    transform: scale(1.3);
     opacity: 0;
-    transform: translateY(20px);
   }
-  to {
+  40% {
     opacity: 1;
-    transform: translateY(0);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
   }
 }
 
+@keyframes pulse {
+  from { transform: scale(1); opacity: 0.6; }
+  to { transform: scale(1.2); opacity: 1; }
+}
+
+/* Exit Animation */
+#loader.hidden {
+  animation: fadeOut 0.8s ease forwards;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
 /* ===== STAGGER ANIMATION ===== */
 
 .reveal {
@@ -706,15 +736,23 @@ footer {
 
 <body>
 
-  <!-- PREMIUM LOADER -->
+  <!-- PREMIUM CINEMATIC LOADER -->
 <div id="loader">
-  <div class="loader-content">
-    <div class="spinner"></div>
-    <h2>AES Fahrzeugpflege</h2>
-    <p>wird geladen...</p>
+  <div class="headlight-scene">
+
+    <div class="car-silhouette"></div>
+
+    <div class="headlight left"></div>
+    <div class="headlight right"></div>
+
+    <div class="light-beam"></div>
+
+    <div class="loader-text">
+      AES Fahrzeugpflege
+    </div>
+
   </div>
 </div>
-
 <!-- NAVBAR -->
 
 <header>
@@ -1151,14 +1189,18 @@ window.addEventListener("scroll", revealOnScroll);
 window.addEventListener("load", revealOnScroll);
  </script>
 
-  <script>
+ <script>
 window.addEventListener("load", () => {
   const loader = document.getElementById("loader");
 
-  // kleine Verzögerung für Premium-Feeling
   setTimeout(() => {
     loader.classList.add("hidden");
-  }, 1200);
+
+    setTimeout(() => {
+      loader.remove();
+    }, 900);
+
+  }, 1800);
 });
 </script>
 
