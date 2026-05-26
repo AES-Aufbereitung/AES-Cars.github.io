@@ -378,6 +378,39 @@ footer {
   }
 }
 
+/* ===== STAGGER ANIMATION ===== */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Verzögerungen */
+
+.reveal-delay-1 {
+  transition-delay: 0.1s;
+}
+
+.reveal-delay-2 {
+  transition-delay: 0.2s;
+}
+
+.reveal-delay-3 {
+  transition-delay: 0.3s;
+}
+
+.reveal-delay-4 {
+  transition-delay: 0.4s;
+}
+
 /* MOBILE */
 
 @media (max-width: 768px) {
@@ -661,7 +694,7 @@ footer {
 
   <div class="cards">
 
-    <a href="aussenpflege.html" class="card">
+    <a href="aussenpflege.html" class="card reveal reveal-delay-1">
 
       <img src="aussen1.jpg" alt="Außenpflege">
 
@@ -675,7 +708,7 @@ footer {
 
     </a>
 
-    <a href="innenreinigung.html" class="card">
+   <a href="innenreinigung.html" class="card reveal reveal-delay-2">
 
       <img src="innen1.jpg" alt="Innenreinigung">
 
@@ -689,7 +722,7 @@ footer {
 
     </a>
 
-    <a href="komplettpaket.html" class="card">
+    <a href="komplettpaket.html" class="card reveal reveal-delay-3">
 
       <img src="komplett1.jpg" alt="Komplettpaket">
 
@@ -715,7 +748,7 @@ footer {
 
   <div class="cards">
 
-    <div class="card">
+   <div class="card reveal reveal-delay-1">
 
       <div class="card-content">
 
@@ -727,7 +760,7 @@ footer {
 
     </div>
 
-    <div class="card">
+   <div class="card reveal reveal-delay-2">
 
       <div class="card-content">
 
@@ -739,7 +772,7 @@ footer {
 
     </div>
 
-    <div class="card">
+   <div class="card reveal reveal-delay-3">
 
       <div class="card-content">
 
@@ -797,19 +830,19 @@ footer {
 
   <div class="cards">
 
-    <div class="card">
+  <div class="card reveal reveal-delay-1">
 
       <img src="gallery1.jpg" alt="Galerie">
 
     </div>
 
-    <div class="card">
+  <div class="card reveal reveal-delay-2">
 
       <img src="gallery2.jpg" alt="Galerie">
 
     </div>
 
-    <div class="card">
+    <div class="card reveal reveal-delay-3">
 
       <img src="gallery3.jpg" alt="Galerie">
 
@@ -827,7 +860,7 @@ footer {
 
   <div class="cards">
 
-    <div class="card">
+    <div class="card reveal reveal-delay-1">
 
       <div class="card-content">
 
@@ -839,7 +872,7 @@ footer {
 
     </div>
 
-    <div class="card">
+   <div class="card reveal reveal-delay-2">
 
       <div class="card-content">
 
@@ -851,7 +884,7 @@ footer {
 
     </div>
 
-    <div class="card">
+   <div class="card reveal reveal-delay-3">
 
       <div class="card-content">
 
@@ -863,7 +896,7 @@ footer {
 
     </div>
 
-    <div class="card">
+    <div class="card reveal reveal-delay-4">
 
       <div class="card-content">
 
@@ -991,6 +1024,31 @@ function updateLinks() {
       "mailto:artinhd36@gmail.com?subject=Anfrage Fahrzeugpflege&body=" + text;
   }
 }
+
+/* =========================
+   STAGGER REVEAL ANIMATION
+========================= */
+
+const reveals = document.querySelectorAll(".reveal");
+
+const revealOnScroll = () => {
+
+  reveals.forEach(item => {
+
+    const windowHeight = window.innerHeight;
+    const revealTop = item.getBoundingClientRect().top;
+
+    if (revealTop < windowHeight - 80) {
+      item.classList.add("active");
+    }
+
+  });
+
+};
+
+window.addEventListener("scroll", revealOnScroll);
+
+window.addEventListener("load", revealOnScroll);
  </script>
 
 </body>
