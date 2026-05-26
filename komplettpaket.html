@@ -315,6 +315,28 @@ background-size: 110%;
   50% { transform: scale(1.08); }
   100% { transform: scale(1); }
 }
+
+  /* =========================
+   STAGGER ANIMATION SYSTEM
+========================= */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: all 0.6s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Verzögerungen */
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-5 { transition-delay: 0.5s; }
 @media (max-width: 768px) {
 
   /* HERO */
@@ -415,7 +437,7 @@ background-size: 110%;
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-content">
+  <div class="hero-content reveal reveal-delay-1">
     <h1>Komplettpaket</h1>
     <p>Für ein stimmiges Gesamtbild deines Autos.</p>
   </div>
@@ -427,7 +449,7 @@ background-size: 110%;
 
   <div class="cards">
 
-    <div class="card">
+    <div class="card reveal reveal-delay-1">
       <div class="badge">Einsteiger</div>
       <div class="price">A Komplettpaket - 35€</div>
       <ul>
@@ -445,7 +467,7 @@ background-size: 110%;
 </button>
     </div>
 
-    <div class="card">
+     <div class="card reveal reveal-delay-2">
       <div class="badge">Beliebt</div>
       <div class="price">AA Komplettpaket - 100€</div>
       <ul>
@@ -466,7 +488,7 @@ background-size: 110%;
 </button>
     </div>
 
-    <div class="card">
+    <div class="card reveal reveal-delay-3">
       <div class="badge">Premium</div>
       <div class="price">AAA Komplettpaket - 199€</div>
       <ul>
@@ -492,11 +514,11 @@ background-size: 110%;
 </section>
 
 <!-- SPLIT -->
-<section class="split">
+<section class="split reveal reveal-delay-2">
 
   <img src="komplettpaket_bild2.webp">
 
-  <div class="split-box">
+ <div class="split-box reveal reveal-delay-3">
     <p>Leasingrückgabe geplant? Mit unserer Aufbereitung vermeiden Sie unnötige Kosten und sichern den besten Eindruck Ihres Fahrzeugs. Der perfekte Mix aus Innen- und Außenpflege für ein echtes Neuwagengefühl.</p>
   </div>
 
@@ -505,7 +527,7 @@ background-size: 110%;
 <!-- EXTRAS -->
 <section class="section">
 
-  <div class="extras-card">
+ <div class="extras-card reveal reveal-delay-2">
 
     <div class="extras-title">Extras</div>
 
@@ -573,6 +595,24 @@ function addToCart(item, btn) {
 }
 
 window.addEventListener("DOMContentLoaded", syncButtons);
+</script>
+
+  <script>
+function revealOnScroll() {
+  const reveals = document.querySelectorAll(".reveal");
+  const windowHeight = window.innerHeight;
+
+  reveals.forEach(el => {
+    const elementTop = el.getBoundingClientRect().top;
+
+    if (elementTop < windowHeight - 80) {
+      el.classList.add("active");
+    }
+  });
+}
+
+window.addEventListener("scroll", revealOnScroll);
+window.addEventListener("load", revealOnScroll);
 </script>
 
 </body>
