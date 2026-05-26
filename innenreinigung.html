@@ -747,7 +747,7 @@ body {
 
  <script>
 function addToCart(item, btn) {
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let cart = JSON.parse(localStorage.getItem("cart") || "[]");
 
   const index = cart.indexOf(item);
 
@@ -774,7 +774,7 @@ function addToCart(item, btn) {
 }
 
   function syncButtons() {
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let cart = JSON.parse(localStorage.getItem("cart") || "[]");
 
   document.querySelectorAll(".add-btn").forEach(btn => {
     const item = btn.dataset.item;
