@@ -618,9 +618,6 @@ footer {
   <a href="#kontakt">Anfrage</a>
   <a href="impressum.html" target="_blank">Impressum & Datenschutz</a>
 
-  <a href="warenkorb.html">
-    Warenkorb 🛒 <span id="cart-count">0</span>
-  </a>
 </nav>
 
   <div class="menu-toggle" onclick="toggleMenu()">
@@ -989,19 +986,6 @@ function updateLinks() {
 }
 
 </script>
-
-  <script src="cart.js"></script>
-
-  <script>
-function updateCartCount() {
-  const cart = JSON.parse(localStorage.getItem("cart")) || [];
-  const count = cart.length;
-
-  const counter = document.getElementById("cart-count");
-  if (counter) {
-    counter.textContent = count;
-  }
-}
 
 window.addEventListener("DOMContentLoaded", updateCartCount);
 </script>
