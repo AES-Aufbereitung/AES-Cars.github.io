@@ -486,15 +486,21 @@ function addToCart(item, btn) {
 
   if (index === -1) {
     cart.push(item);
+
     btn.classList.add("active", "flash");
     btn.textContent = "Im Warenkorb ✓";
+
   } else {
     cart.splice(index, 1);
+
     btn.classList.remove("active");
     btn.textContent = "+ Hinzufügen";
   }
 
   localStorage.setItem("cart", JSON.stringify(cart));
+
+  // 🔥 WICHTIG: UI neu synchronisieren
+  syncButtons();
 }
 
     function updateCartCount() {
