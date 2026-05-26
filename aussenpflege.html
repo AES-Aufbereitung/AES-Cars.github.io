@@ -520,6 +520,16 @@ function addToCart(item, btn) {
   localStorage.setItem("cart", JSON.stringify(cart));
 }
 
+    function updateCartCount() {
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const count = cart.length;
+
+  const counter = document.getElementById("cart-count");
+  if (counter) {
+    counter.textContent = count;
+  }
+}
+
 function syncButtons() {
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
@@ -536,21 +546,14 @@ function syncButtons() {
   });
 }
 
-window.addEventListener("DOMContentLoaded", syncButtons);
-</script>
+window.addEventListener("DOMContentLoaded", () => {
 
-  <script>
-function updateCartCount() {
-  const cart = JSON.parse(localStorage.getItem("cart")) || [];
-  const count = cart.length;
+  syncButtons();
 
-  const counter = document.getElementById("cart-count");
-  if (counter) {
-    counter.textContent = count;
-  }
-}
+  updateCartCount();
 
-window.addEventListener("DOMContentLoaded", updateCartCount);
+});
+
 </script>
   
 </body>
