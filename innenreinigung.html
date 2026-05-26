@@ -781,10 +781,13 @@ function addToCart(item, btn) {
     if (cart.includes(item)) {
       btn.classList.add("active");
       btn.textContent = "Im Warenkorb ✓";
+    } else {
+      btn.classList.remove("active");
+      btn.textContent = "+ Hinzufügen";
     }
   });
 }
-   window.addEventListener("DOMContentLoaded", updateButtons);
+   window.addEventListener("DOMContentLoaded", syncButtons);
 </script>
 
 </body>
