@@ -593,6 +593,11 @@ body {
         <li>Armaturen abwischen</li>
         <li>Scheiben innen reinigen</li>
       </ul>
+      <button class="add-btn" onclick="addToCart('Innenreinigung – A Paket (20€)')">
+
+        + Hinzufügen
+
+      </button>
     </div>
 
     <div class="card">
@@ -605,6 +610,11 @@ body {
         <li>Scheiben innen reinigen</li>
         <li>Leichte Fleckenentfernung</li>
       </ul>
+      <button class="add-btn" onclick="addToCart('Innenreinigung – AA Paket (45€)')">
+
+        + Hinzufügen
+
+      </button>
     </div>
 
     <div class="card">
@@ -620,6 +630,11 @@ body {
         <li>Geruchsneutralisierung</li>
         <li>Sicherheitsgurte Reinigung</li>
       </ul>
+      <button class="add-btn" onclick="addToCart('Innenreinigung – AAA Paket (85€)')">
+
+        + Hinzufügen
+
+      </button>
     </div>
 
   </div>
@@ -667,6 +682,19 @@ body {
   </div>
 
 </section>
+
+ <script>
+function addToCart(item) {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  cart.push(item);
+  localStorage.setItem("cart", JSON.stringify(cart));
+
+  // Feedback für User
+  alert("✔️ Zum Warenkorb hinzugefügt:\n" + item);
+}
+</script>
+
 
 </body>
 
