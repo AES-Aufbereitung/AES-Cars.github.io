@@ -952,7 +952,7 @@ function toggleMenu() {
    WARENKORB FIX (FINAL)
 ========================= */
 
-let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+let cart = getCart();
 
 /* Beim Laden Warenkorb sofort anzeigen */
 document.addEventListener("DOMContentLoaded", () => {
