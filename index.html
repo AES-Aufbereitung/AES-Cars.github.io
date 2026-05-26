@@ -476,29 +476,114 @@ footer {
 
 }
 
- .cart-box {
-  background: #111827;
-  border: 1px solid #1f1f2e;
-  padding: 20px;
-  border-radius: 16px;
-  margin-bottom: 20px;
-  text-align: left;
+  /* ===== PREMIUM WARENKORB ===== */
+
+.premium-cart {
+  max-width: 750px;
+  margin: auto;
+  padding: 35px;
+  border-radius: 24px;
+
+  background:
+    linear-gradient(145deg, rgba(17,24,39,0.95), rgba(10,10,15,0.95));
+
+  border: 1px solid rgba(124,58,237,0.25);
+
+  box-shadow:
+    0 25px 60px rgba(0,0,0,0.5),
+    0 0 40px rgba(124,58,237,0.12);
+
+  backdrop-filter: blur(14px);
 }
 
-.cart-box ul {
-  padding-left: 20px;
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
 }
 
-.cart-box li {
-  margin-bottom: 8px;
-  color: #d1d5db;
+.cart-header h3 {
+  margin: 0;
+  font-size: 24px;
+  color: white;
 }
 
-.cart-actions {
+.cart-badge {
+  background: linear-gradient(135deg, #7c3aed, #3b82f6);
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+#cartEmpty {
+  color: #9ca3af;
+  text-align: center;
+  padding: 30px 0;
+}
+
+#cartList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#cartList li {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.06);
+
+  margin-bottom: 12px;
+  padding: 16px 18px;
+
+  border-radius: 14px;
+
+  color: white;
+  font-weight: 500;
+
+  transition: 0.3s;
+}
+
+#cartList li:hover {
+  transform: translateX(5px);
+  border-color: rgba(59,130,246,0.5);
+}
+
+.cart-buttons {
   display: flex;
   gap: 15px;
-  justify-content: center;
+  margin-top: 30px;
   flex-wrap: wrap;
+  justify-content: center;
+}
+
+.secondary-btn {
+  background: rgba(255,255,255,0.08);
+}
+
+.secondary-btn:hover {
+  background: rgba(255,255,255,0.14);
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+  .premium-cart {
+    padding: 24px;
+  }
+
+  .cart-header {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+
+  .cart-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
 }
   
   /* ===== FIX: Kontakt Hover auf Handy deaktivieren ===== */
@@ -566,7 +651,8 @@ footer {
 
 </section>
 
-<!-- LEISTUNGEN (JETZT WIE REFERENZ MIT UNTERSEITEN) -->
+
+<!-- LEISTUNGEN -->
 
 <section class="section" id="leistungen">
 
@@ -580,17 +666,13 @@ footer {
 
       <div class="card-content">
 
-  <h3>Außenpflege</h3>
+        <h3>Außenpflege</h3>
 
-  <p>Politur, Lackaufbereitung und hochwertige Schutzversiegelung.</p>
-
-  <button class="btn" onclick="addToCart('Außenpflege')">
-    + Zur Anfrage hinzufügen
-  </button>
-
-</div>
+        <p>Politur, Lackaufbereitung und hochwertige Schutzversiegelung.</p>
 
       </div>
+
+    </a>
 
     <a href="innenreinigung.html" class="card">
 
@@ -601,10 +683,6 @@ footer {
         <h3>Innenreinigung</h3>
 
         <p>Tiefenreinigung von Sitzen, Teppichen und Armaturen.</p>
-        
-        <button class="btn" onclick="addToCart('Innenreinigung')">
-  + Zur Anfrage hinzufügen
-</button>
 
       </div>
 
@@ -619,9 +697,6 @@ footer {
         <h3>Komplettpaket</h3>
 
         <p>Innen & Außen – dein Fahrzeug im Neuwagen-Zustand.</p>
-        <button class="btn" onclick="addToCart('Komplettpaket')">
-  + Zur Anfrage hinzufügen
-</button>
 
       </div>
 
@@ -630,7 +705,7 @@ footer {
   </div>
 
 </section>
-
+  
 <!-- PREISE -->
 
 <section class="section" id="preise">
@@ -645,7 +720,7 @@ footer {
 
         <h3>Innenreinigung</h3>
 
-        <p>ab 30€</p>
+        <p>ab 20€</p>
 
       </div>
 
@@ -657,7 +732,7 @@ footer {
 
         <h3>Außenpflege</h3>
 
-        <p>ab 50€</p>
+        <p>ab 15€</p>
 
       </div>
 
@@ -669,7 +744,7 @@ footer {
 
         <h3>Komplettpaket</h3>
 
-        <p>ab 90€</p>
+        <p>ab 35€</p>
 
       </div>
 
@@ -679,30 +754,40 @@ footer {
 
 </section>
 
-  <!-- ANFRAGE KONFIGURATOR (WARENKORB) -->
+ <!-- PREMIUM ANFRAGEBOX -->
 <section class="section" id="anfragebox">
 
-  <h2>Deine Auswahl</h2>
+  <h2>🛒 Deine Auswahl</h2>
 
-  <div class="cart-box">
-    <p id="cartEmpty">Noch keine Pakete ausgewählt</p>
+  <div class="premium-cart">
+
+    <div class="cart-header">
+      <h3>Ausgewählte Pakete</h3>
+      <span class="cart-badge">AES Anfrage</span>
+    </div>
+
+    <p id="cartEmpty">
+      Noch keine Pakete ausgewählt
+    </p>
+
     <ul id="cartList"></ul>
-  </div>
 
-  <div class="cart-actions">
+    <div class="cart-buttons">
 
-    <a id="whatsappOrder" class="btn" href="#">
-      Anfrage per WhatsApp
-    </a>
+      <a id="whatsappOrder" class="btn" href="#">
+        Anfrage per WhatsApp
+      </a>
 
-    <a id="emailOrder" class="btn" href="#">
-      Anfrage per E-Mail
-    </a>
+      <a id="emailOrder" class="btn secondary-btn" href="#">
+        Anfrage per E-Mail
+      </a>
+
+    </div>
 
   </div>
 
 </section>
-
+  
 <!-- GALERIE -->
 
 <section class="section" id="galerie">
