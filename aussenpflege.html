@@ -354,7 +354,7 @@ body {
 
   <div class="cards">
 
-    <div class="card">
+   <div class="card" onclick="addToCart('Außenpflege – A Paket (15€)')">
       <div class="badge">Einsteiger</div>
       <div class="price">A Paket – 15€</div>
       <ul>
@@ -364,7 +364,7 @@ body {
       </ul>
     </div>
 
-    <div class="card">
+    <div class="card" onclick="addToCart('Außenpflege – AA Paket (50€)')">
       <div class="badge">Beliebt</div>
       <div class="price">AA Paket – 50€</div>
       <ul>
@@ -378,7 +378,7 @@ body {
       </ul>
     </div>
 
-    <div class="card">
+   <div class="card" onclick="addToCart('Außenpflege – AAA Paket (109€)')">
       <div class="badge">Premium</div>
       <div class="price">AAA Paket – 109€</div>
       <ul>
@@ -393,7 +393,7 @@ body {
 
   </div>
 </section>
-
+  
 <!-- SPLIT -->
 <section class="split">
   <img src="auto_lack_aussen.webp">
@@ -421,6 +421,14 @@ body {
 
   </div>
 </section>
+
+  <script>
+function addToCart(item) {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  cart.push(item);
+  localStorage.setItem("cart", JSON.stringify(cart));
+}
+</script>
 
 </body>
 </html>
