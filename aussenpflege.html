@@ -372,9 +372,7 @@ body {
 <div class="topnav">
   <a href="index.html">← Zurück zur Startseite</a>
   <a href="index.html#leistungen">Leistungen</a>
-  <a href="warenkorb.html">
-  Warenkorb 🛒 <span id="cart-count">0</span>
-</a>
+ 
 </div>
 
 <!-- HERO -->
@@ -525,14 +523,7 @@ function syncButtons() {
   });
 }
 
-window.addEventListener("DOMContentLoaded", () => {
-
-  syncButtons();
-
-  updateCartCount();
-
-});
-
+ window.addEventListener("DOMContentLoaded", syncButtons);
 </script>
   
 </body>
