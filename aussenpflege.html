@@ -481,7 +481,7 @@ body {
   <script>
 function addToCart(item, btn) {
 
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let cart = JSON.parse(localStorage.getItem("cart") || "[]");
 
   const index = cart.indexOf(item);
 
@@ -516,7 +516,7 @@ function addToCart(item, btn) {
 }
 
     function updateCartCount() {
-  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+ const cart = JSON.parse(localStorage.getItem("cart") || "[]");
   const count = cart.length;
 
   const counter = document.getElementById("cart-count");
@@ -526,7 +526,7 @@ function addToCart(item, btn) {
 }
 
 function syncButtons() {
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let cart = JSON.parse(localStorage.getItem("cart") || "[]");
 
   document.querySelectorAll(".add-btn").forEach(btn => {
 
