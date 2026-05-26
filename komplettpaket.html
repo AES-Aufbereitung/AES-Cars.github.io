@@ -584,5 +584,19 @@ function addToCart(item, btn) {
 
   <script src="cart.js"></script>
 
+  <script>
+function updateCartCount() {
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const count = cart.length;
+
+  const counter = document.getElementById("cart-count");
+  if (counter) {
+    counter.textContent = count;
+  }
+}
+
+window.addEventListener("DOMContentLoaded", updateCartCount);
+</script>
+
 </body>
 </html>
