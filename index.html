@@ -897,7 +897,7 @@ function toggleMenu() {
    WARENKORB FIX (FINAL)
 ========================= */
 
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let cart = JSON.parse(localStorage.getItem("cart") || "[]");
 
 /* Beim Laden Warenkorb sofort anzeigen */
 document.addEventListener("DOMContentLoaded", () => {
@@ -906,9 +906,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
 /* + HINZUFÜGEN (GRÜNER BUTTON SOLL DAS AUFRUFEN) */
 function addToCart(item) {
+
   cart.push(item);
+
   saveCart();
+
   updateCart();
+
 }
 
 /* Entfernen einzelner Position */
