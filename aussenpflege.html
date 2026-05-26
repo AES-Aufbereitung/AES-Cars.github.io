@@ -9,9 +9,6 @@
 
 <style>
 
-/* =======================
-   BASE
-======================= */
 body {
   margin: 0;
   font-family: "Poppins", sans-serif;
@@ -19,9 +16,7 @@ body {
   color: white;
 }
 
-/* =======================
-   NAVIGATION
-======================= */
+/* 🔝 TOP NAVIGATION (BACK TO HOME) */
 .topnav {
   position: fixed;
   top: 0;
@@ -51,9 +46,7 @@ body {
   color: #7c3aed;
 }
 
-/* =======================
-   HERO
-======================= */
+/* HERO */
 .hero {
   position: relative;
   height: 75vh;
@@ -66,6 +59,7 @@ body {
   margin-top: 60px;
 }
 
+/* leichter Overlay */
 .hero::before {
   content: "";
   position: absolute;
@@ -73,6 +67,7 @@ body {
   background: rgba(0,0,0,0.35);
 }
 
+/* MINIMAL BLUR (wie gewünscht) */
 .hero-content {
   position: relative;
   z-index: 2;
@@ -81,10 +76,12 @@ body {
   border-radius: 16px;
 
   background: rgba(0,0,0,0.12);
+
   backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(3px);
 
   border: 1px solid rgba(255,255,255,0.06);
+
   max-width: 800px;
 }
 
@@ -100,9 +97,7 @@ body {
   margin-top: 10px;
 }
 
-/* =======================
-   SECTION
-======================= */
+/* SECTION */
 .section {
   padding: 80px 20px;
   text-align: center;
@@ -114,9 +109,7 @@ body {
   margin-bottom: 50px;
 }
 
-/* =======================
-   PACKAGES
-======================= */
+/* PACKAGES */
 .cards {
   display: flex;
   flex-wrap: wrap;
@@ -133,8 +126,8 @@ body {
   backdrop-filter: blur(14px);
 
   border: 1px solid rgba(255,255,255,0.08);
-  text-align: left;
 
+  text-align: left;
   transition: 0.35s ease;
 }
 
@@ -176,9 +169,30 @@ body {
   color: #7c3aed;
 }
 
-/* =======================
-   EXTRAS CARD (GLASS + ANIMATION BLEIBT!)
-======================= */
+/* SPLIT */
+.split {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  padding: 80px 20px;
+  flex-wrap: wrap;
+}
+
+.split img {
+  width: 480px;
+  max-width: 100%;
+  border-radius: 18px;
+}
+
+.split-box {
+  padding: 40px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* EXTRAS */
 .extras-card {
   position: relative;
   overflow: hidden;
@@ -200,9 +214,11 @@ body {
   transition: 0.35s ease;
 }
 
+/* SNAKE LIGHT */
 .extras-card::before {
   content: "";
   position: absolute;
+
   width: 160px;
   height: 160px;
 
@@ -219,6 +235,7 @@ body {
   animation: snakeBorder 6s linear infinite;
 }
 
+/* DARK OVERLAY */
 .extras-card::after {
   content: "";
   position: absolute;
@@ -228,11 +245,13 @@ body {
   z-index: 1;
 }
 
+/* CONTENT ABOVE EFFECT */
 .extras-card * {
   position: relative;
   z-index: 2;
 }
 
+/* ANIMATION */
 @keyframes snakeBorder {
   0% { top: -80px; left: -80px; }
   25% { top: -80px; left: calc(100% - 80px); }
@@ -241,34 +260,35 @@ body {
   100% { top: -80px; left: -80px; }
 }
 
-/* =======================
-   BUTTON
-======================= */
-.add-btn {
-  margin-top: 15px;
-  width: 100%;
-  padding: 12px;
-
-  border: none;
-  border-radius: 12px;
-
-  background: linear-gradient(135deg, #7c3aed, #3b82f6);
-  color: white;
-
-  font-weight: 600;
-  cursor: pointer;
-
-  transition: 0.3s ease;
+.extras-card:hover {
+  transform: translateY(-8px);
+  transition: 0.35s ease;
+  border: 1px solid #7c3aed;
+  box-shadow:
+    0 0 25px rgba(124, 58, 237, 0.45),
+    0 0 60px rgba(124, 58, 237, 0.15);
 }
 
-.add-btn:hover {
-  transform: scale(1.03);
-  filter: brightness(1.2);
+.extras-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #7c3aed;
+  margin-bottom: 15px;
 }
 
-/* =======================
-   MOBILE
-======================= */
+.extras-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: #d1d5db;
+  line-height: 2;
+}
+
+.extras-card ul li::before {
+  content: "✓ ";
+  color: #7c3aed;
+}
+
 @media (max-width: 768px) {
 
   .hero {
@@ -294,18 +314,55 @@ body {
     max-width: 95%;
   }
 
+  .split {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .split img {
+    width: 100%;
+  }
+
   .extras-card {
     width: 90%;
     padding: 25px;
   }
 }
 
+/* EXTRAS / MEDIA QUERIES usw... */
+
+/* HIER EINFÜGEN ↓↓↓ */
+.add-btn {
+  margin-top: 15px;
+  width: 100%;
+  padding: 12px;
+
+  border: none;
+  border-radius: 12px;
+
+  background: linear-gradient(135deg, #7c3aed, #3b82f6);
+  color: white;
+
+  font-weight: 600;
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+.add-btn:hover {
+  transform: scale(1.03);
+  filter: brightness(1.2);
+}
+
+/* HIER IST DAS ENDE ↓↓↓ */
+</style>
+  
 </style>
 </head>
 
 <body>
 
-<!-- NAV -->
+<!-- 🔝 NAVIGATION -->
 <div class="topnav">
   <a href="index.html">← Zurück zur Startseite</a>
   <a href="index.html#leistungen">Leistungen</a>
@@ -320,6 +377,7 @@ body {
 </section>
 
 <!-- PACKAGES -->
+<!-- PACKAGES -->
 <section class="section">
   <h2>Unsere Pakete</h2>
 
@@ -328,6 +386,7 @@ body {
     <div class="card">
       <div class="badge">Einsteiger</div>
       <div class="price">A Paket – 15€</div>
+
       <ul>
         <li>Außenhandwäsche</li>
         <li>Felgenreinigung</li>
@@ -342,11 +401,15 @@ body {
     <div class="card">
       <div class="badge">Beliebt</div>
       <div class="price">AA Paket – 50€</div>
+
       <ul>
         <li>Intensive Handwäsche</li>
         <li>Felgenreinigung</li>
-        <li>Politur leicht</li>
+        <li>Leichte Politur</li>
+        <li>Türfalze Reinigung</li>
+        <li>Insektenentfernung</li>
         <li>Glanzfinish</li>
+        <li>Reifenglanz</li>
       </ul>
 
       <button class="add-btn" onclick="addToCart('Außenpflege – AA Paket (50€)')">
@@ -357,10 +420,14 @@ body {
     <div class="card">
       <div class="badge">Premium</div>
       <div class="price">AAA Paket – 109€</div>
+
       <ul>
-        <li>Detail Handwäsche</li>
-        <li>Lackversiegelung</li>
+        <li>Premium Detail Handwäsche</li>
         <li>Felgen Tiefenreinigung</li>
+        <li>Glanzverstärkung</li>
+        <li>Lackversiegelung</li>
+        <li>Cabrio Versiegelung</li>
+        <li>Detailreinigung</li>
       </ul>
 
       <button class="add-btn" onclick="addToCart('Außenpflege – AAA Paket (109€)')">
@@ -370,30 +437,466 @@ body {
 
   </div>
 </section>
-
 <!-- EXTRAS -->
 <section class="section">
   <div class="extras-card">
-    <h3 style="color:#7c3aed;">Extras</h3>
+
+    <div class="extras-title">Extras</div>
 
     <ul>
       <li>Scheiben tönen</li>
-      <li>Abholservice</li>
-      <li>Lackversiegelung</li>
+      <li>Abhol- und Lieferservice</li>
+      <li>Cabrio-Verdeck Reinigung/Versiegelung</li>
       <li>Unterbodenwäsche</li>
+      <li>Felgenversiegelung</li>
+      <li>Lackversiegelung</li>
+      <li>Politur je nach Stufe</li>
+      <li>Wünsche offen? Einfach eine Anfrage schicken!</li>
     </ul>
+
+  </div>
+</section>
+
+  <script>
+function addToCart(item) {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  cart.push(item);
+  localStorage.setItem("cart", JSON.stringify(cart));
+}
+</script>
+
+<style>
+
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: #0b0b0f;
+  color: white;
+}
+
+/* 🔝 TOP NAVIGATION (BACK TO HOME) */
+.topnav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 15px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: rgba(15,15,26,0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  z-index: 999;
+}
+
+.topnav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.topnav a:hover {
+  color: #7c3aed;
+}
+
+/* HERO */
+.hero {
+  position: relative;
+  height: 75vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  background: url("porsche_hintergrundbild.png") center/cover no-repeat;
+  margin-top: 60px;
+}
+
+/* leichter Overlay */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+}
+
+/* MINIMAL BLUR (wie gewünscht) */
+.hero-content {
+  position: relative;
+  z-index: 2;
+
+  padding: 20px 30px;
+  border-radius: 16px;
+
+  background: rgba(0,0,0,0.12);
+
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+
+  border: 1px solid rgba(255,255,255,0.06);
+
+  max-width: 800px;
+}
+
+.hero h1 {
+  font-size: 64px;
+  margin: 0;
+  color: #7c3aed;
+}
+
+.hero p {
+  font-size: 20px;
+  color: rgba(255,255,255,0.85);
+  margin-top: 10px;
+}
+
+/* SECTION */
+.section {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.section h2 {
+  font-size: 36px;
+  color: #7c3aed;
+  margin-bottom: 50px;
+}
+
+/* PACKAGES */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.card {
+  width: 340px;
+  padding: 30px;
+  border-radius: 20px;
+
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(14px);
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  text-align: left;
+  transition: 0.35s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  border: 1px solid #7c3aed;
+  box-shadow:
+    0 0 25px rgba(124, 58, 237, 0.45),
+    0 0 60px rgba(124, 58, 237, 0.15);
+}
+
+.badge {
+  display: inline-block;
+  padding: 5px 14px;
+  font-size: 14px;
+  border-radius: 20px;
+  background: rgba(124, 58, 237, 0.15);
+  color: #7c3aed;
+  margin-bottom: 10px;
+}
+
+.price {
+  font-size: 26px;
+  font-weight: 700;
+  color: #3b82f6;
+  margin-bottom: 15px;
+}
+
+.card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: #d1d5db;
+  line-height: 2;
+}
+
+.card ul li::before {
+  content: "✓ ";
+  color: #7c3aed;
+}
+
+/* SPLIT */
+.split {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  padding: 80px 20px;
+  flex-wrap: wrap;
+}
+
+.split img {
+  width: 480px;
+  max-width: 100%;
+  border-radius: 18px;
+}
+
+.split-box {
+  padding: 40px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* EXTRAS */
+.extras-card {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+
+  width: 720px;
+  max-width: 90%;
+  padding: 35px;
+  border-radius: 20px;
+
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(14px);
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  text-align: left;
+  margin: 0 auto;
+
+  transition: 0.35s ease;
+}
+
+/* SNAKE LIGHT */
+.extras-card::before {
+  content: "";
+  position: absolute;
+
+  width: 160px;
+  height: 160px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #7c3aed,
+    #3b82f6,
+    transparent
+  );
+
+  border-radius: 50%;
+
+  animation: snakeBorder 6s linear infinite;
+}
+
+/* DARK OVERLAY */
+.extras-card::after {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: 20px;
+  background: rgba(15,15,26,0.96);
+  z-index: 1;
+}
+
+/* CONTENT ABOVE EFFECT */
+.extras-card * {
+  position: relative;
+  z-index: 2;
+}
+
+/* ANIMATION */
+@keyframes snakeBorder {
+  0% { top: -80px; left: -80px; }
+  25% { top: -80px; left: calc(100% - 80px); }
+  50% { top: calc(100% - 80px); left: calc(100% - 80px); }
+  75% { top: calc(100% - 80px); left: -80px; }
+  100% { top: -80px; left: -80px; }
+}
+
+.extras-card:hover {
+  transform: translateY(-8px);
+  transition: 0.35s ease;
+  border: 1px solid #7c3aed;
+  box-shadow:
+    0 0 25px rgba(124, 58, 237, 0.45),
+    0 0 60px rgba(124, 58, 237, 0.15);
+}
+
+.extras-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #7c3aed;
+  margin-bottom: 15px;
+}
+
+.extras-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: #d1d5db;
+  line-height: 2;
+}
+
+.extras-card ul li::before {
+  content: "✓ ";
+  color: #7c3aed;
+}
+
+@media (max-width: 768px) {
+
+  .hero {
+    height: auto;
+    padding: 80px 15px;
+  }
+
+  .hero h1 {
+    font-size: 34px;
+  }
+
+  .hero p {
+    font-size: 15px;
+  }
+
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 95%;
+  }
+
+  .split {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .split img {
+    width: 100%;
+  }
+
+  .extras-card {
+    width: 90%;
+    padding: 25px;
+  }
+}
+  
+</style>
+</head>
+
+<body>
+
+<!-- 🔝 NAVIGATION -->
+<div class="topnav">
+  <a href="index.html">← Zurück zur Startseite</a>
+  <a href="index.html#leistungen">Leistungen</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>Außenpflege</h1>
+    <p>Mehr als nur waschen</p>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<!-- PACKAGES -->
+<section class="section">
+  <h2>Unsere Pakete</h2>
+
+  <div class="cards">
+
+    <div class="card">
+      <div class="badge">Einsteiger</div>
+      <div class="price">A Paket – 15€</div>
+
+      <ul>
+        <li>Außenhandwäsche</li>
+        <li>Felgenreinigung</li>
+        <li>Trocknung</li>
+      </ul>
+
+      <button class="add-btn" onclick="addToCart('Außenpflege – A Paket (15€)')">
+        + Hinzufügen
+      </button>
+    </div>
+
+    <div class="card">
+      <div class="badge">Beliebt</div>
+      <div class="price">AA Paket – 50€</div>
+
+      <ul>
+        <li>Intensive Handwäsche</li>
+        <li>Felgenreinigung</li>
+        <li>Leichte Politur</li>
+        <li>Türfalze Reinigung</li>
+        <li>Insektenentfernung</li>
+        <li>Glanzfinish</li>
+        <li>Reifenglanz</li>
+      </ul>
+
+      <button class="add-btn" onclick="addToCart('Außenpflege – AA Paket (50€)')">
+        + Hinzufügen
+      </button>
+    </div>
+
+    <div class="card">
+      <div class="badge">Premium</div>
+      <div class="price">AAA Paket – 109€</div>
+
+      <ul>
+        <li>Premium Detail Handwäsche</li>
+        <li>Felgen Tiefenreinigung</li>
+        <li>Glanzverstärkung</li>
+        <li>Lackversiegelung</li>
+        <li>Cabrio Versiegelung</li>
+        <li>Detailreinigung</li>
+      </ul>
+
+      <button class="add-btn" onclick="addToCart('Außenpflege – AAA Paket (109€)')">
+        + Hinzufügen
+      </button>
+    </div>
+
+  </div>
+</section>
+<!-- EXTRAS -->
+<section class="section">
+  <div class="extras-card">
+
+    <div class="extras-title">Extras</div>
+
+    <ul>
+      <li>Scheiben tönen</li>
+      <li>Abhol- und Lieferservice</li>
+      <li>Cabrio-Verdeck Reinigung/Versiegelung</li>
+      <li>Unterbodenwäsche</li>
+      <li>Felgenversiegelung</li>
+      <li>Lackversiegelung</li>
+      <li>Politur je nach Stufe</li>
+      <li>Wünsche offen? Einfach eine Anfrage schicken!</li>
+    </ul>
+
   </div>
 </section>
 
 <script>
 function addToCart(item) {
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
   cart.push(item);
   localStorage.setItem("cart", JSON.stringify(cart));
-  alert("✔️ Hinzugefügt: " + item);
+
+  // Feedback für User
+  alert("✔️ Zum Warenkorb hinzugefügt:\n" + item);
 }
 </script>
-
+  
 </body>
-</html>
-</html>
