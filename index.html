@@ -378,6 +378,386 @@ footer {
   }
 }
 
+<!DOCTYPE html>
+
+<html lang="de">
+
+<head>
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>AES Fahrzeugpflege</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* SMOOTH SCROLL */
+
+html {
+
+  scroll-behavior: smooth;
+
+}
+
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: #0b0b0f;
+  color: white;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* NAVBAR */
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 40px;
+  background: rgba(10,10,15,0.6);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 700;
+  color: #7c3aed;
+  letter-spacing: 2px;
+}
+
+nav {
+  display: flex;
+  gap: 25px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: #3b82f6;
+  transform: translateY(-2px);
+}
+
+/* HAMBURGER RECHTS */
+.menu-toggle {
+  margin-left: auto;
+  font-size: 30px;
+  cursor: pointer;
+  color: white;
+  display: none;
+}
+
+
+/* HERO */
+
+.hero {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  background:
+    linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
+    url('gt3_aes_heck.png');
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  padding: 0 20px;
+}
+.hero-box {
+  background: rgba(0,0,0,0.35);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 24px;
+  padding: 60px 40px;
+  max-width: 720px;
+
+  animation: fadeUp 1s ease;
+}
+.hero h1 {
+
+  font-size: 58px;
+
+  margin-bottom: 15px;
+
+}
+
+.hero p {
+
+  color: #d1d5db;
+
+  font-size: 18px;
+
+  line-height: 1.6;
+
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 25px;
+  padding: 14px 32px;
+
+  background: linear-gradient(135deg, #7c3aed, #3b82f6);
+  color: white;
+
+  border-radius: 14px;
+  text-decoration: none;
+
+  font-weight: 600;
+  letter-spacing: 0.5px;
+
+  position: relative;
+  overflow: hidden;
+
+  transition: all 0.25s ease;
+
+  box-shadow:
+    0 10px 25px rgba(124, 58, 237, 0.25),
+    0 8px 18px rgba(0, 0, 0, 0.45);
+
+  transform: translateY(0);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+  .btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+
+  background: rgba(255,255,255,0.25);
+  transform: skewX(-25deg);
+  transition: 0.5s;
+}
+
+.btn:hover::before {
+  left: 130%;
+}
+.btn:hover {
+  transform: translateY(-4px) scale(1.04);
+
+  box-shadow:
+    0 18px 40px rgba(124, 58, 237, 0.45),
+    0 0 25px rgba(124, 58, 237, 0.35),
+    0 0 70px rgba(59, 130, 246, 0.25);
+
+  filter: brightness(1.15);
+}
+ .btn:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow:
+    0 6px 15px rgba(0, 0, 0, 0.4);
+}
+/* SECTIONS */
+
+.section {
+  padding: 120px 20px;
+  text-align: center;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.section h2 {
+
+  color: #7c3aed;
+
+  font-size: 36px;
+
+  margin-bottom: 50px;
+
+}
+
+/* CARDS */
+
+.cards {
+
+  display: flex;
+
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  gap: 25px;
+
+}
+
+.card {
+
+  width: 280px;
+
+  background: #111827;
+
+  border: 1px solid #1f1f2e;
+
+  border-radius: 18px;
+
+  overflow: hidden;
+
+  transition: 0.3s;
+
+  text-decoration: none;
+
+  color: inherit;
+
+}
+
+.card:hover {
+
+  transform: translateY(-6px);
+
+  border-color: #3b82f6;
+
+}
+
+.card img {
+
+  width: 100%;
+
+  height: 190px;
+
+  object-fit: cover;
+
+  display: block;
+
+}
+
+.card-content {
+
+  padding: 20px;
+
+}
+
+.card h3 {
+
+  color: #3b82f6;
+
+}
+
+.card p {
+
+  color: #d1d5db;
+
+  line-height: 1.5;
+
+}
+
+.card a {
+  color: inherit;
+  text-decoration: none;
+}
+
+  /* ===== KONTAKT PREMIUM STYLE ===== */
+
+#kontakt .card {
+  background: linear-gradient(145deg, #111827, #0b0b15);
+  border: 1px solid rgba(124, 58, 237, 0.15);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.35s ease;
+}
+
+/* Glow Effekt */
+#kontakt .card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top, rgba(124,58,237,0.25), transparent 60%);
+  opacity: 0;
+  transition: 0.4s;
+}
+
+#kontakt .card:hover::before {
+  opacity: 1;
+}
+
+/* Hover Bewegung + Tiefe */
+#kontakt .card:hover {
+  transform: translateY(-8px) scale(1.02);
+  border-color: rgba(59,130,246,0.6);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+
+/* Titel besser hervorheben */
+#kontakt .card h3 {
+  color: #7c3aed;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+/* Links moderner */
+#kontakt .card a {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: rgba(124,58,237,0.12);
+  color: white;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+#kontakt .card a:hover {
+  background: rgba(124,58,237,0.25);
+  transform: scale(1.05);
+}
+
+  #kontakt .card a {
+  position: relative;
+  z-index: 2;
+}
+
+/* FOOTER */
+
+footer {
+
+  background: #0f0f1a;
+
+  text-align: center;
+
+  padding: 25px;
+
+  border-top: 1px solid #1f1f2e;
+
+  color: #9ca3af;
+
+}
+
+  #kontakt .card-content {
+  position: relative;
+  z-index: 2;
+}
+
+  @keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .light {
   width: 22px;
   height: 22px;
@@ -406,6 +786,794 @@ footer {
   filter: blur(2px);
   box-shadow: none !important;
 }
+
+/* ZOOM IN EFFECT */
+body.zoom-in {
+  animation: zoomIntoSite 1.2s ease forwards;
+  overflow: hidden;
+}
+
+@keyframes zoomIntoSite {
+  0% {
+    transform: scale(1.08);
+    filter: brightness(1.2);
+  }
+  100% {
+    transform: scale(1);
+    filter: brightness(1);
+  }
+}
+
+/* FLASH beim Start */
+body.zoom-in::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle, rgba(255,255,255,0.9), transparent 60%);
+  animation: flash 0.6s ease;
+  z-index: 999999;
+  pointer-events: none;
+}
+
+@keyframes flash {
+  0% { opacity: 0; }
+  30% { opacity: 1; }
+  100% { opacity: 0; }
+}
+/* ===== STAGGER ANIMATION ===== */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Verzögerungen */
+
+.reveal-delay-1 {
+  transition-delay: 0.1s;
+}
+
+.reveal-delay-2 {
+  transition-delay: 0.2s;
+}
+
+.reveal-delay-3 {
+  transition-delay: 0.3s;
+}
+
+.reveal-delay-4 {
+  transition-delay: 0.4s;
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+  .logo {
+    padding-left: 15px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  nav {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.35s ease;
+    pointer-events: none;
+  }
+
+  nav.active {
+    max-height: 500px;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  nav a {
+    padding: 10px;
+    margin: 0;
+    font-size: 14px;
+  }
+
+  .hero {
+    height: auto;
+    padding: 80px 15px;
+    background-position: 20% center;
+  }
+
+  .hero h1 {
+    font-size: 34px;
+  }
+
+  .hero p {
+    font-size: 15px;
+  }
+
+  .hero-box {
+    padding: 25px;
+  }
+
+  .section h2 {
+    font-size: 26px;
+  }
+
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 95%;
+  }
+
+  .card img {
+    height: 160px;
+  }
+
+  footer {
+    font-size: 13px;
+  }
+
+  /* BUTTON MOBILE */
+  .btn {
+    padding: 12px 22px;
+    font-size: 14px;
+
+    border-radius: 12px;
+    width: 100%;
+    max-width: 280px;
+
+    box-shadow: 0 10px 20px rgba(124, 58, 237, 0.25);
+  }
+
+  .btn:hover {
+    transform: none;
+    box-shadow: 0 10px 20px rgba(124, 58, 237, 0.25);
+  }
+
+}
+
+  /* ===== PREMIUM WARENKORB ===== */
+
+.premium-cart {
+  max-width: 750px;
+  margin: auto;
+  padding: 35px;
+  border-radius: 24px;
+
+  background:
+    linear-gradient(145deg, rgba(17,24,39,0.95), rgba(10,10,15,0.95));
+
+  border: 1px solid rgba(124,58,237,0.25);
+
+  box-shadow:
+    0 25px 60px rgba(0,0,0,0.5),
+    0 0 40px rgba(124,58,237,0.12);
+
+  backdrop-filter: blur(14px);
+}
+
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.cart-header h3 {
+  margin: 0;
+  font-size: 24px;
+  color: white;
+}
+
+.cart-badge {
+  background: linear-gradient(135deg, #7c3aed, #3b82f6);
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+#cartEmpty {
+  color: #9ca3af;
+  text-align: center;
+  padding: 30px 0;
+}
+
+#cartList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#cartList li {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.06);
+
+  margin-bottom: 12px;
+  padding: 16px 18px;
+
+  border-radius: 14px;
+
+  color: white;
+  font-weight: 500;
+
+  transition: 0.3s;
+}
+
+#cartList li:hover {
+  transform: translateX(5px);
+  border-color: rgba(59,130,246,0.5);
+}
+
+.cart-buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.secondary-btn {
+  background: rgba(255,255,255,0.08);
+}
+
+.secondary-btn:hover {
+  background: rgba(255,255,255,0.14);
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+  .premium-cart {
+    padding: 24px;
+  }
+
+  .cart-header {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+
+  .cart-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+}
+  
+  /* ===== FIX: Kontakt Hover auf Handy deaktivieren ===== */
+@media (hover: none) {
+  #kontakt .card:hover {
+    transform: none !important;
+    box-shadow: none;
+  }
+
+  #kontakt .card a:hover {
+    transform: none !important;
+  }
+}
+
+</style>
+
+</head>
+
+<body>
+
+ <!-- AMPEL LOADER -->
+<div id="loader">
+
+  <div class="traffic-box">
+
+    <div class="light red"></div>
+    <div class="light yellow"></div>
+    <div class="light green"></div>
+
+    <div class="loader-text">
+      <h2>AES Fahrzeugpflege</h2>
+      <p>Start wird vorbereitet...</p>
+    </div>
+
+  </div>
+
+</div>
+<!-- NAVBAR -->
+
+<header>
+
+  <div class="logo">AES</div>
+
+  <nav id="navMenu">
+  <a href="#start">Start</a>
+  <a href="#leistungen">Leistungen</a>
+  <a href="#preise">Preise</a>
+  <a href="#galerie">Galerie</a>
+  <a href="#kontakt">Anfrage</a>
+  <a href="impressum.html" target="_blank">Impressum & Datenschutz</a>
+
+</nav>
+
+  <div class="menu-toggle" onclick="toggleMenu()">
+    ☰
+  </div>
+
+</header>
+
+<!-- HERO -->
+
+<section class="hero" id="start">
+
+  <div class="hero-box">
+
+    <h1>Wir holen den Glanz zurück.</h1>
+
+    <p>
+
+      Professionelle Fahrzeugpflege mit höchster Qualität,
+
+      perfektem Glanz und echter Leidenschaft für Fahrzeuge.
+
+    </p>
+
+    <a class="btn" href="#kontakt">
+
+      Termin buchen
+
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- LEISTUNGEN -->
+
+<section class="section" id="leistungen">
+
+  <h2>Unsere Leistungen</h2>
+
+  <div class="cards">
+
+    <a href="aussenpflege.html" class="card reveal reveal-delay-1">
+
+      <img src="aussen1.jpg" alt="Außenpflege">
+
+      <div class="card-content">
+
+        <h3>Außenpflege</h3>
+
+        <p>Politur, Lackaufbereitung und hochwertige Schutzversiegelung.</p>
+
+      </div>
+
+    </a>
+
+   <a href="innenreinigung.html" class="card reveal reveal-delay-2">
+
+      <img src="innen1.jpg" alt="Innenreinigung">
+
+      <div class="card-content">
+
+        <h3>Innenreinigung</h3>
+
+        <p>Tiefenreinigung von Sitzen, Teppichen und Armaturen.</p>
+
+      </div>
+
+    </a>
+
+    <a href="komplettpaket.html" class="card reveal reveal-delay-3">
+
+      <img src="komplett1.jpg" alt="Komplettpaket">
+
+      <div class="card-content">
+
+        <h3>Komplettpaket</h3>
+
+        <p>Innen & Außen – dein Fahrzeug im Neuwagen-Zustand.</p>
+
+      </div>
+
+    </a>
+
+  </div>
+
+</section>
+  
+<!-- PREISE -->
+
+<section class="section" id="preise">
+
+  <h2>Preise</h2>
+
+  <div class="cards">
+
+   <div class="card reveal reveal-delay-1">
+
+      <div class="card-content">
+
+        <h3>Innenreinigung</h3>
+
+        <p>ab 20€</p>
+
+      </div>
+
+    </div>
+
+   <div class="card reveal reveal-delay-2">
+
+      <div class="card-content">
+
+        <h3>Außenpflege</h3>
+
+        <p>ab 15€</p>
+
+      </div>
+
+    </div>
+
+   <div class="card reveal reveal-delay-3">
+
+      <div class="card-content">
+
+        <h3>Komplettpaket</h3>
+
+        <p>ab 35€</p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+ <!-- PREMIUM ANFRAGEBOX -->
+<section class="section" id="anfragebox">
+
+  <h2>🛒 Deine Auswahl</h2>
+
+  <div class="premium-cart">
+
+    <div class="cart-header">
+      <h3>Ausgewählte Pakete</h3>
+      <span class="cart-badge">AES Anfrage</span>
+    </div>
+
+    <p id="cartEmpty">
+      Noch keine Pakete ausgewählt
+    </p>
+
+    <ul id="cartList"></ul>
+
+    <div class="cart-buttons">
+
+      <a id="whatsappOrder" class="btn" href="#">
+        Anfrage per WhatsApp
+      </a>
+
+      <a id="emailOrder" class="btn secondary-btn" href="#">
+        Anfrage per E-Mail
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+  
+<!-- GALERIE -->
+
+<section class="section" id="galerie">
+
+  <h2>Galerie</h2>
+
+  <div class="cards">
+
+  <div class="card reveal reveal-delay-1">
+
+      <img src="gallery1.jpg" alt="Galerie">
+
+    </div>
+
+  <div class="card reveal reveal-delay-2">
+
+      <img src="gallery2.jpg" alt="Galerie">
+
+    </div>
+
+    <div class="card reveal reveal-delay-3">
+
+      <img src="gallery3.jpg" alt="Galerie">
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- KONTAKT -->
+
+<section class="section" id="kontakt">
+
+  <h2>Anfrage</h2>
+
+  <div class="cards">
+
+    <div class="card reveal reveal-delay-1">
+
+      <div class="card-content">
+
+        <h3>Telefon</h3>
+
+        <a href="tel:+491739533910">Jetzt anrufen</a>
+
+      </div>
+
+    </div>
+
+   <div class="card reveal reveal-delay-2">
+
+      <div class="card-content">
+
+        <h3>WhatsApp</h3>
+
+        <a href="https://wa.me/491739533910">Chat starten</a>
+
+      </div>
+
+    </div>
+
+   <div class="card reveal reveal-delay-3">
+
+      <div class="card-content">
+
+        <h3>Instagram</h3>
+
+        <a href="https://instagram.com/artin_bg">Profil öffnen</a>
+
+      </div>
+
+    </div>
+
+    <div class="card reveal reveal-delay-4">
+
+      <div class="card-content">
+
+        <h3>E-Mail</h3>
+
+        <a href="mailto:artinhd36@gmail.com">E-Mail senden</a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+© 2026 AES Fahrzeugpflege – Alle Rechte vorbehalten
+
+</footer>
+
+<script>
+
+  /* 🔥 GANZ OBEN HIN */
+
+function getCart() {
+
+  try {
+
+    const data = localStorage.getItem("cart");
+
+    if (!data || data === "undefined") return [];
+
+    return JSON.parse(data);
+
+  } catch (e) {
+
+    localStorage.removeItem("cart");
+
+    return [];
+
+  }
+
+}
+
+function toggleMenu() {
+  document.getElementById("navMenu").classList.toggle("active");
+}
+
+/* =========================
+   WARENKORB FIX (FINAL)
+========================= */
+
+let cart = getCart();
+
+/* Beim Laden Warenkorb sofort anzeigen */
+document.addEventListener("DOMContentLoaded", () => {
+  updateCart();
+});
+
+/* + HINZUFÜGEN (GRÜNER BUTTON SOLL DAS AUFRUFEN) */
+function addToCart(item) {
+
+  cart.push(item);
+
+  saveCart();
+
+  updateCart();
+
+}
+
+/* Entfernen einzelner Position */
+function removeFromCart(index) {
+  cart.splice(index, 1);
+  saveCart();
+  updateCart();
+}
+
+/* Alles löschen */
+function clearCart() {
+  cart = [];
+  saveCart();
+  updateCart();
+}
+
+/* Speichern im Browser (bleibt nach Reload!) */
+function saveCart() {
+  localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+/* Warenkorb im HTML anzeigen */
+function updateCart() {
+  const list = document.getElementById("cartList");
+  const empty = document.getElementById("cartEmpty");
+
+  /* Falls nicht auf Warenkorb-Section → nur speichern */
+  if (!list || !empty) {
+    saveCart();
+    return;
+  }
+
+  list.innerHTML = "";
+
+  empty.style.display = cart.length === 0 ? "block" : "none";
+
+  cart.forEach((item, index) => {
+    const li = document.createElement("li");
+    li.style.display = "flex";
+    li.style.justifyContent = "space-between";
+    li.style.alignItems = "center";
+
+    li.textContent = item;
+
+    const removeBtn = document.createElement("span");
+    removeBtn.textContent = "✕";
+    removeBtn.style.cursor = "pointer";
+    removeBtn.style.color = "#ef4444";
+
+    removeBtn.onclick = () => removeFromCart(index);
+
+    li.appendChild(removeBtn);
+    list.appendChild(li);
+  });
+
+  updateLinks();
+  saveCart();
+}
+
+/* WhatsApp + E-Mail Links automatisch füllen */
+function updateLinks() {
+  const text = encodeURIComponent(
+    "Hallo, ich interessiere mich für folgende Pakete:\n" +
+    cart.map(i => "- " + i).join("\n")
+  );
+
+  const wa = document.getElementById("whatsappOrder");
+  const mail = document.getElementById("emailOrder");
+
+  if (wa) {
+    wa.href = "https://wa.me/491739533910?text=" + text;
+  }
+
+  if (mail) {
+    mail.href =
+      "mailto:artinhd36@gmail.com?subject=Anfrage Fahrzeugpflege&body=" + text;
+  }
+}
+
+/* =========================
+   STAGGER REVEAL ANIMATION
+========================= */
+
+const reveals = document.querySelectorAll(".reveal");
+
+const revealOnScroll = () => {
+
+  reveals.forEach(item => {
+
+    const windowHeight = window.innerHeight;
+    const revealTop = item.getBoundingClientRect().top;
+
+    if (revealTop < windowHeight - 80) {
+      item.classList.add("active");
+    }
+
+  });
+
+};
+
+window.addEventListener("scroll", revealOnScroll);
+
+window.addEventListener("load", revealOnScroll);
+ </script>
+
+ <script>
+window.addEventListener("load", () => {
+
+  const loader = document.getElementById("loader");
+  const box = document.querySelector(".traffic-box");
+
+  const red = document.querySelector(".red");
+  const yellow = document.querySelector(".yellow");
+  const green = document.querySelector(".green");
+
+  // ROT
+  setTimeout(() => {
+    red.classList.add("active");
+  }, 300);
+
+  // GELB
+  setTimeout(() => {
+    yellow.classList.add("active");
+  }, 900);
+
+  // GRÜN (START)
+  setTimeout(() => {
+    green.classList.add("active");
+
+    // ROT + GELB AUSBLENDEN LOGIK
+    box.classList.add("green-active-only");
+
+  }, 1500);
+
+  // ZOOM IN WEBSITE
+  setTimeout(() => {
+
+    document.body.classList.add("zoom-in");
+    loader.classList.add("hidden");
+
+  }, 2100);
+
+});
+</script>
+
+</body>
+</html>
 
 /* ZOOM IN EFFECT */
 body.zoom-in {
