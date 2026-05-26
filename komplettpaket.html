@@ -364,6 +364,59 @@ background-size: 110%;
     font-size: 14px;
   }
 
+  .add-btn {
+  margin-top: 15px;
+  width: 100%;
+  padding: 12px;
+
+  border: none;
+  border-radius: 12px;
+
+  background: linear-gradient(135deg, #7c3aed, #3b82f6);
+  color: white;
+
+  font-weight: 600;
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+
+  box-shadow: 0 10px 25px rgba(124, 58, 237, 0.25);
+}
+
+.add-btn {
+  margin-top: 15px;
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+
+  background: linear-gradient(135deg, #7c3aed, #3b82f6);
+  color: white;
+
+  font-weight: 600;
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 25px rgba(124, 58, 237, 0.25);
+}
+
+/* IM WARENKORB (GRÜN) */
+.add-btn.active {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  box-shadow: 0 10px 25px rgba(34, 197, 94, 0.35);
+}
+
+/* KURZ ANIMATION BEIM HINZUFÜGEN */
+.add-btn.flash {
+  animation: flashGreen 0.4s ease;
+}
+
+@keyframes flashGreen {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
 }
   
 </style>
@@ -402,6 +455,11 @@ background-size: 110%;
         <li>Fußmatten reinigen</li>
         <li>Scheiben innen & außen</li>
       </ul>
+      <button class="add-btn"
+  data-item="Komplettpaket – Basic (35€)"
+  onclick="addToCart('Komplettpaket – Basic (35€)', this)">
+  + Hinzufügen
+</button>
     </div>
 
     <div class="card">
@@ -418,6 +476,11 @@ background-size: 110%;
         <li>Leichte Fleckenentfernung</li>
         <li>Felgen & Reifenpflege</li>
       </ul>
+      <button class="add-btn"
+  data-item="Komplettpaket – Standard (100€)"
+  onclick="addToCart('Komplettpaket – Standard (100€)', this)">
+  + Hinzufügen
+</button>
     </div>
 
     <div class="card">
@@ -435,6 +498,11 @@ background-size: 110%;
         <li>Reinigung der Sicherheitsgurte</li>
         <li>Felgen Detail + Entfernung Bremsstaub</li>
       </ul>
+      <button class="add-btn"
+  data-item="Komplettpaket – Premium (199€)"
+  onclick="addToCart('Komplettpaket – Premium (199€)', this)">
+  + Hinzufügen
+</button>
     </div>
 
   </div>
@@ -476,6 +544,52 @@ background-size: 110%;
   </div>
 
 </section>
+
+   <script>
+function addToCart(item, btn) {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  const index = cart.indexOf(item);
+
+  // FALL 1: hinzufügen
+  if (index === -1) {
+    cart.push(item);
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    btn.classList.add("flash", "active");
+    btn.textContent = "Im Warenkorb ✓";
+
+    setTimeout(() => {
+      btn.classList.remove("flash");
+    }, 400);
+
+  } else {
+    // FALL 2: entfernen
+    cart.splice(index, 1);
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    btn.classList.remove("active");
+    btn.textContent = "+ Hinzufügen";
+  }
+}
+
+   function syncButtons() {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  document.querySelectorAll(".add-btn").forEach(btn => {
+    const item = btn.getAttribute("data-item");
+
+    if (cart.includes(item)) {
+      btn.classList.add("active");
+      btn.textContent = "Im Warenkorb ✓";
+    } else {
+      btn.classList.remove("active");
+      btn.textContent = "+ Hinzufügen";
+    }
+  });
+}
+   window.addEventListener("DOMContentLoaded", syncButtons);
+</script>
 
 </body>
 </html>
