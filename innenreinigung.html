@@ -730,12 +730,13 @@ body {
 
 </section>
 
- function addToCart(item, btn) {
+ <script>
+function addToCart(item, btn) {
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
   const index = cart.indexOf(item);
 
-  // 👉 FALL 1: NICHT IM WARENKORB → HINZUFÜGEN
+  // FALL 1: hinzufügen
   if (index === -1) {
     cart.push(item);
     localStorage.setItem("cart", JSON.stringify(cart));
@@ -748,7 +749,7 @@ body {
     }, 400);
 
   } else {
-    // 👉 FALL 2: ENTFERNEN
+    // FALL 2: entfernen
     cart.splice(index, 1);
     localStorage.setItem("cart", JSON.stringify(cart));
 
@@ -756,6 +757,7 @@ body {
     btn.textContent = "+ Hinzufügen";
   }
 }
+</script>
 
 
 </body>
