@@ -416,21 +416,47 @@ header {
   position: fixed;
   top: 0;
   width: 100%;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   padding: 18px 40px;
-  background: rgba(10,10,15,0.6);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255,255,255,0.05);
+
+  background: rgba(10,10,20,0.45);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+
+  box-shadow:
+    0 10px 35px rgba(0,0,0,0.35),
+    0 0 25px rgba(124,58,237,0.08);
+
   z-index: 1000;
+
+  transition: all 0.35s ease;
 }
 
 .logo {
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 700;
-  color: #7c3aed;
-  letter-spacing: 2px;
+
+  letter-spacing: 3px;
+
+  background: linear-gradient(
+    135deg,
+    #ffffff,
+    #c4b5fd,
+    #60a5fa
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  text-shadow:
+    0 0 20px rgba(124,58,237,0.35);
 }
 
 nav {
@@ -439,15 +465,50 @@ nav {
 }
 
 nav a {
-  color: white;
+  position: relative;
+
+  color: rgba(255,255,255,0.88);
+
   text-decoration: none;
   font-weight: 500;
-  transition: 0.3s;
+
+  transition: all 0.3s ease;
+}
+
+  nav a::after {
+  content: "";
+
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+
+  width: 0%;
+  height: 2px;
+
+  border-radius: 999px;
+
+  background: linear-gradient(
+    90deg,
+    #7c3aed,
+    #3b82f6
+  );
+
+  box-shadow:
+    0 0 12px rgba(124,58,237,0.8);
+
+  transition: 0.35s ease;
 }
 
 nav a:hover {
-  color: #3b82f6;
+  color: white;
   transform: translateY(-2px);
+
+  text-shadow:
+    0 0 12px rgba(124,58,237,0.7);
+}
+
+nav a:hover::after {
+  width: 100%;
 }
 
 /* HAMBURGER RECHTS */
@@ -463,14 +524,18 @@ nav a:hover {
 /* HERO */
 
 .hero {
+  position: relative;
+
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
 
+  overflow: hidden;
+
   background:
-    linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
+    linear-gradient(rgba(0,0,0,0.72), rgba(0,0,0,0.72)),
     url('gt3_aes_heck.png');
 
   background-size: cover;
@@ -479,31 +544,100 @@ nav a:hover {
 
   padding: 0 20px;
 }
+
+/* LILA GLOW HINTEN */
+.hero::before {
+  content: "";
+  position: absolute;
+
+  width: 700px;
+  height: 700px;
+
+  background: radial-gradient(
+    circle,
+    rgba(124,58,237,0.28) 0%,
+    rgba(59,130,246,0.14) 35%,
+    transparent 70%
+  );
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  filter: blur(60px);
+
+  animation: pulseGlow 5s ease-in-out infinite;
+
+  z-index: 1;
+}
+
+/* HERO BOX */
 .hero-box {
-  background: rgba(0,0,0,0.35);
-  backdrop-filter: blur(14px);
+  position: relative;
+  z-index: 2;
+
+  background: rgba(15,15,25,0.42);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
   border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 24px;
+
+  border-radius: 28px;
+
   padding: 60px 40px;
   max-width: 720px;
 
+  box-shadow:
+    0 0 40px rgba(124,58,237,0.18),
+    0 25px 60px rgba(0,0,0,0.55);
+
   animation: fadeUp 1s ease;
 }
+
+/* TITEL */
 .hero h1 {
-
   font-size: 58px;
-
   margin-bottom: 15px;
 
+  line-height: 1.1;
+
+  background: linear-gradient(
+    135deg,
+    #ffffff,
+    #c4b5fd,
+    #60a5fa
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
+/* TEXT */
 .hero p {
-
   color: #d1d5db;
-
   font-size: 18px;
+  line-height: 1.7;
+}
 
-  line-height: 1.6;
+/* GLOW ANIMATION */
+@keyframes pulseGlow {
+
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.7;
+  }
+
+  50% {
+    transform: translate(-50%, -50%) scale(1.08);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.7;
+  }
 
 }
 
@@ -605,27 +739,44 @@ nav a:hover {
 
   width: 280px;
 
-  background: #111827;
+  background: rgba(17, 24, 39, 0.45);
 
-  border: 1px solid #1f1f2e;
+  backdrop-filter: blur(16px);
 
-  border-radius: 18px;
+  -webkit-backdrop-filter: blur(16px);
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  border-radius: 24px;
 
   overflow: hidden;
 
-  transition: 0.3s;
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
 
   text-decoration: none;
 
   color: inherit;
 
+  position: relative;
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.35);
+
 }
 
 .card:hover {
 
-  transform: translateY(-6px);
+  transform: translateY(-10px) scale(1.02);
 
-  border-color: #3b82f6;
+  border-color: rgba(124,58,237,0.7);
+
+  box-shadow:
+    0 25px 50px rgba(0,0,0,0.45),
+    0 0 25px rgba(124,58,237,0.22),
+    0 0 60px rgba(59,130,246,0.12);
 
 }
 
@@ -639,8 +790,90 @@ nav a:hover {
 
   display: block;
 
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease;
+
 }
 
+/* NEON BALKEN */
+.card::before {
+
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -100%;
+
+  width: 100%;
+  height: 3px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #7c3aed,
+      #3b82f6,
+      transparent
+    );
+
+  transition: 0.6s ease;
+
+  opacity: 0;
+
+}
+
+/* GLOW ECKE */
+.card::after {
+
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  border-radius: 24px;
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(124,58,237,0.18),
+      transparent 45%
+    );
+
+  opacity: 0;
+
+  transition: 0.4s ease;
+
+  pointer-events: none;
+
+}
+
+/* HOVER */
+.card:hover::before {
+
+  left: 100%;
+
+  opacity: 1;
+
+}
+
+.card:hover::after {
+
+  opacity: 1;
+
+}
+
+.card:hover img {
+
+  transform: scale(1.05);
+
+  filter:
+    brightness(1.08)
+    saturate(1.15);
+
+}
 .card-content {
 
   padding: 20px;
