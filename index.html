@@ -138,6 +138,7 @@ nav a:hover::after {
   cursor: pointer;
   color: white;
   display: none;
+  z-index: 3000;
 }
 
 
@@ -719,29 +720,31 @@ footer {
 
 @media (max-width: 768px) {
 
+  header {
+  padding: 12px 20px;
+}
+
 nav {
   position: absolute;
-  top: 70px;
+  top: 100%;
   left: 0;
   width: 100%;
 
-  display: flex;
+  background: rgba(10,10,20,0.98);
+  backdrop-filter: blur(18px);
+
   flex-direction: column;
   text-align: center;
 
-  background: rgba(10,10,20,0.95);
-  backdrop-filter: blur(18px);
-
-  overflow: hidden;
-
   max-height: 0;
+  overflow: hidden;
   opacity: 0;
 
   transition: all 0.35s ease;
 
-  z-index: 999;
+  z-index: 1500;
 }
-
+  
 nav.active {
   max-height: 400px;
   opacity: 1;
@@ -752,8 +755,12 @@ nav.active {
   }
 
   .menu-toggle {
-    display: block;
-  }
+  display: block;
+  font-size: 32px;
+  cursor: pointer;
+  color: white;
+  z-index: 3000;
+}
   
   nav a {
     padding: 10px;
