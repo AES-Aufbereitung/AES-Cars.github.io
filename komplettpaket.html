@@ -244,22 +244,25 @@ body {
 .extras-card {
   position: relative;
   overflow: hidden;
+  isolation: isolate;
 
   width: 720px;
   max-width: 90%;
-
   padding: 35px;
   border-radius: 20px;
 
-  background: rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(14px);
+  background: rgba(10, 10, 15, 0.55);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid rgba(124,58,237,0.15);
 
   text-align: left;
   margin: 0 auto;
 
   transition: 0.35s ease;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
 }
 
 /* Snake Light */
@@ -282,7 +285,7 @@ body {
 
   animation: snakeBorder 6s linear infinite;
 }
-
+  
 .extras-card::after {
   content: "";
   position: absolute;
@@ -297,6 +300,16 @@ body {
   z-index: 2;
 }
 
+  .extras-card:hover {
+  transform: translateY(-8px);
+  border: 1px solid rgba(124,58,237,0.5);
+    
+  box-shadow:
+    0 0 25px rgba(124,58,237,0.35),
+    0 0 60px rgba(59,130,246,0.15),
+    0 25px 60px rgba(0,0,0,0.6);
+}
+
 @keyframes snakeBorder {
   0% { top: -80px; left: -80px; }
   25% { top: -80px; left: calc(100% - 80px); }
@@ -307,6 +320,7 @@ body {
 
 .extras-title {
   font-size: 28px;
+  font-weight: 700;
   color: #7c3aed;
   margin-bottom: 20px;
 }
@@ -314,6 +328,7 @@ body {
 .extras-card ul {
   list-style: none;
   padding: 0;
+  margin: 0;
   color: #d1d5db;
   line-height: 2;
 }
