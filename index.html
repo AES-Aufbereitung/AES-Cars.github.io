@@ -1529,11 +1529,9 @@ window.addEventListener("scroll", revealOnScroll);
 window.addEventListener("load", revealOnScroll);
  </script>
 
- <script>
+<script>
 window.addEventListener("load", () => {
-
   const loader = document.getElementById("loader");
-  const box = document.querySelector(".traffic-box");
 
   const red = document.querySelector(".red");
   const yellow = document.querySelector(".yellow");
@@ -1549,23 +1547,15 @@ window.addEventListener("load", () => {
     yellow.classList.add("active");
   }, 900);
 
-  // GRÜN (START)
+  // GRÜN
   setTimeout(() => {
     green.classList.add("active");
-
-    // ROT + GELB AUSBLENDEN LOGIK
-    box.classList.add("green-active-only");
-
   }, 1500);
 
-  // ZOOM IN WEBSITE
+  // START (Loader weg)
   setTimeout(() => {
-
-    document.body.classList.add("zoom-in");
     loader.classList.add("hidden");
-
-  }, 2100);
-
+  }, 2000);
 });
 </script>
 
