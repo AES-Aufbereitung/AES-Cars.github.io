@@ -1544,41 +1544,39 @@ window.addEventListener("load", revealOnScroll);
 <script>
 window.addEventListener("load", () => {
 
-  const alreadyLoaded = sessionStorage.getItem("loaderShown");
+  const hasSeenLoader = sessionStorage.getItem("loaderShown");
+
+  // Wenn schon einmal im Tab geladen → Loader überspringen
+  if (hasSeenLoader) {
+    document.getElementById("loader").style.display = "none";
+    return;
+  }
 
   const loader = document.getElementById("loader");
   const red = document.querySelector(".red");
   const yellow = document.querySelector(".yellow");
   const green = document.querySelector(".green");
 
-  // Wenn schon einmal geladen → Loader ausblenden
-  if (alreadyLoaded) {
-    loader.style.display = "none";
-    return;
-  }
-
-  // merken dass Loader schon einmal lief
-  sessionStorage.setItem("loaderShown", "true");
-
   // ROT
   setTimeout(() => {
     red.classList.add("active");
-  }, 150);
+  }, 300);
 
   // GELB
   setTimeout(() => {
     yellow.classList.add("active");
-  }, 400);
+  }, 600);
 
   // GRÜN
   setTimeout(() => {
     green.classList.add("active");
-  }, 700);
+  }, 1000);
 
-  // ENDE → Website zeigen
+  // Ende
   setTimeout(() => {
     loader.classList.add("hidden");
-  }, 1000);
+    sessionStorage.setItem("loaderShown", "true"); // <<< WICHTIG
+  }, 1500);
 
 });
 </script>
