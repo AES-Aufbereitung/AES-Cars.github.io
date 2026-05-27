@@ -1542,33 +1542,46 @@ window.addEventListener("load", revealOnScroll);
  </script>
 
 <script>
-window.addEventListener("load", () => {
+function runLoader() {
 
   const loader = document.getElementById("loader");
   const red = document.querySelector(".red");
   const yellow = document.querySelector(".yellow");
   const green = document.querySelector(".green");
 
+  // RESET (wichtig bei Back-Navigation!)
+  red.classList.remove("active");
+  yellow.classList.remove("active");
+  green.classList.remove("active");
+
   // ROT
-  setTimeout(() => {
-    red.classList.add("active");
-  }, 300);
+  setTimeout(() => red.classList.add("active"), 300);
 
   // GELB
-  setTimeout(() => {
-    yellow.classList.add("active");
-  }, 600);
+  setTimeout(() => yellow.classList.add("active"), 700);
 
   // GRÜN
-  setTimeout(() => {
-    green.classList.add("active");
-  }, 1000);
+  setTimeout(() => green.classList.add("active"), 1100);
 
   // ENDE
   setTimeout(() => {
     loader.classList.add("hidden");
-  }, 1500);
+  }, 1600);
+}
 
+/* === WICHTIG: Back/Forward Cache erkennen === */
+window.addEventListener("pageshow", (event) => {
+
+  const loader = document.getElementById("loader");
+
+  // Wenn Seite aus Cache kommt → KEIN Loader
+  if (event.persisted) {
+    loader.style.display = "none";
+    return;
+  }
+
+  // sonst normal starten
+  runLoader();
 });
 </script>
 
