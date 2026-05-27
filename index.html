@@ -726,27 +726,19 @@ footer {
   .menu-toggle {
     display: block;
   }
+  
+nav {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
 
-  nav {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    text-align: center;
-
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transform: translateY(-10px);
-    transition: all 0.35s ease;
-    pointer-events: none;
-  }
-
-  nav.active {
-    max-height: 500px;
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
-  }
+  display: none;
+}
+  
+ nav.active {
+  display: flex;
+}
 
   nav a {
     padding: 10px;
