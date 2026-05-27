@@ -194,7 +194,9 @@ body {
   border: 1px solid rgba(124,58,237,0.15);
 
   text-align: left;
-  transition: 0.3s;
+  transition: 0.35s ease;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 
 .card:hover {
@@ -316,7 +318,7 @@ body {
   text-align: center;
 }
 /* EXTRAS */
-
+/* Snake Border Effekt */
 .extras-card {
   position: relative;
   overflow: hidden;
@@ -336,51 +338,9 @@ body {
   margin: 0 auto;
 
   transition: 0.35s ease;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
 }
-
-  .extras-card {
-  position: relative;
-  overflow: hidden;
-
-  width: 720px;
-  max-width: 90%;
-
-  padding: 35px;
-  border-radius: 20px;
-
-  background: rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(14px);
-
-  border: 1px solid rgba(255,255,255,0.08);
-
-  text-align: left;
-  margin: 0 auto;
-
-  transition: 0.35s ease;
-}
-
-/* Snake Border Effekt */
-.extras-card {
-  position: relative;
-  overflow: hidden;
-
-  width: 720px;
-  max-width: 90%;
-
-  padding: 35px;
-  border-radius: 20px;
-
-  background: rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(14px);
-
-  border: 1px solid rgba(255,255,255,0.08);
-
-  text-align: left;
-  margin: 0 auto;
-
-  transition: 0.35s ease;
-}
-
 /* Snake Light */
 .extras-card::before {
   content: "";
@@ -419,25 +379,6 @@ body {
 .extras-card * {
   position: relative;
   z-index: 2;
-}
-
-  .add-btn {
-  margin-top: 15px;
-  width: 100%;
-  padding: 12px;
-
-  border: none;
-  border-radius: 12px;
-
-  background: linear-gradient(135deg, #7c3aed, #3b82f6);
-  color: white;
-
-  font-weight: 600;
-  cursor: pointer;
-
-  transition: all 0.3s ease;
-
-  box-shadow: 0 10px 25px rgba(124, 58, 237, 0.25);
 }
 
 .add-btn {
@@ -568,7 +509,7 @@ body {
 
 }
 
-..extras-card ul li::before {
+.extras-card ul li::before {
   content: "✓ ";
   color: #7c3aed;
 }
