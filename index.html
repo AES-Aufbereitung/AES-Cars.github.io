@@ -772,7 +772,7 @@ footer {
 #loader.hidden {
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.5s ease;
+  transition: opacity 0.3s ease;
 }
 
 /* Ampel Container */
@@ -792,7 +792,7 @@ footer {
   border-radius: 50%;
   margin: 10px auto;
   opacity: 0.15;
-  transition: 0.3s;
+  transition: 0.15s;
 }
 
 /* Farben */
@@ -1552,22 +1552,22 @@ window.addEventListener("load", () => {
   // ROT
   setTimeout(() => {
     red.classList.add("active");
-  }, 300);
+  }, 150);
 
   // GELB
   setTimeout(() => {
     yellow.classList.add("active");
-  }, 900);
+  }, 600);
 
   // GRÜN
   setTimeout(() => {
     green.classList.add("active");
-  }, 1500);
+  }, 1000);
 
   // START (Loader weg)
   setTimeout(() => {
     loader.classList.add("hidden");
-  }, 2000);
+  }, 1500);
 });
 </script>
 
