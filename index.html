@@ -1543,11 +1543,22 @@ window.addEventListener("load", revealOnScroll);
 
 <script>
 window.addEventListener("load", () => {
-  const loader = document.getElementById("loader");
 
+  const alreadyLoaded = sessionStorage.getItem("loaderShown");
+
+  const loader = document.getElementById("loader");
   const red = document.querySelector(".red");
   const yellow = document.querySelector(".yellow");
   const green = document.querySelector(".green");
+
+  // Wenn schon einmal geladen → Loader ausblenden
+  if (alreadyLoaded) {
+    loader.style.display = "none";
+    return;
+  }
+
+  // merken dass Loader schon einmal lief
+  sessionStorage.setItem("loaderShown", "true");
 
   // ROT
   setTimeout(() => {
@@ -1557,17 +1568,18 @@ window.addEventListener("load", () => {
   // GELB
   setTimeout(() => {
     yellow.classList.add("active");
-  }, 600);
+  }, 400);
 
   // GRÜN
   setTimeout(() => {
     green.classList.add("active");
-  }, 1000);
+  }, 700);
 
-  // START (Loader weg)
+  // ENDE → Website zeigen
   setTimeout(() => {
     loader.classList.add("hidden");
-  }, 1500);
+  }, 1000);
+
 });
 </script>
 
