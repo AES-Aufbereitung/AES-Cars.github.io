@@ -289,32 +289,66 @@ nav a:hover {
   /* ===== KONTAKT PREMIUM STYLE ===== */
 
 #kontakt .card {
-  background: linear-gradient(145deg, #111827, #0b0b15);
-  border: 1px solid rgba(124, 58, 237, 0.15);
   position: relative;
+
+  background: rgba(17, 24, 39, 0.45);
+
+  border: 1px solid rgba(255,255,255,0.06);
+
+  border-radius: 22px;
+
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
   overflow: hidden;
+
   transition: all 0.35s ease;
+
+  box-shadow:
+    0 12px 30px rgba(0,0,0,0.45);
+
+  transform: translateY(0);
 }
 
 /* Glow Effekt */
 #kontakt .card::before {
   content: "";
+
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at top, rgba(124,58,237,0.25), transparent 60%);
-  opacity: 0;
-  transition: 0.4s;
-}
 
+  background: radial-gradient(
+    circle at top,
+    rgba(124,58,237,0.22),
+    rgba(59,130,246,0.12),
+    transparent 65%
+  );
+
+  opacity: 0;
+
+  transition: 0.4s ease;
+
+  z-index: 0;
+}
 #kontakt .card:hover::before {
   opacity: 1;
 }
 
 /* Hover Bewegung + Tiefe */
 #kontakt .card:hover {
-  transform: translateY(-8px) scale(1.02);
-  border-color: rgba(59,130,246,0.6);
-  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  transform: translateY(-10px) scale(1.03);
+
+  border-color: rgba(124,58,237,0.5);
+
+  box-shadow:
+    0 25px 60px rgba(0,0,0,0.55),
+    0 0 25px rgba(124,58,237,0.25),
+    0 0 60px rgba(59,130,246,0.15);
+}
+
+  #kontakt .card-content {
+  position: relative;
+  z-index: 2;
 }
 
 /* Titel besser hervorheben */
@@ -326,19 +360,38 @@ nav a:hover {
 
 /* Links moderner */
 #kontakt .card a {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 10px 14px;
-  border-radius: 10px;
-  background: rgba(124,58,237,0.12);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 12px;
+
+  padding: 12px 16px;
+
+  border-radius: 14px;
+
+  background: rgba(124,58,237,0.15);
+
+  border: 1px solid rgba(124,58,237,0.25);
+
   color: white;
   font-weight: 500;
-  transition: 0.3s;
+
+  text-decoration: none;
+
+  transition: all 0.3s ease;
+
+  box-shadow:
+    0 10px 25px rgba(0,0,0,0.25);
 }
 
-#kontakt .card a:hover {
-  background: rgba(124,58,237,0.25);
-  transform: scale(1.05);
+  #kontakt .card a:hover {
+  background: rgba(124,58,237,0.28);
+
+  transform: translateY(-2px) scale(1.03);
+
+  box-shadow:
+    0 15px 35px rgba(124,58,237,0.25);
 }
 
   #kontakt .card a {
