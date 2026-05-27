@@ -1544,14 +1544,6 @@ window.addEventListener("load", revealOnScroll);
 <script>
 window.addEventListener("load", () => {
 
-  const hasSeenLoader = sessionStorage.getItem("loaderShown");
-
-  // Wenn schon einmal im Tab geladen → Loader überspringen
-  if (hasSeenLoader) {
-    document.getElementById("loader").style.display = "none";
-    return;
-  }
-
   const loader = document.getElementById("loader");
   const red = document.querySelector(".red");
   const yellow = document.querySelector(".yellow");
@@ -1572,10 +1564,9 @@ window.addEventListener("load", () => {
     green.classList.add("active");
   }, 1000);
 
-  // Ende
+  // ENDE
   setTimeout(() => {
     loader.classList.add("hidden");
-    sessionStorage.setItem("loaderShown", "true"); // <<< WICHTIG
   }, 1500);
 
 });
